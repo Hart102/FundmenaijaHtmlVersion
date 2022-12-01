@@ -249,7 +249,7 @@ if (!isset($_SESSION['accountNo'])) {
 
                 <div class="card-body">
                     <div class="brand-wrapper">
-                        <img src="../assets/img/Logo.svg" alt="logo" class="logo">
+                        <img src="../assets/img/Logo3.png" alt="logo" class="logo">
                         <p><?php echo APP_NAME ?></p>
                     </div>
                     <p class="login-card-description">Verify One Time Password</p>

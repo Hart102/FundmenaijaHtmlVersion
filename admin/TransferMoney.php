@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['accountNo'])) {
-    header("Location: ../user/login.php");
+    header("Location: /login");
 }
 
 include "../admin/connection.php";

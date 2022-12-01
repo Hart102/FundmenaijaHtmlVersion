@@ -215,7 +215,7 @@ GROUP BY
                     </li> -->
                     <li class="menuHover">
 
-                        <a href="../admin/Dashboard.php" class="nav-link text-left" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a href="/admin" class="nav-link text-left" role="button" aria-haspopup="true" aria-expanded="false">
                             <i class="flaticon-bar-chart-1"></i><i class="bx bxs-dashboard ico"></i> Dashboard
                         </a>
                     </li>

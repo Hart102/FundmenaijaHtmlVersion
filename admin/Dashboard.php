@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['accountNo'])) {
-    header("Location: /auth/login");
+    header("Location: /login");
 }
 
 

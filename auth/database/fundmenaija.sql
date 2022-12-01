@@ -77,7 +77,7 @@ CREATE TABLE `customer_detail` (
   `C_Pincode` varchar(6) NOT NULL,
   `C_Adhar_Doc` varchar(500) NOT NULL,
   `C_Pan_Doc` varchar(500) NOT NULL,
-  `Create_Date` date NOT NULL DEFAULT current_timestamp(),
+  `Create_Date` date NOT NULL DEFAULT CURRENT_TIME(),
   `ProfileColor` varchar(100) NOT NULL,
   `ProfileImage` varchar(400) NOT NULL,
   `Bio` varchar(100) NOT NULL

@@ -53,7 +53,7 @@ include "../config.php";
                     <li><a class="nav-link scrollto " href="../#info">Net Banking</a></li>
                     <li><a class="nav-link " href="../#services">Services</a></li>
 
-                    <li><a class="nav-link scrollto <?php echo $active ?>" href="about.php">About</a></li>
+                    <li><a class="nav-link scrollto <?php echo $active ?>" href="/about">About</a></li>
                     <li><a class="nav-link scrollto" href="../#contact">Contact</a></li>
                     <li><a class="nav-link scrollto" href="../user/login.php">Login</a></li>
 

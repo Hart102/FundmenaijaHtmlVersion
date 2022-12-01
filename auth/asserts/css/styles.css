@@ -18,7 +18,115 @@
     
 }
 
+body {
+  background: hsl(180, 52%, 96%);
+}
+
+*{
+  transition: 0.3s;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-weight: var(--Font-weight) !important;
+}
+
+
+
+/************* Navbar component styling  *************/
+header{
+  width: 100%;
+  z-index: 999;
+  transition: 0.3s;
+  position: fixed;
+  top: 0;
+}
+
+.scroll{
+  transition: 0.3s;
+  background-color: var(--White);
+  /* background-color: rgba(12, 12, 230, 0.80); */
+}
+
+header a{
+ transition: 0.3s;
+ transform: scale(1);
+ border-radius: 30px;
+ color: var(--White);
+ border: 1px solid transparent;
+}
+
+
+
+header a:hover{
+  transition: 0.3s;
+  transform: scale(0.9);
+  color: var(--Orange) !important;
+  border: 1px solid var(--Orange);
+}
+
+header .mobile, .hambuger {
+  display: none;
+}
+
+
+/************* Banner component styling *************/
+.Banner{
+  background: linear-gradient(rgba(0, 0, 0, 0.9), 
+  rgba(0, 0, 0, 0.9)), 
+  url('../img/banner_bg.jpeg') no-repeat;
+ 
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.Banner h1 {
+  color: var(--Light-Green);
+  opacity: 0.3;
+}
+
+.Banner p{
+  font-size: 2em;
+  font-weight: 100;
+}
+
+
+
+/************* Button component styling *************/
+button{
+  border-radius: 30px !important;
+  background: var(--Orange) !important;
+  border: none !important;
+  transition: 0.3s;
+}
+
+button:hover{
+ background: #15242b !important;
+}
+
+/********** Animation Effect **********/
+.hidden { 
+  opacity: 0;
+  filter: blur(2px);
+  transform: translateX(-100%);
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+
 /************* Content two component styling  *************/
+.contentTwo{
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
+  url('../img/Donate_img.jpeg') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
 .contentTwo .container .title {
     position: relative;
@@ -50,154 +158,18 @@
 }
 
   
-.contentTwo .card-container span:nth-child(1){
-    background: linear-gradient(rgb(0, 0, 0, 0.4), 
-    rgb(0, 0, 0, 0.4)), 
-    url('../img/individuals.jpg');
-}
-  
-.contentTwo .card-container span:nth-child(2){
-background: linear-gradient(rgb(0, 0, 0, 0.4),
-    rgb(0, 0, 0, 0.4)), 
-    url('../img/church.jpg');
-}
 
-.contentTwo .card-container span:nth-child(3){
-    background: linear-gradient(rgb(0, 0, 0, 0.4), 
-    rgb(0, 0, 0, 0.4)), 
-    url('../img/school.jpg');
-}
-
-.contentTwo .card-container span:nth-child(4){
-    background: linear-gradient(rgb(0, 0, 0, 0.4),
-    rgb(0, 0, 0, 0.4)), 
-    url('../img/business.jpg.crdownload');
-}
-
-.contentTwo .card-container span:nth-child(5){
-    background: linear-gradient(rgb(0, 0, 0, 0.4), 
-    rgb(0, 0, 0, 0.4)), 
-    url('../img/hospital.webp');
-}
-
-.contentTwo .card-container span:nth-child(1),
-.contentTwo .card-container span:nth-child(2),
-.contentTwo .card-container span:nth-child(3),
-.contentTwo .card-container span:nth-child(4),
-.contentTwo .card-container span:nth-child(5) 
-{
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-}
 @media (max-width: 772px) {
-    .contentTwo .card-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-
-    .contentTwo .card-container p{
-       text-align: center;
-    }
-}
-
-
-@media (max-width: 479px) {
-    .contentTwo .card-container {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .contentTwo .card-container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
 
 }
 
 
+  
 
-  
-  *{
-    transition: 0.3s;
-    padding: 0;
-    margin: 0;
-  }
-  
-  h1 {
-    font-weight: var(--Font-weight) !important;
-  }
-  
-  
-  
-  /************* Navbar component styling  *************/
-  header{
-    width: 100%;
-    z-index: 999;
-    transition: 0.3s;
-    position: fixed;
-    top: 0;
-  }
-  
-  .scroll{
-    transition: 0.3s;
-    background-color: var(--White);
-  }
-  
-  header a{
-   transition: 0.3s;
-   transform: scale(1);
-   border-radius: 30px;
-   border: 1px solid transparent;
-  }
-  
-  header a:hover{
-    transition: 0.3s;
-    transform: scale(0.9);
-    color: var(--Orange) !important;
-    border: 1px solid var(--Orange);
-  }
-  
-  header .mobile, .hambuger {
-    display: none;
-  }
-  
-  
-  /************* Banner component styling *************/
-  .Banner{
-    background: linear-gradient(rgba(0, 0, 0, 0.8), 
-    rgba(0, 0, 0, 0.8)), 
-    url('../img/222.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-  }
-  
-  .Banner h1 {
-    color: var(--Light-Green);
-    opacity: 0.3;
-  }
-  
-  
-  /************* Button component styling *************/
-  button{
-    border-radius: 30px !important;
-    background: var(--Orange) !important;
-    border: none !important;
-    transition: 0.3s;
-  }
-  
-  button:hover{
-   background: #15242b !important;
-  }
-  
-  /********** Animation Effect **********/
-  .hidden { 
-    opacity: 0;
-    filter: blur(2px);
-    transform: translateX(-100%);
-  }
-  
-  .show {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
-  }
   .Content-four{
     background: var(--Very-Dark-green);
     margin-top: 2em;
@@ -248,4 +220,14 @@ background: linear-gradient(rgb(0, 0, 0, 0.4),
     p{
       text-align: justify;
     }
+  }
+
+
+  .layer{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
   }

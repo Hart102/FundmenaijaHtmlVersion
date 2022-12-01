@@ -19,9 +19,9 @@
                     <div class="col-lg-2 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="../">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="about.php">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="../#services">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/about">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Donate</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="terms.php">Terms of service</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="privacypolicy.php">Privacy policy</a></li>
                         </ul>
@@ -44,7 +44,7 @@
 
                     <div class="col-lg-4 col-md-6 footer-newsletter">
                         <div class="d-flex justify-content-center">
-                            <img src="../assets/img/Logo.svg" style="width: 100px; height: 100px;" alt="">
+                            <img src="../assets/img/Logo3.png" style="width: 100px; height: 100px;" alt="">
                         </div>
 
                         <h1 class="text-center mt-2"><?php echo APP_NAME ?></h1>

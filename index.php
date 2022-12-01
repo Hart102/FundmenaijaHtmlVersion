@@ -11,6 +11,7 @@ require_once __DIR__.'/router.php';
 // The output -> Index
 get('/', 'auth/index.php');
 get('/home', 'auth/index.php');
+get('/about', 'auth/index.php');
 get('/login', 'user/login.php');
 get('/signup', 'user/createAccount.php');
 get('/forgotPassword', 'user/forgotPassword.php');
@@ -25,7 +26,7 @@ get('/privacypolicy', '../pages/privacypolicy.php');
 get('/user', 'auth/user.php');
 get('/donate', 'auth/donate.php');
 get('/details', 'auth/details.php');
-get('/auth/admin', 'admin/AccountValidation.php');
+get('/admin', 'admin/Dashboard.php');
 get('/auth/twostepverify', 'user/twostepverify.php');
 
 // Dynamic GET. Example with 2 variables

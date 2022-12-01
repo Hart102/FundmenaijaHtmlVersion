@@ -4,8 +4,8 @@
 
     session_start();
 
-    if(!isset($_SESSION['accountNo'])){
-        header("Location: ../user/login.php");
+    if(!isset($_SESSION['username'])){
+        header("Location: /login");
     }
 
 ?>
