@@ -4,75 +4,79 @@ include 'connection.php';
 include "script.php";
 include "../config.php";
 
-
+// echo htmlspecialchars($_SERVER['PHP_SELF']);
+// return;
 if (isset($_SESSION['username'])) {
     header("Location: /admin");
-}
+}else{
 
-if (isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = $_POST['password'];
-    $hashPassword = md5($password);
-    $password_err = $username_err = "";
+    if (isset($_POST['login'])) {
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $password = $_POST['password'];
+        $hashPassword = md5($password);
+        $password_err = $username_err = "";
 
-    if (empty(trim($_POST['password'])) && empty(trim($_POST['username']))) {
+        if (empty(trim($_POST['password'])) && empty(trim($_POST['username']))) {
 
-        header("Location: /login?error=Username and Password required");
-        exit();
-    } elseif (empty(trim($_POST['username']))) {
+            header("Location: ../user/login.php?error=Username and Password required");
+            exit();
+        } elseif (empty(trim($_POST['username']))) {
 
-        $username_err = "Username cannot be blank";
-        header("Location: /login?error=Username required");
-        exit();
-    } elseif (empty(trim($_POST['password']))) {
+            $username_err = "Username cannot be blank";
+            header("Location: ../user/login.php?error=Username required");
+            exit();
+        } elseif (empty(trim($_POST['password']))) {
 
-        header("Location: /login?error=Password required");
-        exit();
-    } else {
+            header("Location: ../user/login.php?error=Password required");
+            exit();
+        } else {
 
-        $query = "SELECT ID, Username, Password, AccountNo, Status, State FROM login WHERE Username= '{$username}' AND Password= '{$hashPassword}'";
+            $query = "SELECT ID, Username, Password, AccountNo, Status, State FROM login WHERE Username= '{$username}' AND Password= '{$hashPassword}'";
 
-        $result = mysqli_query($conn, $query) or die("Query Fail.");
+            $result = mysqli_query($conn, $query) or die("Query Fail.");
 
-        if (mysqli_num_rows($result) > 0) {
+            if (mysqli_num_rows($result) > 0) {
 
-            while ($row = mysqli_fetch_assoc($result)) {
+                while ($row = mysqli_fetch_assoc($result)) {
 
-                $status = $row['Status'];
-                $state = $row['State'];
+                    $status = $row['Status'];
+                    $state = $row['State'];
 
-                if ($state == 0) {
-                    if ($status == "Active") {
+                    if ($state == 0) {
+                        if ($status == "Active") {
 
-                        session_start();
-                        $_SESSION['username'] = $row['Username'];
-                        $_SESSION['verifyCode'] = $row['Username'];
-                        // $_SESSION['id'] = $row['ID'];
-                        $_SESSION['accountNo'] = $row['AccountNo'];       
-                        header("Location: /auth/twostepverify");
-                        mysqli_close($conn);
-                    } else {
-                        header("Location: /login.php?error=Account not Activated");
-                        exit();
-                    }
-                } else if ($state == 1) {
+                            session_start();
+                            $_SESSION['username'] = $row['Username'];
+                            $_SESSION['verifyCode'] = $row['Username'];
+                            // $_SESSION['id'] = $row['ID'];
+                            $_SESSION['accountNo'] = $row['AccountNo'];       
+                            header("Location: ../user/twostepverify.php");
+                            mysqli_close($conn);
+                        } else {
+                            header("Location: ../user/login.php?error=Account not Activated");
+                            exit();
+                        }
+                    } else if ($state == 1) {
 
-                    if ($status == "Super") {
-                        $_SESSION['username'] = $row['Username'];
-                        // $_SESSION['id'] = $row['ID'];
-                        session_start();
-                        $_SESSION['accountNo'] = $row['AccountNo'];
-                        header("Location: /auth/admin");
-                        mysqli_close($conn);
-                    } else {
-                        header("Location: /login.php?error=Account not Activated");
-                        exit();
+                        if ($status == "Super") {
+
+
+                            $_SESSION['username'] = $row['Username'];
+                            // $_SESSION['id'] = $row['ID'];
+                            session_start();
+                            $_SESSION['accountNo'] = $row['AccountNo'];
+                            header("Location: ../admin/Dashboard.php");
+                            mysqli_close($conn);
+                        } else {
+                            header("Location: ../user/login.php?error=Account not Activated");
+                            exit();
+                        }
                     }
                 }
+            } else {
+                header("Location: ../user/login.php?error=Invalid Credential");
+                exit();
             }
-        } else {
-            header("Location: /login.php?error=Invalid Credential");
-            exit();
         }
     }
 }
@@ -128,7 +132,7 @@ if (isset($_POST['login'])) {
                             <p class="login-card-description">Sign into your account</p>
 
                             <!-- Login Form -->
-                            <form action="user/login.php" method="POST">
+                            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                                 <?php if (isset($_GET['error'])) {  ?>
 

@@ -8,7 +8,7 @@ if (!isset($_SESSION['accountNo'])) {
 include '../user/connection.php';
 include "../admin/Notification.php";
 include "../admin/adminData.php";
-include "../../config.php";
+include "../config.php";
 
 
 $TotalCustomer = mysqli_query($conn, " SELECT * FROM customer_detail");
@@ -229,7 +229,7 @@ GROUP BY
 
                     <li class="menuHover">
                         <a href="../admin/cards.php" class="nav-link text-left" role="button">
-                            <i class="flaticon-bar-chart-1"></i> <i class="bx bxs-credit-card ico"></i>Cards Requests <span class="badge badge-success" style="font-size: 12px; margin-left: 50px;"> <?php echo $debitNotify; ?> new</span>
+                            <i class="flaticon-bar-chart-1"></i> <i class="bx bxs-credit-card ico"></i>Cash Requests <span class="badge badge-success" style="font-size: 12px; margin-left: 50px;"> <?php echo $debitNotify; ?> new</span>
                         </a>
                     </li>
 
@@ -595,9 +595,9 @@ GROUP BY
                 </div>
                 <div class="modal-body">
                     <p class="text-danger"><strong>As a measure to prevent your account from being hacked, we strongly advise that you do not share your login details with anyone. Knowing that we will never ask you for any of your personal Information.</strong></p>
-                    <h5>Contact Developer</h5>
-                    <p> <strong> Telegram Id: </strong> @******</p>
-                    <p><strong>Email: </strong> email@example.com</p>
+                    <h5>Contact Us</h5>
+                    <p> <strong> Instagram Id: </strong>  http://Instagram.com/fundmenaija</p>
+                    <p><strong>Email: </strong>contact@fundmenaija.com</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -503,7 +503,7 @@ if (isset($_POST['edit_btn'])) {
 
                                                                     <!-- <input type="date" class="m-wrap" value="<?php echo strftime('%Y-%m-%d', strtotime($EditBDate)); ?>" name="date" /> -->
                                                                     <span id="AgeError" style="color: red;"><?php if (isset($_POST['Update1'])) {
-                                                                                                                echo $Birth_Date_error;
+                                                                                echo $Birth_Date_error;
                                                                                                             } ?></span>
 
                                                                 </div>
@@ -511,7 +511,7 @@ if (isset($_POST['edit_btn'])) {
                                                             <div class="col-md">
                                                                 <div class="col-md mb-3">
 
-                                                                    <input name="MobileNumber" class="form-control dark_bg light" type="tel" id="MobileNo" pattern="[0-9]{10}" placeholder="Mobile Number" onkeypress="return isNumber(event)" value="<?php echo $EditMobileNo ?>">
+                                                                    <input name="MobileNumber" class="form-control dark_bg light" type="tel" id="MobileNo" pattern="[0-9]{11}" placeholder="Mobile Number" onkeypress="return isNumber(event)" value="<?php echo $EditMobileNo ?>">
 
                                                                     <span id="MobileNoError" style="color: red;"><?php if (isset($_POST['Update1'])) {
                                                                                                                         echo $Mobile_Number_error;

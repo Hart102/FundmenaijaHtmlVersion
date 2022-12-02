@@ -13,11 +13,11 @@ if (isset($_SESSION['twostep'])) {
     }
 
 
-    echo "Auth_key: ".$_SESSION['auth_key']; // COMMENT OUT
-    echo "Two_step: ".$_SESSION['twostep']; // COMMENT OUT
+    // echo "Auth_key: ".$_SESSION['auth_key']; // COMMENT OUT
+    // echo "Two_step: ".$_SESSION['twostep']; // COMMENT OUT
     $qrCode = $authenticator->getQR('localhost', $_SESSION['auth_key']);
 
-    echo "<br>". "qrCode: ".$qrCode. "<br>";
+    // echo "<br>". "qrCode: ".$qrCode. "<br>";
     // echo "<img src= '{$qrCode}' > ";
 } else {
     header('Location: ../user/CreateAccount.php');
@@ -94,6 +94,11 @@ if (isset($_SESSION['twostep'])) {
             </div>
         </div>
     </div>
+    <script>
+        console.log(`<?php echo "<br>". "qrCode: ".$qrCode. "<br>"; ?>`);
+        console.log(`<?php echo "Two_step: ".$_SESSION['twostep']. "<br>"; ?>`);
+        console.log(`<?php echo "Auth_key: ".$_SESSION['auth_key']. "<br>"; ?>`);
+    </script>
     <script src="../assets/js/jquery.min.js"></script>
     <!-- Error: Bootstrap tooltips require Tether  -->
     <script src="http://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
