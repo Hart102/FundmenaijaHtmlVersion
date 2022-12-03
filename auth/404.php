@@ -3,3 +3,4 @@
 // http://localhost/test/route
 
     echo '<h1><center>PAGE NOT FOUND</center></h1>';
+    echo '<h1><center><a href="https://fundmenaija.com">Go Back to Home page</a></center></h1>';
