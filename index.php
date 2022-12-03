@@ -1,13 +1,3 @@
-<?php
-
-// require_once __DIR__.'/router.php';
-
-// get('/', 'index.php');
-// get('/home', 'index.php');
-
-
-// any('/404','auth/404.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,8 +14,10 @@
 
      <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
     <!-- Main css -->
-    <link href="./asserts/css/styles.css" type="text/css" rel="stylesheet">
+    <!-- <link href="../assets/css/styles.css" type="text/css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="../asserts/css/styles.css">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -34,27 +26,27 @@
         <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
             <div class="d-flex align-items-center">
                 <div style="width: 60px; height: 60px; position: relative;">
-                    <img src="./assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
+                    <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
                 </div>
                 <div class="h4 text-white">Fundmenaija</div>
             </div>
             <ul class="list-unstyled desktop">
                 <div class="d-flex align-items-center">
                     <li>
-                        <a href='./auth/about.php' class='nav-link mx-lg-2 py-2 px-3' id='nav-link'>About</a>
+                        <a href='/about' class='nav-link mx-lg-2 py-2 px-3' id='nav-link'>About</a>
                     </li>
                     <li>
-                        <a href='./auth/contact.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
+                        <a href='/contact' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
                     </li>
                     <li>
-                        <a href='./auth/donate.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
+                        <a href='/donate' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
                     </li>
                     <li>
-                        <a href='./user/login.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
+                        <a href='/login' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
                     </li>
                     <li>
                         <button>
-                            <a href="./user/createAccount.php"
+                            <a href="/createAccount"
                                 class="nav-link font-weight-bold text-white px-4">Sign up
                             </a>
                         </button>
@@ -66,47 +58,26 @@
             <ul class="mobile">
                 <div class="d-flex font-weight-bold border-top">
                     <li>
-                        <Link href='./auth/about.php'
-                            class='nav-link my-3 text-white'>About
-                        </Link>
+                        <a href='/about' class='nav-link my-3 text-white'>About</a>
                     </li>
                     <li>
-                        <Link href='./auth/contact.php'
-                            class='nav-link my-3 text-white'>Contact
-                        </Link>
+                        <a href='/contact' class='nav-link my-3 text-white'>Contact</a>
                     </li>
                     <li>
-                        <Link href='./auth/donate.php'
-                            class='nav-link my-3 text-white'>Donate
-                        </Link>
+                        <a href='/donate' class='nav-link my-3 text-white'>Donate</a>
                     </li>
                     <li>
-                        <Link href='./user/login.php'
-                            class='nav-link my-3 text-white'>Log in
-                        </Link>
+                        <a href='/auth/login' class='nav-link my-3 text-white'>Sign in </a>
                     </li>
                     <li>
-                        <Link href='./user/createAccount.php'
-                            class='nav-link my-3 text-white'>Sign up
-                        </Link>
+                        <a href='/auth/signup' class='nav-link my-3 text-white'>Sign up </a>
                     </li>
                 </div>
             </ul>
 
             <!-- {/**************** Hamburger menu ****************/} -->
-            <div class='hambuger' onclick="() => hamburger()">
-                <!-- { switchMenuIcon !== 'true' 
-                    ? 
-                    <i class={changeLinkColor !== 'true' ? 
-                        'fa fa-bars text-white fa-2x' : 
-                        'fa fa-bars text-dark fa-2x'}>
-                    </i>
-                    :
-                    <i class={changeLinkColor !== 'true' ? 
-                        'fa fa-times text-white fa-2x' : 
-                        'fa fa-times text-dark fa-2x'}>
-                    </i>
-                } -->
+            <div class='hambuger' onClick="hamburger()">
+                <i class='menuIcon fa fa-bars text-white fa-2x'></i>
             </div>
         </div>
     </header>
@@ -145,7 +116,7 @@
         <h1 class="mx-3 display-6" >Who is eligible ?</h1>
         <p class='text-center'>Check who is eligible to raise or donate fund.</p>
     </div>
-    <section class="contentTwo Banner1 d-flex justify-content-center py-4">
+    <section class="contentTwo d-flex justify-content-center py-4">
         <div class="container px-lg-5">
             <div class="card-container">
                 <span class='hidden shadow-lg' style="transition: 0.3s !important">
@@ -195,35 +166,35 @@
     <section>
         <div class="container">
             <div class="row align-items-baseline">
-                <section class="col-md-6 align-items-center p-0" style="background: #f3f7f8" >
-                    <div class="show px-lg-5 px-4 py-1 mb-1" style="transition: 0.5s">
+                <section class="col-md-6 align-items-center p-0">
+                    <div class="px-lg-5 px-4 py-1 mb-1" style="transition: 0.5s">
                         <div class="my-5 hidden" style="transition: 0.3s !important">
                             <div class="d-flex align-items-center">
                                 <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">01</div>
-                                    <h4 class="mx-3">About FundMeNaija</h4>
+                                    <h4 class="mx-3">About Fundmenaija</h4>
                                 </div>
-                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">FundMeNaija is global community designed to provide solutions on funding for everyone with a genuine need globally.</p>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.</p>
                         </div>    
                     </div>
-                    <div class="show px-lg-5 px-4 py-4" style="transition: 0.7s">
+                    <div class="px-lg-5 px-4 py-4" style="transition: 0.7s">
                         <div class="my-5 hidden" style="transition: 0.5s !important">
                             <div class="d-flex align-items-center">
                                 <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">02</div>
-                                    <h4 class="mx-3">Why you should Choose FundMeNaija</h4>
+                                    <h4 class="mx-3">Why you should Choose Fundmenaija</h4>
                                 </div>
-                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">FundMeNaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency</p>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency</p>
                         </div>
                     </div>
                 </section>
 
-                <section class="show col-md-6 px-lg-5 px-4" id='item1' style="transition: 0.9s">
-                    <div class="show px-lg-5 px-4 py-4" style="transition: 0.7s">
+                <section class="col-md-6 px-lg-5 px-4" style="transition: 0.9s">
+                    <div class="px-lg-5 px-4" style="transition: 0.7s">
                         <div class="my-5 hidden" style="transition: 0.7s !important">
                             <div class="d-flex align-items-center">
                                 <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">03</div>
-                                    <h4 class="mx-3">How FundMeNaija works</h4>
+                                    <h4 class="mx-3">How Fundmenaija works</h4>
                                 </div>
-                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Everyone is welcomed to FundMeNaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.</p>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.</p>
                         </div>
                     </div>
                 </section>
@@ -277,8 +248,7 @@
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
         <div id="preloader"></div>
 
-        <script src='./authjs/index.js'></script>
-        <script src="./assets/js/main.js"></script>
+        <script src='../authjs/index.js'></script>
     
   </body>
 </html>
