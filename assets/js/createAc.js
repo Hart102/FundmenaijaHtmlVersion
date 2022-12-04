@@ -51,7 +51,7 @@ $(document).ready(function () {
                 data: { AdharNumber: AdharNo },
                 success: function (response) {
                     if (response != "0") {
-                        $("#AdharError").text("SSN Number Already Exist!");
+                        $("#AdharError").text("NIN Number Already Exist!");
                         $("#nextBtn").attr('disabled', true);
                         AdharError = 1;
                     }

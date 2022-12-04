@@ -92,7 +92,8 @@ if (isset($_SESSION['username'])) {
     <!-- Favicons -->
     <link href="../assets/img/favicon-32x32.png" rel="icon">
     <link href="../assets/img/apple-icon-180x180.png" rel="apple-touch-icon">
-
+    <!-- preloader CSS -->
+    <link  href="../asserts/css/preloader.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
@@ -163,6 +164,11 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
     </main>
+    
+    <div id="preloader"></div>
+
+    <script src="../assets/js/main.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

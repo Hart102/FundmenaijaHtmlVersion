@@ -360,6 +360,8 @@ if (isset($_POST['submit'])) {
     <!-- Javascrip -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../assets/js/createAc.js"></script>
+    <!-- Preloader CSS -->
+    <link  href="../asserts/css/preloader.css" rel="stylesheet">
 </head>
 <body>
     <form id="regForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data" novalidate>
@@ -600,6 +602,10 @@ if (isset($_POST['submit'])) {
             <span class="step"></span>
         </div>
     </form>
+   <!-- preloader -->
+    <div id="preloader"></div>
+
+    <script src="../assets/js/main.js"></script>
 
     <script>
         console.log(`<?php var_dump($_SESSION); ?>`);

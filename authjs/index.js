@@ -1,19 +1,22 @@
 const singleElementSelector = element => document.querySelector(element) // Html single element selector
 const multiElementSelector = element => document.querySelectorAll(element) // Html multiple element selector
 
-const links = multiElementSelector('#nav-link') 
+const logo = singleElementSelector('.logo') 
 const writeUp = singleElementSelector('.write-up')  
 const hamburgerMenuIcon = singleElementSelector('.menuIcon')
 const detailsBtn = singleElementSelector('#detailsBtn') 
 
+const links = multiElementSelector('#nav-link') 
 
 //********** Change Navbar background on scroll **********
 window.addEventListener('scroll', () => {
 
   if (window.scrollY > 8) {
+    logo.classList.add('scrollColor')
     singleElementSelector('header').classList.add('scroll')
-      
+    
   }else{
+    logo.classList.remove('scrollColor')
     singleElementSelector('header').classList.remove('scroll')
   }
       
