@@ -1,50 +1,110 @@
-// Html single element selecotr 
-const singleElementSelector = element => document.querySelector(element)
+const singleElementSelector = element => document.querySelector(element) // Html single element selector
+const multiElementSelector = element => document.querySelectorAll(element) // Html multiple element selector
 
-// Html multiple element selecotr 
-const multiElementSelector = element => document.querySelectorAll(element)
+const links = multiElementSelector('#nav-link') 
+const writeUp = singleElementSelector('.write-up')  
+const hamburgerMenuIcon = singleElementSelector('.menuIcon')
+const detailsBtn = singleElementSelector('#detailsBtn') 
 
 
-let links = multiElementSelector('#nav-link') 
-// Change Navbar background on scroll 
+//********** Change Navbar background on scroll **********
 window.addEventListener('scroll', () => {
 
+  if (window.scrollY > 8) {
+    singleElementSelector('header').classList.add('scroll')
+      
+  }else{
+    singleElementSelector('header').classList.remove('scroll')
+  }
+      
+  change_link_color(links)
+})
+
+
+// *************** Hamburger menu function ***************
+let hamburerIndicator = 'false';
+const hamburger = () => {
+  let x = singleElementSelector('.mobile')
+
+  if (x.style.display === 'block') {
+    x.style.display = 'none'; 
+    hamburgerMenuIcon.setAttribute('class', 'fa fa-bars text-times text-white fa-2x')
+    
+    
+  }else{
+    x.style.display = 'block';
+    hamburgerMenuIcon.setAttribute('class', 'fa fa-times text-times text-white fa-2x')
+  }
+}
+    
+    
+//************* Change link and hamburger menu color on scroll *************
+const change_link_color = (arrayOfLinks) => { 
+  arrayOfLinks.forEach(link => {
+   
     if (window.scrollY > 8) {
-        singleElementSelector('header').classList.add('scroll')
+      link.style.color = 'black'
+      hamburgerMenuIcon.classList.add('scrollColor')
+      
+    }else{
+      link.style.color = 'white'
+      hamburgerMenuIcon.classList.remove('scrollColor')
+    }
+  });
+}
+
+
+//****************** Fly-in Effect ******************
+const Observer = new IntersectionObserver(entries => { 
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+        entry.target.classList.add('show')
         
     }else{
-        singleElementSelector('header').classList.remove('scroll')
+        entry.target.classList.remove('show')
+
     }
-        
-    change_link_color(links)
-})
+  })
+}) 
+
+const hiddenElements = multiElementSelector('.hidden')
+hiddenElements.forEach(ele => Observer.observe(ele))
+
+
+
+//*********** Donation Page See details functionality ***********
+let clicked = 'false'
+
+const see_details = () => {
+  if (clicked == 'false') {
+    writeUp.setAttribute('class', 'write-up my-4')
+    detailsBtn.innerHTML = 'Read less'
+    clicked = 'true'
     
-    
-// Change link color on scroll 
-const change_link_color = (arrayOfLinks) => {
-    arrayOfLinks.forEach(link => {
-        {window.scrollY > 8 ? link.style.color = 'black' : link.style.color = 'white'}
-    });
+  }else{
+    writeUp.setAttribute('class', 'write-up my-4 text-truncate')
+    detailsBtn.innerHTML = 'Read more'
+    clicked = 'false'
+  }
 }
 
 
 
-// Fly-in Effect
-const Observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show')
-            
-        }else{
-            entry.target.classList.remove('show')
 
-        }
-    })
-}) 
 
-// show
-const hiddenElements = multiElementSelector('.hidden')
-hiddenElements.forEach(ele => Observer.observe(ele))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Effects

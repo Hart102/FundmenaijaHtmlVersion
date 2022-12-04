@@ -14,6 +14,7 @@
 
      <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
     <!-- Main css -->
     <link href="../auth/asserts/css/styles.css" type="text/css" rel="stylesheet">
   </head>
@@ -37,7 +38,7 @@
                         <a href='/contact' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
                     </li>
                     <li>
-                        <a href='/donate1' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
+                        <a href='/donate' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
                     </li>
                     <li>
                         <a href='/login' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
@@ -56,47 +57,26 @@
             <ul class="mobile">
                 <div class="d-flex font-weight-bold border-top">
                     <li>
-                        <Link href='/about'
-                            class='nav-link my-3 text-white'>About
-                        </Link>
+                        <a href='/about' class='nav-link my-3 text-white'>About</a>
                     </li>
                     <li>
-                        <Link href='/contact'
-                            class='nav-link my-3 text-white'>Contact
-                        </Link>
+                        <a href='/contact' class='nav-link my-3 text-white'>Contact</a>
                     </li>
                     <li>
-                        <Link href='/donate'
-                            class='nav-link my-3 text-white'>Donate
-                        </Link>
+                        <a href='/donate' class='nav-link my-3 text-white'>Donate</a>
                     </li>
                     <li>
-                        <Link href='/auth/login'
-                            class='nav-link my-3 text-white'>Sign in
-                        </Link>
+                        <a href='/auth/login' class='nav-link my-3 text-white'>Sign in </a>
                     </li>
                     <li>
-                        <Link href='/auth/signup'
-                            class='nav-link my-3 text-white'>Sign up
-                        </Link>
+                        <a href='/auth/signup' class='nav-link my-3 text-white'>Sign up </a>
                     </li>
                 </div>
             </ul>
 
             <!-- {/**************** Hamburger menu ****************/} -->
-            <div class='hambuger' onclick="() => hamburger()">
-                <!-- { switchMenuIcon !== 'true' 
-                    ? 
-                    <i class={changeLinkColor !== 'true' ? 
-                        'fa fa-bars text-white fa-2x' : 
-                        'fa fa-bars text-dark fa-2x'}>
-                    </i>
-                    :
-                    <i class={changeLinkColor !== 'true' ? 
-                        'fa fa-times text-white fa-2x' : 
-                        'fa fa-times text-dark fa-2x'}>
-                    </i>
-                } -->
+            <div class='hambuger' onClick="hamburger()">
+                <i class='menuIcon fa fa-bars text-white fa-2x'></i>
             </div>
         </div>
     </header>
@@ -186,34 +166,34 @@
         <div class="container">
             <div class="row align-items-baseline">
                 <section class="col-md-6 align-items-center p-0" style="background: #f3f7f8" >
-                    <div class="show px-lg-5 px-4 py-1 mb-1" style="transition: 0.5s">
+                    <div class="px-lg-5 px-4 py-1 mb-1" style="transition: 0.5s">
                         <div class="my-5 hidden" style="transition: 0.3s !important">
                             <div class="d-flex align-items-center">
                                 <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">01</div>
-                                    <h4 class="mx-3">About FundMeNaija</h4>
+                                    <h4 class="mx-3">About Fundmenaija</h4>
                                 </div>
-                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">FundMeNaija is global community designed to provide solutions on funding for everyone with a genuine need globally.</p>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.</p>
                         </div>    
                     </div>
-                    <div class="show px-lg-5 px-4 py-4" style="transition: 0.7s">
+                    <div class="px-lg-5 px-4 py-4" style="transition: 0.7s">
                         <div class="my-5 hidden" style="transition: 0.5s !important">
                             <div class="d-flex align-items-center">
                                 <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">02</div>
-                                    <h4 class="mx-3">Why you should Choose FundMeNaija</h4>
+                                    <h4 class="mx-3">Why you should Choose Fundmenaija</h4>
                                 </div>
-                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">FundMeNaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency</p>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency</p>
                         </div>
                     </div>
                 </section>
 
-                <section class="show col-md-6 px-lg-5 px-4" id='item1' style="transition: 0.9s">
-                    <div class="show px-lg-5 px-4 py-4" style="transition: 0.7s">
+                <section class="col-md-6 px-lg-5 px-4" style="transition: 0.9s">
+                    <div class="px-lg-5 px-4" style="transition: 0.7s">
                         <div class="my-5 hidden" style="transition: 0.7s !important">
                             <div class="d-flex align-items-center">
                                 <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">03</div>
-                                    <h4 class="mx-3">How FundMeNaija works</h4>
+                                    <h4 class="mx-3">How Fundmenaija works</h4>
                                 </div>
-                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Everyone is welcomed to FundMeNaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.</p>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.</p>
                         </div>
                     </div>
                 </section>
@@ -267,7 +247,7 @@
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
-        <script src='./auth/authjs/index.js'></script>
+        <script src='../auth/authjs/index.js'></script>
     
   </body>
 </html>
