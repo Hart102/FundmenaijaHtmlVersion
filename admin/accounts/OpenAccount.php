@@ -353,7 +353,7 @@ GROUP BY
                                                             <div class="col-md">
                                                                 <div class="col-md mb-3">
 
-                                                                    <input name="MobileNumber" class="form-control dark_bg light" type="tel" id="MobileNo" pattern="[0-9]{10}" placeholder="Mobile Number" onkeypress="return isNumber(event)">
+                                                                    <input name="MobileNumber" class="form-control dark_bg light" type="tel" id="MobileNo" pattern="[0-9]{11}" placeholder="Mobile Number" onkeypress="return isNumber(event)">
 
                                                                     <span id="MobileNoError" style="color: red;"><?php if (isset($_POST['submit'])) {
                                                                                                                         echo $Mobile_Number_error;
@@ -612,9 +612,9 @@ GROUP BY
                 </div>
                 <div class="modal-body">
                     <p class="text-danger"><strong>As a measure to prevent your account from being hacked, we strongly advise that you do not share your login details with anyone. Knowing that we will never ask you for any of your personal Information.</strong></p>
-                    <h5>Contact Developer</h5>
-                    <p> <strong> Telegram Id: </strong> @******</p>
-                    <p><strong>Email: </strong> email@example.com</p>
+                    <h5>Contact Us</h5>
+                    <p> <strong> Instagram Id: </strong>  http://Instagram.com/fundmenaija</p>
+                    <p><strong>Email: </strong>contact@fundmenaija.com</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

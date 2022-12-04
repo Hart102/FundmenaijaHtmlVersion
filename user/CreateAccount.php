@@ -1,11 +1,13 @@
 <?php
 session_start();
+
+// var_dump($_SESSION);
 include "connection.php";
-include './mail/mail_config.php';
+include '../mail/mail_config.php';
 // checking Submit button is clicked or not by isset function
 if (isset($_POST['submit'])) {
     // ----------------------------------------- Basic Detail Section -----------------------------------------
-    $Account_Type = "Saving";
+    $Account_Type = "Savings";
     $Account_Status = "Inactive";
     $Balance = "0.0";
     // Storing Form values in variable
@@ -15,7 +17,7 @@ if (isset($_POST['submit'])) {
     $Mother_Name = $_POST['MotherName'];
     $Birth_Date = $_POST['BirthDate'];
     $Mobile_Number = $_POST['MobileNumber'];
-    $Pan_Number = $_POST['PanNumber'];
+    // $Pan_Number = $_POST['PanNumber'];
     $Adhar_Number = $_POST['AdharNumber'];
     $Account_Number = date('ndyHisL');
 
@@ -24,13 +26,13 @@ if (isset($_POST['submit'])) {
     }
 
     $Email = $_POST['email'];
-    $Pincode = $_POST['pincode'];
+    // $Pincode = $_POST['pincode'];
 
     //  Error Variables
 
     $First_Name_error =  $Last_Name_error = $Father_Name_error = $Mother_Name_error = null;
-    $Birth_Date_error = $Mobile_Number_error =  $Pan_Number_error = $Adhar_Number_error = null;
-    $Email_error = $Pincode_error = null;
+    $Birth_Date_error = $Mobile_Number_error = $Adhar_Number_error = null;
+    $Email_error = null;
 
     // Validate Name of customer
     /* 
@@ -57,26 +59,26 @@ if (isset($_POST['submit'])) {
 
     // ********************************* Phone Number Validation *********************************************
 
-    if ($Pan_Number != null) {
-        // Regular Expression to validate Phone number
-        $regex = '/[0-9]{10}$/';
+    // if ($Pan_Number != null) {
+    //     // Regular Expression to validate Phone number
+    //     $regex = '/[0-9]{10}$/';
 
-        // if pan number not match with above pattern
-        if (!preg_match_all($regex, $Pan_Number)) {
-            $Pan_Number_error = "* INVALID PHONE NUMBER";
-        } else {
-            $Pan_Number = mysqli_real_escape_string($conn, $_POST['PanNumber']);
-            $query =  $query = "SELECT * FROM customer_detail WHERE C_Pan_No = '" . $Pan_Number . "'";
+    //     // if pan number not match with above pattern
+    //     if (!preg_match_all($regex, $Pan_Number)) {
+    //         $Pan_Number_error = "* INVALID PHONE NUMBER";
+    //     } else {
+    //         $Pan_Number = mysqli_real_escape_string($conn, $_POST['PanNumber']);
+    //         $query =  $query = "SELECT * FROM customer_detail WHERE C_Pan_No = '" . $Pan_Number . "'";
 
-            $result =  mysqli_query($conn, $query);
+    //         $result =  mysqli_query($conn, $query);
 
-            if (mysqli_num_rows($result) > 0) {
-                $Pan_Number_error = "* Phone Number Already Exist";
-            }
-        }
-    } else {
-        $Pan_Number_error = "* Please Enter Phone Number";
-    }
+    //         if (mysqli_num_rows($result) > 0) {
+    //             $Pan_Number_error = "* Phone Number Already Exist";
+    //         }
+    //     }
+    // } else {
+    //     $Pan_Number_error = "* Please Enter Phone Number";
+    // }
 
 
 
@@ -91,17 +93,17 @@ if (isset($_POST['submit'])) {
         $Birth_Date_error = "* You Are Not Eligible to Open Online Account.";
     }
 
-    if (!is_numeric($Mobile_Number) || is_null($Mobile_Number) || !preg_match('/^[0-9]{10}+$/', $Mobile_Number)) {
+    if (!is_numeric($Mobile_Number) || is_null($Mobile_Number) || !preg_match('/^[0-9]{11}+$/', $Mobile_Number)) {
         $Mobile_Number_error = "Invalid Mobile Number";
     }
 
 
     // **************************************** SSN Validation *******************************************************
-    if (!is_numeric($Adhar_Number) || is_null($Adhar_Number) || !preg_match('/^[0-9]{9}+$/', $Adhar_Number)) {
-        $Adhar_Number_error = "Invalid SSN Number";
+    if (!is_numeric($Adhar_Number) || is_null($Adhar_Number) || !preg_match('/^[0-9]{11}+$/', $Adhar_Number)) {
+        $Adhar_Number_error = "Invalid NIN Number";
     } else {
 
-        // SSN Number Exist in database or not validation 
+        // NIN Number Exist in database or not validation 
 
         $Adhar_Number = mysqli_real_escape_string($conn, $_POST['AdharNumber']);
         $query1 = "SELECT * FROM customer_detail WHERE C_Adhar_No = '" . $Adhar_Number . "'";
@@ -109,7 +111,7 @@ if (isset($_POST['submit'])) {
         $result1 =  mysqli_query($conn, $query1);
 
         if (mysqli_num_rows($result1) > 0) {
-            $Adhar_Number_error = "* SSN Number Already Exist";
+            $Adhar_Number_error = "* NIN Number Already Exist";
         }
     }
 
@@ -137,14 +139,14 @@ if (isset($_POST['submit'])) {
     // ************************************************** Picode Validation *********************************************
 
 
-    if (!empty($Pincode)) {
-        $match = '/^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/';
-        if (!preg_match_all($match, $Pincode)) {
-            $Pincode_error = "* Invalid Pincode";
-        }
-    } else {
-        $Pincode_error = "* Enter Your Area Pincode";
-    }
+    // if (!empty($Pincode)) {
+    //     $match = '/^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/';
+    //     if (!preg_match_all($match, $Pincode)) {
+    //         $Pincode_error = "* Invalid Pincode";
+    //     }
+    // } else {
+    //     $Pincode_error = "* Enter Your Area Pincode";
+    // }
 
     // ++++++++++++++++++++++++++++++++++++++++++++++ Basic Detail Ends Here +++++++++++++++++++++++++++++++++++++++++
 
@@ -197,7 +199,7 @@ if (isset($_POST['submit'])) {
             $ConfirmPassError = false;
             // unset($_SESSION['otp']);
             $_SESSION['twostep'] = $Account_Number;
-            header('Location: /twostepsetup');
+            header('Location: ../user/twostepsetup.php');
         }
     } else {
         $ConfirmPassError = "Please Confirm Password";
@@ -286,7 +288,7 @@ if (isset($_POST['submit'])) {
 
 
                 // Validating All Error Are values are null or not means checking any error in form or not
-                if ($First_Name_error == null && $Last_Name_error == null && $Father_Name_error == null && $Mother_Name_error == null && $Birth_Date_error == null && $Pan_Number_error == null && $Adhar_Number_error == null && $Mobile_Number_error == null && $Pan_Up_error == false && $Adhar_Up_error == false && $Email_error == null && $Pincode_error == null && $UsernameError == false && $PasswordError == false && $ConfirmPassError == false) {
+                if ($First_Name_error == null && $Last_Name_error == null && $Father_Name_error == null && $Mother_Name_error == null && $Birth_Date_error == null && $Adhar_Number_error == null && $Mobile_Number_error == null && $Pan_Up_error == false && $Adhar_Up_error == false && $Email_error == null && $UsernameError == false && $PasswordError == false && $ConfirmPassError == false) {
 
 
                     // Uploading Document to server
@@ -360,7 +362,7 @@ if (isset($_POST['submit'])) {
     <script src="../assets/js/createAc.js"></script>
 </head>
 <body>
-    <form id="regForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">
+    <form id="regForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data" novalidate>
         <h1 class="mb-3">Create Account</h1>
 
         <!-- Tab 1 -->
@@ -399,11 +401,11 @@ if (isset($_POST['submit'])) {
                     <div class="col-md">
                         <div class="form-floating">
 
-                            <input type="text" name="FatherName" class="form-control" id="FAname" placeholder="Father's Name">
-                            <label for="floatingInputGrid">Father's Full Name</label>
+                            <input type="text" name="FatherName" class="form-control" id="FAname" placeholder="Middle Name">
+                            <label for="floatingInputGrid">Middle Name</label>
                             <span id="FAnameError" style="color: red;"><?php if (isset($_POST['submit'])) {
-                                                                            echo $Father_Name_error;
-                                                                        } ?></span>
+                                echo $Father_Name_error;
+                            } ?></span>
                         </div>
                     </div>
                 </div>
@@ -411,8 +413,8 @@ if (isset($_POST['submit'])) {
                     <div class="col-md">
                         <div class="form-floating">
 
-                            <input type="text" name="MotherName" class="form-control" id="MAname" placeholder="Mother's Name">
-                            <label for="floatingInputGrid">Mother's Full Name</label>
+                            <input type="text" name="MotherName" class="form-control" id="MAname" placeholder="Mother's Maiden Name">
+                            <label for="floatingInputGrid">Mother's Maiden Name</label>
                             <span id="MAnameError" style="color: red;"><?php if (isset($_POST['submit'])) {
                                                                             echo $Mother_Name_error;
                                                                         } ?></span>
@@ -435,7 +437,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-md">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input name="MobileNumber" class="form-control" type="tel" id="MobileNo" pattern="[0-9]{10}" placeholder="Mobile Number" onkeypress="return isNumber(event)" title="10 Digit Mobile Number">
+                            <input name="MobileNumber" class="form-control" type="tel" id="MobileNo" pattern="[0-9]{11}" placeholder="Mobile Number" onkeypress="return isNumber(event)" title="11 Digit Mobile Number">
                             <label for="floatingInputGrid">Mobile Number</label>
                             <span id="MobileNoError" style="color: red;"><?php if (isset($_POST['submit'])) {
                                                                                 echo $Mobile_Number_error;
@@ -445,29 +447,7 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
             <div class="row g-2 mb-3">
-                <div class="col-md">
-                    <div class="col-md">
-                        <div class="form-floating">
-                            <input type="text" name="PanNumber" class="form-control" id="PanNo" placeholder="Pan Number" title="Eg. (202) 330 2919">
-                            <label for="floatingInputGrid">Phone Number</label>
-                            <span id="PanError" style="color: red;"><?php if (isset($_POST['submit'])) {
-                                echo $Pan_Number_error;
-                            } ?></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="col-md">
-                        <div class="form-floating">
-                            <input name="AdharNumber" class="form-control" type="tel" id="AdharNo" pattern="[0-9]{9}" max="9" placeholder="SSN Number" onkeypress="return isNumber(event)" title="9 Digit SSN">
-                            <label for="floatingInputGrid">SSN Number</label>
-                            <span id="AdharError" style="color: red;"><?php if (isset($_POST['submit'])) {                                                echo $Adhar_Number_error;
-                            } ?></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-2 mb-3">
+                
                 <div class="col-md">
                     <div class="col-md">
                         <div class="form-floating">
@@ -482,6 +462,29 @@ if (isset($_POST['submit'])) {
                 <div class="col-md">
                     <div class="col-md">
                         <div class="form-floating">
+                            <input name="AdharNumber" class="form-control" type="tel" id="AdharNo" pattern="[0-9]{11}" max="11" placeholder="NIN Number" onkeypress="return isNumber(event)" title="11 Digit NIN">
+                            <label for="floatingInputGrid">NIN Number</label>
+                            <span id="AdharError" style="color: red;"><?php if (isset($_POST['submit'])) {                                                echo $Adhar_Number_error;
+                            } ?></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row g-2 mb-3"> -->
+            <!-- <div class="col-md">
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="text" name="PanNumber" class="form-control" id="PanNo" placeholder="Pan Number" title="Eg. (202) 330 2919">
+                            <label for="floatingInputGrid">Phone Number</label>
+                            <span id="PanError" style="color: red;"><?php if (isset($_POST['submit'])) {
+                                echo $Pan_Number_error;
+                            } ?></span>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-md">
+                    <div class="col-md">
+                        <div class="form-floating">
                             <input name="pincode" class="form-control" type="tel" id="pincode" pattern="[0-9]{6}" placeholder="Pin Code" onkeypress="return isNumber(event)" title="6-digit Number">
                             <label for="floatingInputGrid">Pin Code</label>
                             <span id="PincodeError" style="color: red;"><?php if (isset($_POST['submit'])) {
@@ -489,28 +492,28 @@ if (isset($_POST['submit'])) {
                         } ?></span>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
         </div>
 
         <!-- Tab 2 -->
 
         <div class="tab mb-3" id="KycTab">
             <h3 class="mb-3 stepHead">Step 2/4</h3>
-            <p class="SubAction">Upload SSN Document</p>
+            <p class="SubAction">Upload NIN Document</p>
 
             <div class="form-group mb-3">
                 <label for="exampleFormControlFile1">Passport Photograph</label>
                 <input type="file" name="PanCardUp" class="form-control-file" id="PANCardUp" size="30" accept="image/jpg,image/png,image/jpeg,image/gif">
                 <span id="PanUPError" style="color: red;"><?php if (isset($_POST['submit'])) {
-                                                                echo $Pan_Up_error;
+                     echo $Pan_Up_error;
                                                             } ?></span>
             </div>
             <div class="form-groupmb-3">
-                <label for="exampleFormControlFile1">Upload SSN Card</label>
+                <label for="exampleFormControlFile1">Upload NIN Card</label>
                 <input type="file" name="AdharCardUp" class="form-control-file" id="AdharCardUp" size="30" accept="image/jpg,image/png,image/jpeg,image/gif">
                 <span id="AdharUpError" style="color: red;"><?php if (isset($_POST['submit'])) {
-                                                                echo $Adhar_Up_error;
+                        echo $Adhar_Up_error;
                                                             } ?></span>
             </div>
             <span id="mailsendError"></span>
@@ -598,7 +601,9 @@ if (isset($_POST['submit'])) {
         </div>
     </form>
 
-
+    <script>
+        console.log(`<?php var_dump($_SESSION); ?>`);
+    </script>
     <script src="../assets/js/createAccount.js"></script>
 
     <!-- Vendor JS Files -->

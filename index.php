@@ -1,71 +1,254 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="FundMeNaija"
+      content="FundMeNaija website"
+    />
+    <title>FundMeNaija | Home</title>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
-require_once __DIR__.'/router.php';
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-// ##################################################
-// ##################################################
-// ##################################################
+    <!-- Main css -->
+    <!-- <link href="../assets/css/styles.css" type="text/css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="../asserts/css/styles.css">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <header class='shadow-sm' style="background: backgroundColor">
 
-// Static GET
-// In the URL -> http://localhost
-// The output -> Index
-get('/', 'auth/index.php');
-get('/home', 'auth/index.php');
-get('/about', 'auth/index.php');
-get('/login', 'user/login.php');
-get('/signup', 'user/createAccount.php');
-get('/forgotPassword', 'user/forgotPassword.php');
-get('/terms', 'pages/terms.php');
-get('/privacypolicy', '../pages/privacypolicy.php');
-// get('/forgotPassword', 'user/forgotPassword.php');
-// get('/forgotPassword', 'user/forgotPassword.php');
-// get('/forgotPassword', 'user/forgotPassword.php');
+        <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
+            <div class="d-flex align-items-center">
+                <div style="width: 60px; height: 60px; position: relative;">
+                    <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
+                </div>
+                <div class="h4 text-white">Fundmenaija</div>
+            </div>
+            <ul class="list-unstyled desktop">
+                <div class="d-flex align-items-center">
+                    <li>
+                        <a href='/about' class='nav-link mx-lg-2 py-2 px-3' id='nav-link'>About</a>
+                    </li>
+                    <li>
+                        <a href='/contact' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
+                    </li>
+                    <li>
+                        <a href='/donate' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
+                    </li>
+                    <li>
+                        <a href='/login' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
+                    </li>
+                    <li>
+                        <button>
+                            <a href="/createAccount"
+                                class="nav-link font-weight-bold text-white px-4">Sign up
+                            </a>
+                        </button>
+                    </li>
+                </div>
+            </ul>
 
-// Dynamic GET. Example with 1 variable
-// The $id will be available in user.php
-get('/user', 'auth/user.php');
-get('/donate', 'auth/donate.php');
-get('/details', 'auth/details.php');
-get('/admin', 'admin/Dashboard.php');
-get('/auth/twostepverify', 'user/twostepverify.php');
+            <!-- {/************* Mobile screen menu  *************/} -->
+            <ul class="mobile">
+                <div class="d-flex font-weight-bold border-top">
+                    <li>
+                        <a href='/about' class='nav-link my-3 text-white'>About</a>
+                    </li>
+                    <li>
+                        <a href='/contact' class='nav-link my-3 text-white'>Contact</a>
+                    </li>
+                    <li>
+                        <a href='/donate' class='nav-link my-3 text-white'>Donate</a>
+                    </li>
+                    <li>
+                        <a href='/auth/login' class='nav-link my-3 text-white'>Sign in </a>
+                    </li>
+                    <li>
+                        <a href='/auth/signup' class='nav-link my-3 text-white'>Sign up </a>
+                    </li>
+                </div>
+            </ul>
 
-// Dynamic GET. Example with 2 variables
-// The $name will be available in full_name.php
-// The $last_name will be available in full_name.php
-// In the browser point to: localhost/user/X/Y
-get('/user/$name/$last_name', 'auth/full_name.php');
+            <!-- {/**************** Hamburger menu ****************/} -->
+            <div class='hambuger' onClick="hamburger()">
+                <i class='menuIcon fa fa-bars text-white fa-2x'></i>
+            </div>
+        </div>
+    </header>
+    <!-- Banner  f3613c -->
+    <section class='Banner py-5'>
+        <div class="container py-5 px-lg-5 my-4">
+            <main class='col-md-12 text-center mx-auto1'>  
+                <h1 class='display-3' style="color: #fff; opacity: 1; font-weight: 700"><span style="color: #f3613c">FUND AND </span> GET FUNDED</h1>
+                <p class='text-white text-capitalize1'>Fund and raise funds from people globally to support your projects, bills, daily needs and other things from FundMeNaija today</p>
 
-// Dynamic GET. Example with 2 variables with static
-// In the URL -> http://localhost/product/shoes/color/blue
-// The $type will be available in product.php
-// The $color will be available in product.php
-get('/product/$type/color/$color', 'auth/product.php');
+                <button class="btn font-weight-bold text-white my-3 py-3 px-5">Get started</button>
+            </main>
+        </div>
+    </section>
+    <!-- Section one -->
+    <section>
+      <div class="container d-flex py-5 px-3">
+        <div class="col-md-5 px-lg-5 d-lg-block d-none">
+          <div style="width: 100%; height: 60vh; position: relative">
+            <picture>
+              <img src="../asserts/img/Donate_img.jpeg" class='img-fluid' style="position: absolute; width: 100%; height: 100%; border-radius: 10px">
+            </picture>
+            <div class='layer'></div>
+          </div>
 
-// A route with a callback
-get('/callback', function(){
-  echo 'Callback executed';
-});
+        </div>
+        <div class="col-md-6">
+          <h1 class="display-4" style="color: #15242b">Raising money have never been easy.</h1>
+          <p class='my-lg-5'>We provide you with opportunity to dream and see it come to pass by helping you get the needed funding on any project, plans or other basic needs.</p>
+          <button class="btn font-weight-bold text-white py-3 px-5">Get started</button>
+        </div>
+      </div>
+    </section>
+    <!-- Content Two -->
+    <div class="title text-center mb-5" >
+        <h1 class="mx-3 display-6" >Who is eligible ?</h1>
+        <p class='text-center'>Check who is eligible to raise or donate fund.</p>
+    </div>
+    <section class="contentTwo d-flex justify-content-center py-4">
+        <div class="container px-lg-5">
+            <div class="card-container">
+                <span class='hidden shadow-lg' style="transition: 0.3s !important">
+                    <div class="main-card d-lg-flex shadow-sm">
+                        <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
+                            <h4 class='text-uppercase'>Individuals</h4>
+                            <p class='text-capitalize'>Individuals who are in need financially or medically</p>
+                        </div>
+                    </div>
+                </span>
+                <span class='hidden shadow-lg' style="transition: 0.5s !important">
+                    <div class="main-card d-lg-flex shadow-sm">
+                        <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
+                            <h4 class='text-uppercase'>Churches</h4>
+                            <p class='text-capitalize'>Churches for fund raising and offerings.</p>
+                        </div>
+                    </div>
+                </span>
+                <span class='hidden shadow-lg' style="transition: 0.7s !important">
+                    <div class="main-card d-lg-flex shadow-sm">
+                        <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
+                            <h4 class='text-uppercase'>Schools</h4>
+                            <p class='text-capitalize'>Schools for fund raising.</p>
+                        </div>
+                    </div>
+                </span>
+                <span class='hidden shadow-lg' style="transition: 0.9s !important">
+                    <div class="main-card d-lg-flex shadow-sm">
+                        <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
+                            <h4 class='text-uppercase'>Small scale business</h4>
+                            <p class='text-capitalize'>For businesses investment.</p>
+                        </div>
+                    </div>
+                </span>
+                <span class='hidden shadow-lg' style="transition: 0.95s !important">
+                    <div class="main-card d-lg-flex shadow-sm">
+                        <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
+                            <h4 class='text-uppercase'>Hospitals</h4>
+                            <p class='text-capitalize'>For medical donations like blood, body organ donors and volunteers.</p>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </section>
 
-// A route with a callback passing a variable
-// To run this route, in the browser type:
-// http://localhost/user/A
-get('/callback/$name', function($name){
-  echo "Callback executed. The name is $name";
-});
+    <section>
+        <div class="container">
+            <div class="row align-items-baseline">
+                <section class="col-md-6 align-items-center p-0">
+                    <div class="px-lg-5 px-4 py-1 mb-1" style="transition: 0.5s">
+                        <div class="my-5 hidden" style="transition: 0.3s !important">
+                            <div class="d-flex align-items-center">
+                                <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">01</div>
+                                    <h4 class="mx-3">About Fundmenaija</h4>
+                                </div>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.</p>
+                        </div>    
+                    </div>
+                    <div class="px-lg-5 px-4 py-4" style="transition: 0.7s">
+                        <div class="my-5 hidden" style="transition: 0.5s !important">
+                            <div class="d-flex align-items-center">
+                                <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">02</div>
+                                    <h4 class="mx-3">Why you should Choose Fundmenaija</h4>
+                                </div>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency</p>
+                        </div>
+                    </div>
+                </section>
 
-// A route with a callback passing 2 variables
-// To run this route, in the browser type:
-// http://localhost/callback/A/B
-get('/callback/$name/$last_name', function($name, $last_name){
-  echo "Callback executed. The full name is $name $last_name";
-});
+                <section class="col-md-6 px-lg-5 px-4" style="transition: 0.9s">
+                    <div class="px-lg-5 px-4" style="transition: 0.7s">
+                        <div class="my-5 hidden" style="transition: 0.7s !important">
+                            <div class="d-flex align-items-center">
+                                <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">03</div>
+                                    <h4 class="mx-3">How Fundmenaija works</h4>
+                                </div>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+    <section class="Content-four">
+      <div class="container p-lg-5 p-3">
+        <h1 class="display-6 font-weight-bold my-4 text-white">How to get started</h1>
+        <div class="d-lg-flex text-center text-white">
+          
+          <div class="card p-4 my-3 h5">
+            <p>Sign up and verify your account</p>
+          </div>
 
-// ##################################################
-// ##################################################
-// ##################################################
-// any can be used for GETs or POSTs
+          <div class="card p-4 mx-lg-4 my-3 h5">
+            <p>Donate</p>
+          </div>
 
-// For GET or POST
-// The 404.php which is inside the auth folder will be called
-// The 404.php has access to $_GET and $_POST
-any('/404','auth/404.php');
+          <div class="card p-4 my-3 h5">
+            <p>Volunteer</p>
+          </div>
+          </div>
+       </div>
+    </section>
+    
+    <!-- Footer -->
+        <footer  style="background: #1e1e26; display: flex; justify-content: center">
+            <div class="container p-4 d-lg-flex justify-content-between text-white">
+                <span class='my-5'>
+                    <div class="h3" style="color: #f3613c">Fund</div>
+                    <div class="social-icons">
+                        <i class='fab fa-facebook fa-1x'></i>
+                        <i class='fab fa-instagram fa-1x mx-4'></i>
+                        <i class='fab fa-twitter fa-1x'></i>
+                    </div>
+                </span>
+                <ul class="list-unstyled my-5">
+                    <li class='my-2'>Home</li>
+                    <li class='my-2'>Contact</li>
+                    <li class='my-2'>Transfer fund</li>
+                </ul>
+
+                <ul class="list-unstyled my-5">
+                    <li>Privacy policy</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </footer>
+
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        <div id="preloader"></div>
+
+        <script src='../authjs/index.js'></script>
+    
+  </body>
+</html>

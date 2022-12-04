@@ -1,4 +1,4 @@
-<?php include "../../../config.php"; ?>
+<?php include "../../config.php"; ?>
 <div id="wrapper ribbon ribbon-top-right">
     <div class="overlay"></div>
 

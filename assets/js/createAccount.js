@@ -96,14 +96,11 @@ function ValidateNo() {
         alert("Please enter your Mobile Number");
         return false;
     }
-    if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
-        alert("Mobile No. is not valid, Please Enter 10 Digit Mobile No.");
+    if (phoneNo.value.length < 11 || phoneNo.value.length > 11) {
+        alert("Mobile No. is not valid, Please Enter 11 Digit Mobile No.");
         return false;
     }
 
     alert("Success ");
     return true;
 }
-
-
-

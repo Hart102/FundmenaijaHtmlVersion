@@ -495,8 +495,8 @@
                           </td>
                         </tr>
                       </table>
-                      <p>If You Don't Know who perfrom this transaction or credit money in your account please call on this help line number 001244</p>
-                      <p>Thanks,
+                      <p>If You Don't Know who perfrom this transaction or credit money in your account please contact us on this email contact@fundmenaija.com</p>
+                      <p>Regards,
                         <br>{APP_NAME}
                       </p>
                       <!-- Sub copy -->
@@ -504,7 +504,7 @@
                         <tr>
                           <td>
                             <p class="f-fallback sub">If you’re having trouble with the button above, copy and paste the URL below into your web browser.</p>
-                            <p class="f-fallback sub">https://fundmenaija.com/auth/login</p>
+                            <p class="f-fallback sub">https://fundmenaija.com/user/login.php</p>
                           </td>
                         </tr>
                       </table>

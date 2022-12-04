@@ -34,8 +34,8 @@ $(document).ready(function () {
         var AdharNo = $(this).val();
 
         // checking adhar number data
-        if (AdharNo == "" || AdharNo.length > 9 || AdharNo.length < 9) {
-            $('#AdharError').text('Invalid SSN Number');
+        if (AdharNo == "" || AdharNo.length > 11 || AdharNo.length < 11) {
+            $('#AdharError').text('Invalid NIN Number');
             $("#nextBtn").attr('disabled', true);
             AdharError = 1;
         }
@@ -250,7 +250,7 @@ $(document).ready(function () {
             $("#nextBtn").attr('disabled', true);
             MobileNoError = 1;
         }
-        else if (MobileNo.length > 10 || MobileNo.length < 10) {
+        else if (MobileNo.length > 11 || MobileNo.length < 11) {
 
             $("#MobileNoError").text("Invalid Mobile Number");
             $("#nextBtn").attr('disabled', true);
