@@ -68,4 +68,4 @@ require_once __DIR__.'/router.php';
 // For GET or POST
 // The 404.php which is inside the auth folder will be called
 // The 404.php has access to $_GET and $_POST
-any('/404','auth/404.php');
+// any('/404','auth/404.php');
