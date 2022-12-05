@@ -1,3 +1,13 @@
+<?php
+
+// require_once __DIR__.'/router.php';
+
+// get('/', 'index.php');
+// get('/home', 'index.php');
+
+
+// any('/404','auth/404.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,10 +17,6 @@
       name="FundMeNaija"
       content="FundMeNaija website"
     />
-      <!-- Favicons -->
-      <link href="./assets/img/favicon-32x32.png" rel="icon">
-    <link href="./assets/img/apple-icon-180x180.png" rel="apple-touch-icon">
-
     <title>FundMeNaija | Home</title>
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
@@ -18,39 +24,37 @@
 
      <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
     <!-- Main css -->
     <link href="./asserts/css/styles.css" type="text/css" rel="stylesheet">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <header>
+    <header class='shadow-sm' style="background: backgroundColor">
+
         <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
-            <!---------------------- Logo ---------------------->
-            <a href='./index.php' class="logo-container nav-link d-flex align-items-center">
-                <div class='logo-img'>
-                    <img src="./assets/img/Logo3.png" alt="Logo" class="img-fluid">
+            <div class="d-flex align-items-center">
+                <div style="width: 60px; height: 60px; position: relative;">
+                    <img src="./assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
                 </div>
-                <div class="logo h6 text-white">FUNDMENAIJA</div>
-            </a>
-            <!-- ------------- Desktop screen menu  ------------- -->
+                <div class="h4 text-white">Fundmenaija</div>
+            </div>
             <ul class="list-unstyled desktop">
                 <div class="d-flex align-items-center">
                     <li>
-                        <a href='auth/about.php' class='nav-link mx-lg-2 py-2 px-3' id='nav-link'>About</a>
+                        <a href='./auth/about.php' class='nav-link mx-lg-2 py-2 px-3' id='nav-link'>About</a>
                     </li>
                     <li>
-                        <a href='auth/contact.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
+                        <a href='./auth/contact.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
                     </li>
                     <li>
-                        <a href='auth/donate.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
+                        <a href='./auth/donate.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
                     </li>
                     <li>
-                        <a href='user/login.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
+                        <a href='./user/login.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
                     </li>
                     <li>
                         <button>
-                            <a href="user/createAccount.php"
+                            <a href="./user/createAccount.php"
                                 class="nav-link font-weight-bold text-white px-4">Sign up
                             </a>
                         </button>
@@ -58,56 +62,72 @@
                 </div>
             </ul>
 
-            <!-- ------------- Mobile screen menu  ------------- -->
+            <!-- {/************* Mobile screen menu  *************/} -->
             <ul class="mobile">
                 <div class="d-flex font-weight-bold border-top">
                     <li>
-                        <a href='./index.php' class='nav-link my-3 text-white'>Home</a>
+                        <Link href='./auth/about.php'
+                            class='nav-link my-3 text-white'>About
+                        </Link>
                     </li>
                     <li>
-                        <a href='auth/about.php' class='nav-link my-3 text-white'>About</a>
+                        <Link href='./auth/contact.php'
+                            class='nav-link my-3 text-white'>Contact
+                        </Link>
                     </li>
                     <li>
-                        <a href='auth/contact.php' class='nav-link my-3 text-white'>Contact</a>
+                        <Link href='./auth/donate.php'
+                            class='nav-link my-3 text-white'>Donate
+                        </Link>
                     </li>
                     <li>
-                        <a href='auth/donate.php' class='nav-link my-3 text-white'>Donate</a>
+                        <Link href='./user/login.php'
+                            class='nav-link my-3 text-white'>Log in
+                        </Link>
                     </li>
                     <li>
-                        <a href='./user/login.php' class='nav-link my-3 text-white'>Sign in </a>
-                    </li>
-                    <li>
-                        <a href='./user/createAccount.php' class='nav-link my-3 text-white'>Sign up </a>
+                        <Link href='./user/createAccount.php'
+                            class='nav-link my-3 text-white'>Sign up
+                        </Link>
                     </li>
                 </div>
             </ul>
 
-            <!-- ----------------- Hamburger menu ----------------- -->
-            <div class='hambuger' onClick="hamburger()">
-                <i class='menuIcon fa fa-bars text-white fa-2x'></i>
+            <!-- {/**************** Hamburger menu ****************/} -->
+            <div class='hambuger' onclick="() => hamburger()">
+                <!-- { switchMenuIcon !== 'true' 
+                    ? 
+                    <i class={changeLinkColor !== 'true' ? 
+                        'fa fa-bars text-white fa-2x' : 
+                        'fa fa-bars text-dark fa-2x'}>
+                    </i>
+                    :
+                    <i class={changeLinkColor !== 'true' ? 
+                        'fa fa-times text-white fa-2x' : 
+                        'fa fa-times text-dark fa-2x'}>
+                    </i>
+                } -->
             </div>
         </div>
     </header>
-
-    <!-------------------- Banner  f3613c -------------------->
+    <!-- Banner  f3613c -->
     <section class='Banner py-5'>
-        <div class="container py-5 px-lg-5 my-4 px-3">
-            <main class='col-md-12 text-center'>  
+        <div class="container py-5 px-lg-5 my-4">
+            <main class='col-md-12 text-center mx-auto1'>  
                 <h1 class='display-3' style="color: #fff; opacity: 1; font-weight: 700"><span style="color: #f3613c">FUND AND </span> GET FUNDED</h1>
-                <p class='text-white'>Fund and raise funds from people globally to support your projects, bills, daily needs and other things from FundMeNaija today</p>
+                <p class='text-white text-capitalize1'>Fund and raise funds from people globally to support your projects, bills, daily needs and other things from FundMeNaija today</p>
 
                 <button class="btn font-weight-bold text-white my-3 py-3 px-5">Get started</button>
             </main>
         </div>
     </section>
-
-    <!--------------------- Section one --------------------->
-    <section class='pt-3 pb-5'>
-      <div class="container d-flex py-5 px-lg-3 px-4">
+    <!-- Section one -->
+    <section>
+      <div class="container d-flex py-5 px-3">
         <div class="col-md-5 px-lg-5 d-lg-block d-none">
           <div style="width: 100%; height: 60vh; position: relative">
             <picture>
-              <img src="./asserts/img/Donate_img.jpeg" class='img-fluid' style="position: absolute; width: 100%; height: 100%; border-radius: 10px">
+              <img src="../asserts/img/Donate_img.jpeg" class='img-fluid' style="position: absolute; width: 100%; height: 100%; border-radius: 10px">
             </picture>
             <div class='layer'></div>
           </div>
@@ -116,20 +136,19 @@
         <div class="col-md-6">
           <h1 class="display-4" style="color: #15242b">Raising money have never been easy.</h1>
           <p class='my-lg-5'>We provide you with opportunity to dream and see it come to pass by helping you get the needed funding on any project, plans or other basic needs.</p>
-            <button class="btn font-weight-bold text-white py-3 px-5 mt-lg-0 mt-3">Get started</button>
+          <button class="btn font-weight-bold text-white py-3 px-5">Get started</button>
         </div>
       </div>
     </section>
-
-    <!----------------------- Section Two ----------------------->
-    <div class="title text-center mb-lg-5 px-4" >
+    <!-- Content Two -->
+    <div class="title text-center mb-5" >
         <h1 class="mx-3 display-6" >Who is eligible ?</h1>
         <p class='text-center'>Check who is eligible to raise or donate fund.</p>
     </div>
-    <section class="contentTwo d-flex justify-content-center py-4 mt-5">
+    <section class="contentTwo Banner1 d-flex justify-content-center py-4">
         <div class="container px-lg-5">
             <div class="card-container">
-                <span class='hidden shadow-lg my-2' style="transition: 0.3s !important">
+                <span class='hidden shadow-lg' style="transition: 0.3s !important">
                     <div class="main-card d-lg-flex shadow-sm">
                         <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
                             <h4 class='text-uppercase'>Individuals</h4>
@@ -137,7 +156,7 @@
                         </div>
                     </div>
                 </span>
-                <span class='hidden shadow-lg my-2' style="transition: 0.4s !important">
+                <span class='hidden shadow-lg' style="transition: 0.5s !important">
                     <div class="main-card d-lg-flex shadow-sm">
                         <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
                             <h4 class='text-uppercase'>Churches</h4>
@@ -145,7 +164,7 @@
                         </div>
                     </div>
                 </span>
-                <span class='hidden shadow-lg my-2' style="transition: 0.5s !important">
+                <span class='hidden shadow-lg' style="transition: 0.7s !important">
                     <div class="main-card d-lg-flex shadow-sm">
                         <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
                             <h4 class='text-uppercase'>Schools</h4>
@@ -153,7 +172,7 @@
                         </div>
                     </div>
                 </span>
-                <span class='hidden shadow-lg my-2' style="transition: 0.6s !important">
+                <span class='hidden shadow-lg' style="transition: 0.9s !important">
                     <div class="main-card d-lg-flex shadow-sm">
                         <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
                             <h4 class='text-uppercase'>Small scale business</h4>
@@ -161,60 +180,56 @@
                         </div>
                     </div>
                 </span>
-                <span class='hidden shadow-lg my-2' style="transition: 0.7s !important">
+                <span class='hidden shadow-lg' style="transition: 0.95s !important">
                     <div class="main-card d-lg-flex shadow-sm">
                         <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
                             <h4 class='text-uppercase'>Hospitals</h4>
                             <p class='text-capitalize'>For medical donations like blood, body organ donors and volunteers.</p>
                         </div>
                     </div>
-                    
-                </div>
+                </span>
             </div>
         </div>
     </section>
 
-    <!--------------------- Section three --------------------->
     <section>
         <div class="container">
             <div class="row align-items-baseline">
                 <section class="col-md-6 align-items-center p-0" style="background: #f3f7f8" >
-                    <div class="px-lg-5 px-4 py-1 mb-1" style="transition: 0.5s">
+                    <div class="show px-lg-5 px-4 py-1 mb-1" style="transition: 0.5s">
                         <div class="my-5 hidden" style="transition: 0.3s !important">
                             <div class="d-flex align-items-center">
                                 <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">01</div>
-                                    <h4 class="mx-3">About Fundmenaija</h4>
+                                    <h4 class="mx-3">About FundMeNaija</h4>
                                 </div>
-                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.</p>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">FundMeNaija is global community designed to provide solutions on funding for everyone with a genuine need globally.</p>
                         </div>    
                     </div>
-                    <div class="px-lg-5 px-4" style="transition: 0.4s">
-                        <div class="mb-5 hidden" style="transition: 0.5s !important">
+                    <div class="show px-lg-5 px-4 py-4" style="transition: 0.7s">
+                        <div class="my-5 hidden" style="transition: 0.5s !important">
                             <div class="d-flex align-items-center">
                                 <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">02</div>
-                                    <h4 class="mx-3">Why you should Choose Fundmenaija</h4>
+                                    <h4 class="mx-3">Why you should Choose FundMeNaija</h4>
                                 </div>
-                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency</p>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">FundMeNaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency</p>
                         </div>
                     </div>
                 </section>
 
-                <section class="col-md-6 px-3" style="transition: 0.5s">
-                    <div class="px-lg-5 px-1" style="transition: 0.7s">
-                        <div class="my-3 hidden" style="transition: 0.7s !important">
+                <section class="show col-md-6 px-lg-5 px-4" id='item1' style="transition: 0.9s">
+                    <div class="show px-lg-5 px-4 py-4" style="transition: 0.7s">
+                        <div class="my-5 hidden" style="transition: 0.7s !important">
                             <div class="d-flex align-items-center">
                                 <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">03</div>
-                                <h4 class="mx-3">How Fundmenaija works</h4>
-                            </div>
-                            <p style="color: #777; margin-top: 0.5em; line-height: 30px">Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.</p>
+                                    <h4 class="mx-3">How FundMeNaija works</h4>
+                                </div>
+                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Everyone is welcomed to FundMeNaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.</p>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
     </section>
-
-    <!--------------------- Section four --------------------->
     <section class="Content-four">
       <div class="container p-lg-5 p-3">
         <h1 class="display-6 font-weight-bold my-4 text-white">How to get started</h1>
@@ -235,55 +250,35 @@
        </div>
     </section>
     
-    <!---------------------- Footer template ---------------------->
-    <footer  style="background: #1e1e26; display: flex; justify-content: center">
-        <div class="container p-4 d-lg-flex justify-content-between text-white">
-            <span class='my-5'>
-                <div class="d-flex align-items-center">
-                    <div style="width: 70px; height: 50px; position: relative;">
-                        <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
-                    </div>
-                    <div class="logo h6 text-white">FUNDMENAIJA</div>
-                </div>
-                <div class="d-flex social-icons m-4">
-                    <a href='#' class='nav-link text-white'>
+    <!-- Footer -->
+        <footer  style="background: #1e1e26; display: flex; justify-content: center">
+            <div class="container p-4 d-lg-flex justify-content-between text-white">
+                <span class='my-5'>
+                    <div class="h3" style="color: #f3613c">Fund</div>
+                    <div class="social-icons">
                         <i class='fab fa-facebook fa-1x'></i>
-                    </a>
-                    <a href='#' class='nav-link text-white'>
                         <i class='fab fa-instagram fa-1x mx-4'></i>
-                    </a>
-                    <a href='#' class='nav-link text-white'>
                         <i class='fab fa-twitter fa-1x'></i>
-                    </a>
-                </div>
-            </span>
-            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
-                <li class='my-2'>
-                    <a href='./index.php' class='nav-link text-white'>Home</a>
-                </li>
-                <li class='my-2'>
-                    <a href='auth/about.php' class='nav-link text-white'>About</a>
-                </li>
-                <li class='my-2'>
-                    <a href='auth/contact.php' class='nav-link text-white'>Contact</a>
-                </li>
-                <li class='my-2'>
-                    <a href='auth/donate.php' class='nav-link text-white'>Donate</a>
-                </li>
-            </ul>
-    
-            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
-                <li><a href='#' class='nav-link text-white'>Privacy policy</a></li>
-                <li><a href='#' class='nav-link text-white'>Help</a></li>
-            </ul>
-        </div>
-    </footer>
+                    </div>
+                </span>
+                <ul class="list-unstyled my-5">
+                    <li class='my-2'>Home</li>
+                    <li class='my-2'>Contact</li>
+                    <li class='my-2'>Transfer fund</li>
+                </ul>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-    <div id="preloader"></div>
+                <ul class="list-unstyled my-5">
+                    <li>Privacy policy</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </footer>
 
-    <script src='./authjs/index.js'></script>
-    <script src="./assets/js/main.js"></script>
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        <div id="preloader"></div>
+
+        <script src='./authjs/index.js'></script>
+        <script src="./assets/js/main.js"></script>
     
   </body>
 </html>

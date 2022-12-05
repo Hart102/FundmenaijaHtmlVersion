@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2022 at 04:23 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Generation Time: Dec 02, 2022 at 11:02 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test`
+-- Database: `fundmenaija`
 --
 
 -- --------------------------------------------------------
@@ -36,6 +36,13 @@ CREATE TABLE `accounts` (
   `AccountType` text NOT NULL,
   `State` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`id`, `AccountNo`, `Balance`, `SavingBalance`, `SavingTarget`, `AccountType`, `State`) VALUES
+(1, '120222215049', '0.0', '0.0', '', 'Savings', 0);
 
 -- --------------------------------------------------------
 
@@ -77,11 +84,18 @@ CREATE TABLE `customer_detail` (
   `C_Pincode` varchar(6) NOT NULL,
   `C_Adhar_Doc` varchar(500) NOT NULL,
   `C_Pan_Doc` varchar(500) NOT NULL,
-  `Create_Date` date NOT NULL DEFAULT CURRENT_TIME(),
+  `Create_Date` date NOT NULL DEFAULT current_timestamp(),
   `ProfileColor` varchar(100) NOT NULL,
   `ProfileImage` varchar(400) NOT NULL,
   `Bio` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer_detail`
+--
+
+INSERT INTO `customer_detail` (`C_No`, `Account_No`, `C_First_Name`, `C_Last_Name`, `Gender`, `C_Father_Name`, `C_Mother_Name`, `C_Birth_Date`, `C_Adhar_No`, `C_Pan_No`, `C_Mobile_No`, `C_Email`, `C_Pincode`, `C_Adhar_Doc`, `C_Pan_Doc`, `Create_Date`, `ProfileColor`, `ProfileImage`, `Bio`) VALUES
+(1, '120222215049', 'cybergate', 'abel', 'Not Availabel', 'chinedu', 'charity', '2000-02-17', '12121212121', '', '0703775772', 'abelchinedu2@gmail.com', '', 'customer_data/SSN_doc/1(1)1222022215049.jpg', 'customer_data/Pan_doc/1(1)1222022215049.jpg', '2022-12-02', '#3b25cf', '', '');
 
 -- --------------------------------------------------------
 
@@ -98,6 +112,14 @@ CREATE TABLE `login` (
   `State` int(11) NOT NULL,
   `AuthKey` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`ID`, `AccountNo`, `Username`, `Password`, `Status`, `State`, `AuthKey`) VALUES
+(2, '120222215049', 'cybergate', '298df202fee378a015e518ab7ff37e26', 'Inactive', 0, '0'),
+(1, '1234567890', 'Admin', '298df202fee378a015e518ab7ff37e26', 'Super', 1, '982369');
 
 -- --------------------------------------------------------
 
@@ -171,7 +193,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cards`
@@ -183,13 +205,13 @@ ALTER TABLE `cards`
 -- AUTO_INCREMENT for table `customer_detail`
 --
 ALTER TABLE `customer_detail`
-  MODIFY `C_No` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `C_No` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transaction`
