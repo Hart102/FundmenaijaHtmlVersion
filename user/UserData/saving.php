@@ -103,7 +103,7 @@ $AccountNo = $_SESSION['AccountNo'];
         <div class="row">
             <div class="col-md-12 mt-4">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Saving</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Fund Savings</h1>
                     <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>
                         Generate Report</a> -->
                 </div>
@@ -113,7 +113,7 @@ $AccountNo = $_SESSION['AccountNo'];
                         <!-- Add Money Class -->
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title mb-4 ">Add Money for Saving</h5>
+                                <h5 class="card-title mb-4 ">Add Money To Your Savings</h5>
                                 <h1 id="CreditDisplay" class="display-5 mt-1 mb-3 text-success"></h1>
 
                                 <div class="d-flex justify-content-center">
@@ -130,11 +130,11 @@ $AccountNo = $_SESSION['AccountNo'];
                     <div class="col-sm-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title mb-4 ">Total Saving Balance</h5>
+                                <h5 class="card-title mb-4 ">Total Funding Balance</h5>
                                 <h1 id="SavingDisplay" class="display-5 mt-1 mb-3 text-success"></h1>
                                 <div class="mb-1">
                                     <span id="CreditLastM" class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i></span>
-                                    <span class="text-muted">Your Total Saving Balance</span>
+                                    <span class="text-muted">Your Total Funding Balance</span>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +159,7 @@ $AccountNo = $_SESSION['AccountNo'];
                     <div class="col-sm-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title mb-4 ">Set Saving Amount</h5>
+                                <h5 class="card-title mb-4 ">Set Fund Amount</h5>
                                 <h1 class="display-5 mt-1 mb-3 text-success"></h1>
 
 

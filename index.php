@@ -241,7 +241,7 @@
             <span class='my-5'>
                 <div class="d-flex align-items-center">
                     <div style="width: 70px; height: 50px; position: relative;">
-                        <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
+                        <img src="./assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
                     </div>
                     <div class="logo h6 text-white">FUNDMENAIJA</div>
                 </div>

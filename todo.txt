@@ -1,0 +1,5 @@
+# add meta-tags for keywords and description
+# PHPMailer not working
+# session login / logout (ie when logged in, link should say log out)
+# search box | filter boxes
+#  

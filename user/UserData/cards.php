@@ -17,7 +17,7 @@ $AccountNo = $_SESSION['AccountNo'];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Cards</title>
+    <title>FundMeNaija | Fund Raise</title>
 
     <!-- Favicons -->
     <link href="../../assets/img/favicon-32x32.png" rel="icon">
@@ -53,7 +53,7 @@ $AccountNo = $_SESSION['AccountNo'];
         <div class="row">
             <div class="col-md-12 mt-4">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Cards</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Fund Raise</h1>
                     <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>
                         Generate Report</a> -->
                 </div>
@@ -92,7 +92,7 @@ $AccountNo = $_SESSION['AccountNo'];
                             <div class="card-body">
                                 <h1 class="text-center mb-4 text-success">Your Application Sent Successfully</h1>
                                 <p class="card-text pl-2 pr-2">Dear sir/madam, </p>
-                                <p class="card-text pl-2 pr-2"> &emsp; You Have Successfully send your debit card Application to the bank, Your virtual debit card verificaton in progress. The Debit Card Availabel within two to three days. </p>
+                                <p class="card-text pl-2 pr-2"> &emsp; You Have Successfully send your request Application, Your request verificaton is in progress. This Process usually take less than 24hours. <a hraf="mailto: contact@fundmenaija.com">Contact Us</a>, if you experience any difficulties. </p>
                                 <p class="card-text pl-2 pr-2">Thank You, </p>
                                 <p class="card-text mb-4 pl-2 pr-2"><?php echo APP_NAME ?></p>
 
@@ -118,7 +118,7 @@ $AccountNo = $_SESSION['AccountNo'];
                             <!-- Debit Card Body -->
 
                             <div class="card-body">
-                                <h1 class="text-center">Your Debit Card</h1>
+                                <h1 class="text-center">Your Request</h1>
 
                                 <div class="flip-card">
                                     <div class="flip-card-inner">
@@ -128,21 +128,20 @@ $AccountNo = $_SESSION['AccountNo'];
                                                     <div class="card dcard-back">
                                                         <div class="card-body">
                                                             <div class="d-flex justify-content-between">
-                                                                <h5 class="text-light"><?php echo APP_NAME ?></h5>
-                                                                <h5 class="text-light visa">Visa</h5>
+                <h5 class="text-light"><?php echo APP_NAME ?></h5>
+                <h5 class="text-light visa">#100,000</h5>
                                                             </div>
 
-                                                            <div class="mt-2 mb-2  d-flex justify-content-start">
-                                                                <img src="../UserData/assets/img/gold-card-chip.png" alt="">
-                                                            </div>
-
+                    <div class="mt-2 mb-2  d-flex justify-content-start">
+                        <img src="../UserData/assets/img/gold-card-chip.png" alt="">
+                    </div>
                                                             <div class=" d-flex justify-content-start">
-                                                                <h5 hidden id="DebitcardNo" class="text-light"><?php echo $DebitCardNo ?></h5>
-                                                                <h4 id="NewDebitNo" class="text-light" style="font-family: 'Courier New', Courier, monospace;"></h4>
-                                                            </div>
+<h5 hidden id="DebitcardNo" class="text-light"><?php echo $DebitCardNo ?></h5>
+                <h4 id="NewDebitNo" class="text-light" style="font-family: 'Courier New', Courier, monospace;"></h4>
+        </div>
 
-                                                            <div class="d-flex justify-content-between mt-3">
-                                                                <h6 class="text-light" style="font-family: 'Courier New', Courier, monospace;"><?php echo $Name ?></h6>
+            <div class="d-flex justify-content-between mt-3">
+ <h6 class="text-light" style="font-family: 'Courier New', Courier, monospace;"><?php echo $Name ?></h6>
                                                                 <h6 class="text-light" style="font-family: 'Courier New', Courier, monospace;">Exp <?php echo $ExpiryDate ?></h6>
 
                                                             </div>
@@ -162,7 +161,7 @@ $AccountNo = $_SESSION['AccountNo'];
                                                     <div class="card-body" style="padding: 0px;">
 
                                                         <div style="padding-top: 10px;">
-                                                            <p class="text-light dback-tittle">for customer service call +91 1940 88 7655</p>
+                                                            <p class="text-light dback-tittle">for customer service email contact@fundmenaija.com</p>
                                                         </div>
 
                                                         <div class="strip">
@@ -173,7 +172,7 @@ $AccountNo = $_SESSION['AccountNo'];
 <p style="text-align: end; color:black; padding:4px"><?php echo $cvv ?></p>
                                                             </div>
 
-<p class="description">This card issued by <?php echo APP_NAME ?> Bank pursuant to a license from Visa, United States Of America, Inc. Use of this card is subject to the agreement, as amended, This card is the property of the issuer and must be returned upon request and may be revoked without notice.</p>
+<p class="description">This Fund from <?php echo APP_NAME ?> organisation pursuant inline with a license from Ministry of Finance. Use of this fund is subject to the agreement, as amended, The Fund being raised belongs to the issuer and can be stop or may be revoked without notice if any fraudulent activity is suspected.</p>
 
                                                         </div>
 
@@ -201,14 +200,14 @@ $AccountNo = $_SESSION['AccountNo'];
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
-                                <h1 class="text-center mb-4 ">Your Debit Card Details</h1>
+                                <h1 class="text-center mb-4 ">Your Fund Raising Details</h1>
 
                                 <div class="d-flex justify-content-between">
                                     <div>
                                         <p>Account Number</p>
-                                        <p>Debit Card Number</p>
+                                        <p>Support Ticket</p>
                                         <p>Name</p>
-                                        <p>CVV Number</p>
+                                        <p>Amount</p>
                                         <p>Issued Date</p>
                                         <p>Expiry Date</p>
                                         <p>Card Status</p>
@@ -246,7 +245,7 @@ $AccountNo = $_SESSION['AccountNo'];
 
             <?php
             } elseif ($Status == "Inactive") { ?>
-                <h5 class="text-danger text-center text-size-10">Your Debit Card is Deactivated Please Call Bank To activate</h5>
+                <h5 class="text-danger text-center text-size-10">Your Request is Deactivated Please contact  To activate</h5>
             <?php }
         } else { ?>
             <div class="row mt-2 d-flex justify-content-center">
@@ -260,8 +259,10 @@ $AccountNo = $_SESSION['AccountNo'];
                             </div>
                         </div>
                         <div class="card-body">
-                            <h1 class="text-center mb-4">Apply for Virtual Debit Card</h1>
-                            <p class="card-text mb-4 p-2">State Bank Virtual card, also known as Electronic Card or e-Card, is a limit Debit Card created for ecommerce transactions. It provides an easy and secure way of transacting online without providing the Primary Card/ Account information to the merchant.Virtual Cards can be used at any merchant location accepting MasterCards or Visa Cards online, without any difference from a regular plastic card</p>
+                            <h1 class="text-center mb-4">Apply for Fund Raise</h1>
+                            <p class="card-text mb-4 p-2">
+                                <textarea style="width: 100%; padding: 20px" row="5" col="5" placeholder="What is your reason for raising...?"></textarea>
+                            </p>
 
                             <div class="d-flex justify-content-center">
                                 <button type="button" id="SendAppBtn" class="btn btn-outline-primary mb-2">Send Application</button>

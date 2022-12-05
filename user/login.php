@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 include 'connection.php';
 include "script.php";
 include "../config.php";
@@ -7,7 +7,7 @@ include "../config.php";
 // echo htmlspecialchars($_SERVER['PHP_SELF']);
 // return;
 if (isset($_SESSION['username'])) {
-    header("Location: /admin");
+    header("location: ../admin/dashboard.php");
 }else{
 
     if (isset($_POST['login'])) {
@@ -45,7 +45,6 @@ if (isset($_SESSION['username'])) {
                     if ($state == 0) {
                         if ($status == "Active") {
 
-                            session_start();
                             $_SESSION['username'] = $row['Username'];
                             $_SESSION['verifyCode'] = $row['Username'];
                             // $_SESSION['id'] = $row['ID'];

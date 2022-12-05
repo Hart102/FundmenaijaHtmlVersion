@@ -72,7 +72,7 @@
 
                 <li class="menuHover">
                     <a href="cards.php" id="Cards" class="nav-link text-left" role="button">
-                        <i class="flaticon-bar-chart-1"></i> <i class="bx bxs-credit-card ico"></i>Cards
+                        <i class="flaticon-bar-chart-1"></i> <i class="bx bxs-credit-card ico"></i>Fund Raise
                     </a>
                 </li>
 
