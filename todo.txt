@@ -2,4 +2,4 @@
 # PHPMailer not working
 # session login / logout (ie when logged in, link should say log out)
 # search box | filter boxes
-#  
+#  2F page not Responsive
