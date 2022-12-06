@@ -32,7 +32,7 @@
             <!---------------------- Logo ---------------------->
             <a href='./index.php' class="logo-container nav-link d-flex align-items-center">
                 <div class='logo-img'>
-                    <img src="./assets/img/Logo3.png" alt="Logo" class="img-fluid">
+                    <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid">
                 </div>
                 <div class="logo h6 text-white">FUNDMENAIJA</div>
             </a>
@@ -43,7 +43,7 @@
                         <a href='auth/about.php' class='nav-link mx-lg-2 py-2 px-3' id='nav-link'>About</a>
                     </li>
                     <li>
-                        <a href='auth/contact.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
+                        <a href='auth/contact2.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
                     </li>
                     <li>
                         <a href='auth/donate.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
@@ -244,7 +244,7 @@
             <span class='my-5'>
                 <div class="d-flex align-items-center">
                     <div style="width: 70px; height: 50px; position: relative;">
-                        <img src="./assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
+                        <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
                     </div>
                     <div class="logo h6 text-white">FUNDMENAIJA</div>
                 </div>

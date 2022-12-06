@@ -17,7 +17,7 @@
 
 body{
     background-color: var(--primary-white);
-    color: var(--primary-blue);
+    /* color: var(--primary-blue); */
     line-height: 1.6;
     font-family: Arial, Helvetica, sans-serif;
     padding: 1em;
@@ -28,7 +28,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
-    margin-top: 50px;
+    padding-top: 6em;
 }
 
 ul{
@@ -51,9 +51,9 @@ ul{
 .wrapper > *{
     padding: 1em;
 }
-.company-info{
+/* .company-info{
     background: var(--primary-h2-color);
-}
+} */
 
 .company-info h3, .company-info ul{
     text-align: center;
@@ -61,7 +61,7 @@ ul{
 }
 
 .contact{
-    background: var(--primary-blue);
+    /* background: var(--primary-blue); */
     color: var(--background);
 }
 
@@ -89,8 +89,8 @@ ul{
     padding: 1em;
     border: 1px solid #c9e6ff;
     border-radius: 10px;
-    background-color: var(--primary-h2-color);
-    color: var(--primary-white);
+    /* background-color: var(--primary-h2-color); */
+    /* color: var(--primary-white); */
 }
 
 .contact form button{

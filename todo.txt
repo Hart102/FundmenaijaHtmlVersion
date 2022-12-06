@@ -3,7 +3,7 @@
 #3 session login / logout (ie when logged in, link should say log out)
 #4 search box | filter boxes
 #5  2F Auth CSS is breaken
-#6 contact us page is broken
+#6 contact us page is broken //////////////// DONE
 #7 Ads boxes that I talked about
 #8 Ads of fundraisers wallet been shown to visitors
 #9 But the pictures of projects they are raising funds for
