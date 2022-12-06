@@ -325,108 +325,106 @@ $(document).ready(function () {
 
     });
     // ******************************************** Father Name Validation ********************************************
-    $("#FAname").blur(function () {
-        let FAname = $(this).val();
-        let Expression2 = /^[a-zA-Z\s]+$/;
-        if (FAname == "") {
-            $("#FAnameError").text("Please Enter your Father's Full Name");
-            $("#nextBtn").attr('disabled', true);
-            FAnameError = 1;
-        }
-        else {
-            $("#FAnameError").text("");
-            $("#nextBtn").prop('disabled', false);
-            FAnameError = 0;
-            if (!Expression2.test(FAname)) {
-                $("#FAnameError").text("Name doesn't contain Numbers or Symbols");
-                $("#nextBtn").attr('disabled', true);
-                FAnameError = 1;
-            }
-            else {
-                $("#FAnameError").text("");
-                $("#nextBtn").prop('disabled', false);
-                FAnameError = 0;
+    // $("#FAname").blur(function () {
+    //     let FAname = $(this).val();
+    //     let Expression2 = /^[a-zA-Z\s]+$/;
+    //     if (FAname == "") {
+    //         $("#FAnameError").text("Please Enter your Father's Full Name");
+    //         $("#nextBtn").attr('disabled', true);
+    //         FAnameError = 1;
+    //     }
+    //     else {
+    //         $("#FAnameError").text("");
+    //         $("#nextBtn").prop('disabled', false);
+    //         FAnameError = 0;
+    //         if (!Expression2.test(FAname)) {
+    //             $("#FAnameError").text("Name doesn't contain Numbers or Symbols");
+    //             $("#nextBtn").attr('disabled', true);
+    //             FAnameError = 1;
+    //         }
+    //         else {
+    //             $("#FAnameError").text("");
+    //             $("#nextBtn").prop('disabled', false);
+    //             FAnameError = 0;
 
-            }
+    //         }
 
-        }
+    //     }
 
-    });
+    // });
 
     // ***************************************** Mother Name Validation *********************************************
-    $("#MAname").blur(function () {
-        let MAname = $(this).val();
-        let Expression3 = /^[a-zA-Z\s]+$/;
-        if (MAname == "") {
-            $("#MAnameError").text("Please Enter your Mother's Full Name");
-            $("#nextBtn").attr('disabled', true);
-            MAnameError = 1;
-        }
-        else {
-            $("#MAnameError").text("");
-            $("#nextBtn").prop('disabled', false);
-            MAnameError = 0;
-            if (!Expression3.test(MAname)) {
-                $("#MAnameError").text("Name doesn't contain Numbers or Symbols");
-                $("#nextBtn").attr('disabled', true);
-                MAnameError = 1;
-            }
-            else {
-                $("#MAnameError").text("");
-                $("#nextBtn").prop('disabled', false);
-                MAnameError = 0;
+    // $("#MAname").blur(function () {
+    //     let MAname = $(this).val();
+    //     let Expression3 = /^[a-zA-Z\s]+$/;
+    //     if (MAname == "") {
+    //         $("#MAnameError").text("Please Enter your Mother's Full Name");
+    //         $("#nextBtn").attr('disabled', true);
+    //         MAnameError = 1;
+    //     }
+    //     else {
+    //         $("#MAnameError").text("");
+    //         $("#nextBtn").prop('disabled', false);
+    //         MAnameError = 0;
+    //         if (!Expression3.test(MAname)) {
+    //             $("#MAnameError").text("Name doesn't contain Numbers or Symbols");
+    //             $("#nextBtn").attr('disabled', true);
+    //             MAnameError = 1;
+    //         }
+    //         else {
+    //             $("#MAnameError").text("");
+    //             $("#nextBtn").prop('disabled', false);
+    //             MAnameError = 0;
 
-            }
+    //         }
 
-        }
+    //     }
 
-    });
+    // });
 
 
     // ****************************************************** Document Validation *************************************
 
-    $("#PANCardUp").change(function () {
+    // $("#PANCardUp").change(function () {
 
-        // Taking Pancard file size in varible
-        let PanSize = $(this)[0].files[0].size;
-        console.log(PanSize);
+    //     // Taking Pancard file size in varible
+    //     let PanSize = $(this)[0].files[0].size;
+    //     console.log(PanSize);
 
-        // Storing Pan card file name string in varible
-        let PanfileStr = $(this).val();
+    //     // Storing Pan card file name string in varible
+    //     let PanfileStr = $(this).val();
 
-        // divideing filename and extention in two parts i.e name and extention 
-        let test = PanfileStr.match(/(.+)\.(.+)/);
+    //     // divideing filename and extention in two parts i.e name and extention 
+    //     let test = PanfileStr.match(/(.+)\.(.+)/);
 
-        // Storing file name
-        let Panfilename = test[1];
+    //     // Storing file name
+    //     let Panfilename = test[1];
 
-        // Storing Extention 
-        let PanfileExtention = test[2];
-        console.log(PanfileExtention)
-        // Validating file Size
-        if (PanSize <= 2000000) {
-            if (PanfileExtention == 'jpg' || PanfileExtention == 'png' || PanfileExtention == 'jpeg') {
-                $("#PanUPError").text("");
-                $("#nextBtn").prop('disabled', false);
-                console.log("Sucess");
-            }
-            else {
-                $("#PanUPError").text("Invalid File Extention");
-                $("#nextBtn").prop('disabled', true);
-                console.log("fail");
-                PanUPError = 1;
-            }
-        }
-        else {
-            $("#PanUPError").text("File Size is large, upload size maximum 2 MB");
-            $("#nextBtn").prop('disabled', true);
-            console.log("fail size");
-            PanUPError = 1;
-        }
+    //     // Storing Extention 
+    //     let PanfileExtention = test[2];
+    //     console.log(PanfileExtention)
+    //     // Validating file Size
+    //     if (PanSize <= 2000000) {
+    //         if (PanfileExtention == 'jpg' || PanfileExtention == 'png' || PanfileExtention == 'jpeg') {
+    //             $("#PanUPError").text("");
+    //             $("#nextBtn").prop('disabled', false);
+    //             console.log("Sucess");
+    //         }
+    //         else {
+    //             $("#PanUPError").text("Invalid File Extention");
+    //             $("#nextBtn").prop('disabled', true);
+    //             console.log("fail");
+    //             PanUPError = 1;
+    //         }
+    //     }
+    //     else {
+    //         $("#PanUPError").text("File Size is large, upload size maximum 2 MB");
+    //         $("#nextBtn").prop('disabled', true);
+    //         console.log("fail size");
+    //         PanUPError = 1;
+    //     }
 
-
-
-    });
+    // });
 
 
     $("#AdharCardUp").change(function () {

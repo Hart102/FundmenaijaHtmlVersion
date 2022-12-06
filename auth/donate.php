@@ -1,5 +1,6 @@
 <?php
-    // Fetch contect from DB
+    include_once('../config.php');
+    // Fetch content from DB
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +36,7 @@
         <header class='shadow-sm'>
             <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
                 <!--------------------- Logo --------------------->
-                <a href='./index.php' class="logo-container nav-link d-flex align-items-center">
+                <a href='../index.php' class="logo-container nav-link d-flex align-items-center">
                     <div style="width: 70px; height: 50px; position: relative;">
                         <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
                     </div>
@@ -180,7 +181,7 @@
                     <a href='#' class='nav-link text-white'>
                         <i class='fab fa-facebook fa-1x'></i>
                     </a>
-                    <a href='#' class='nav-link text-white'>
+                    <a href='<?php echo INSTAGRAM; ?>' class='nav-link text-white'>
                         <i class='fab fa-instagram fa-1x mx-4'></i>
                     </a>
                     <a href='#' class='nav-link text-white'>

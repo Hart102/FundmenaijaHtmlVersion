@@ -1,3 +1,6 @@
+<?php
+    include_once('./config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,7 +130,7 @@
                     <a href='#' class='nav-link text-white'>
                         <i class='fab fa-facebook fa-1x'></i>
                     </a>
-                    <a href='#' class='nav-link text-white'>
+                    <a href='<?php echo INSTAGRAM; ?>' class='nav-link text-white'>
                         <i class='fab fa-instagram fa-1x mx-4'></i>
                     </a>
                     <a href='#' class='nav-link text-white'>

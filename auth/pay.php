@@ -1,4 +1,7 @@
 <?php
+    include_once('../config.php');
+
+
     if(isset($_POST['pay'])){
         echo "Payment processing...";
     }
@@ -31,7 +34,22 @@
     <link href="../asserts/css/styles.css" type="text/css" rel="stylesheet">
     <!-- <link href="../auth/asserts/css/donate.css" type="text/css" rel="stylesheet"> -->
     <!-- <link href="../auth/asserts/css/fundraiser.css" type="text/css" rel="stylesheet"> -->
+    <!-- Payment Gateway -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Cheetah-Speed-Technology/core-cdn@1.0.5/cdn.min.js"></script>
 
+    <style>
+        form{
+            border-radius: 10px;
+            color: white; 
+        }
+        #button{
+            min-width: 100%;
+            border-radius: 4px!important;
+        }
+        #button:hover{
+            border: 1px solid white!important;
+        }
+    </style>
   </head>
   <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -100,45 +118,111 @@
                     </header>
                 </div>
             </header>
-
-    <div class="container">
-        <?php echo "<h3 style='margin: 250px auto'><center>Your Payment is being processed. Redirecting...</center></h3>"; ?>
+    <!-- <div style="margin-top: 100px;"></div> -->
+    <div class="row mx-3">
+        <!-- <button id="button" style="padding: 10px 32px;">Proceed with Payment</button> -->
+        <div style="margin: 130px auto 20px" class="col-md-6">
+            <form class="form-group bg-dark p-3 border box-shadow">
+                    <h3>Complete Your Donation</h3>
+                    <label for="u_name" class="form-label">Name</label>
+                    <input type="text" id="u_name" class="form-control" placeholder="Donor's Full Name" title="Enter Your Full Names">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="text" id="amount" class="form-control" placeholder="Enter Amount" title="NOT LESS THAN 2000">
+                    <br>
+                    <input type="checkbox" name="robot" id="robot"> Not a Robot?
+                    <br>
+                    <br>
+                    <button id="button" type="button" class="btn btn-block btn-warning text-white font-weight-bold" onclick="runIframe()" style="padding: 10px 32px;">Proceed with Payment</button>
+                    <!-- <input id="button" type="button" class="btn btn-block btn-danger text-white font-weight-bold" onclick="runIframe()" style="padding: 10px 32px;" value="Proceed with Payment"> -->
+                </form>
+        </div>
     </div>
+    <!-- <div style="margin-bottom: 100px;"></div> -->
+
+    <div id="preloader"></div>
             
-            <!--------------- Footer template --------------->
-            <footer  style="background: #1e1e26; display: flex; justify-content: center">
-                <div class="container p-4 d-lg-flex justify-content-between text-white">
-                    <span class='my-5'>
-                        <div class="d-flex align-items-center">
-                            <div class='bg-danger1' style="width: 70px; height: 50px; position: relative;">
-                                <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
-                            </div>
-                            <div class="h6 text-white">FUNDMENAIJA</div>
-                        </div>
-                        <div class="social-icons m-4">
-                            <i class='fab fa-facebook fa-1x'></i>
-                            <i class='fab fa-instagram fa-1x mx-4'></i>
-                            <i class='fab fa-twitter fa-1x'></i>
-                        </div>
-                    </span>
-
-                    <ul class="list-unstyled my-5 mx-lg-0 mx-3">
-                        <li class='my-2'>Home</li>
-                        <li class='my-2'>Contact</li>
-                        <li class='my-2'>Transfer fund</li>
-                    </ul>
-                    <ul class="list-unstyled my-5 mx-lg-0 mx-3">
-                        <li>Privacy policy</li>
-                        <li>Help</li>
-                    </ul>
+    <!--------------- Footer template --------------->
+    <footer  style="background: #1e1e26; display: flex; justify-content: center">
+        <div class="container p-4 d-lg-flex justify-content-between text-white">
+            <span class='my-5'>
+                <div class="d-flex align-items-center">
+                    <div class='bg-danger1' style="width: 70px; height: 50px; position: relative;">
+                        <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
+                    </div>
+                    <div class="h6 text-white">FUNDMENAIJA</div>
                 </div>
-            </footer>
-            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-            <div id="preloader"></div>
+                <div class="social-icons m-4">
+                    <i class='fab fa-facebook fa-1x'></i>
+                    <i class='fab fa-instagram fa-1x mx-4'></i>
+                    <i class='fab fa-twitter fa-1x'></i>
+                </div>
+            </span>
 
-            <script src="../assets/js/main.js"></script>
-            <script src='../authjs/index.js'></script>
+            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
+                <li class='my-2'>Home</li>
+                <li class='my-2'>Contact</li>
+                <li class='my-2'>Transfer fund</li>
+            </ul>
+            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
+                <li>Privacy policy</li>
+                <li>Help</li>
+            </ul>
+        </div>
+    </footer>
+            
 
+    <script src="../assets/js/main.js"></script>
+    <script src='../authjs/index.js'></script>
+        <!-- Payment Gateway -->
+    <script>
+        function runIframe() {
+            OurpassCheckout.openIframe({
+                api_key: "<?php echo API_KEY_PRIVATE_KEY_OURPASS; ?>",
+                subAccountAuthKey: 'auth_live_fgegsdgsdgsdgdsgd',
+                reference: 'OURPASS_ORDER_73aeefff68430210ae3a8e88ccfe2erbf214171',
+                amount: 1000,
+                qty: 1,
+                name: 'Cap',
+                description: 'Great Pass Cap',
+                src: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
+                url: 'ourpass.co',
+                items: [
+                    {
+                        itemAmount: 500,
+                        itemName: 'Cap',
+                        itemWeight: 1,
+                        itemQuantity: 1,
+                        imageUrl: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
+                        itemDescription: 'Cap',
+                    },
+                    {
+                        itemAmount: 500,
+                        itemName: 'Free will',
+                        itemWeight: 1,
+                        itemQuantity: 1,
+                        imageUrl: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
+                        itemDescription: 'A',
+                        itemDescription: 'An ananimous donation to cybergate',
+                    },
+                ],
+                metadata: {
+                    name: 'MARIO GOTZE',
+                },
+                onSuccess: (res) => {
+                    alert('Payment is Successful');
+                },
+                onClose: () => {
+                    // Handle failed request either for try again with confirm
+                    const answer = confirm('Failed. Try Again?');
+                    if(answer){
+                        window.location.href = '#'
+                    }else{
+                        window.location.href = './donate.php'
+                    }
+                },
+            });
+            }
+    </script>
         </section>
     </body>
 </html>
