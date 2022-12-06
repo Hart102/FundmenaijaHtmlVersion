@@ -96,9 +96,9 @@
             <div class="company-info">
                 <h3 class="brand"><span>FundMeNaija</span> Contact Form</h3>
                 <ul>
-                    <li><i class="fas fa-address-book"></i>Lagos Nigeria</li>
-                    <li><i class="fas fa-phone"></i> +2347-000-000-000</li>
-                    <li><i class="fas fa-envelope"></i> contact@fundmenaija.com</li>
+                    <li><i class="fas fa-address-book my-3"></i>Lagos Nigeria</li>
+                    <li><i class="fas fa-phone my-3"></i> +2347-000-000-000</li>
+                    <li><i class="fas fa-envelope my-3"></i> contact@fundmenaija.com</li>
                 </ul>
             </div>
             <div class="contact">
