@@ -2,4 +2,45 @@
 # PHPMailer not working
 # session login / logout (ie when logged in, link should say log out)
 # search box | filter boxes
-#  2F page not Responsive
+#  2F Auth CSS is breaken
+# contact us page is broken
+# Ads boxes that I talked about
+# Ads of fundraisers wallet been shown to visitors
+# But the pictures of projects they are raising funds for
+# And every fundraiser must put pictures of their projects
+# Creating our own wallet as fundraiser that people will donate to when they come to create a fundraiser wallet
+# Remove loan from dashboard
+# The go to their dashboard and request then wait for 24 hours to get approval which we will authorize our accounts to send to the account they input
+# And every wallet should have donations and should be visible based on the key word
+# Yes every part of the site should have donations
+# Every donation gets a charges of 7.5%
+# Withdrawal by the fundraisers gets a charges of 8.5%
+# We will just see all fund value on the admin while the fund is in the account
+# Every wallet will show how much donations they have gotten
+# Every one should have account and also leave the option of donating just by putting your card and clicking donate on the wallet you are donating to
+# Every one can have account and donate while some can receive donations
+# So all a donor does is to click donate and input there card to donate
+# And there also donations from regular donors
+# Yes if Admin see the donations from a fundraiser we will approve
+# Social media link
+# Then it takes you to donate to prove you are not a robot and to approve your wallet
+# All government means that you have you chose one and upload
+# No payment Link yet
+# Sign in is this loading for 5-7mins video
+# From the contact page I clicked sign up then I get that
+# Sign in is loading for minutes now
+# The sign up just showed open and please remove 2nd, 3rd and 4th step. Just only add means of identification not just NiN please
+# About Page with repeat all over
+# This is what another system is showing me on sign up page
+# Please visit: https://nigeria.kawey-reku.com/
+------Good morning check this site and see if you can replicate it with everything it will be needing to function well as a crowd funding market place
+# Our Instagram
+# On the home page and also ad portions for more reach just for interested fundraisers to get noticed
+# And there should be top fundraisers,
+# And the donations are allowed to do recurrent, people can either do one time donations, weekly or monthly
+# So everyone one that comes on to create a fundraiser account must be made to donate to the available fundraisers before their account will be approved
+# Make it 2 steps but use the simple for items just any government ID card
+# So what payment systems will you be using you know it has 3phases the admin, the donors part and the fundraisers part which we approve
+# We will also do advert on site for more donation and reach for people who are ready to use it
+# https://www.instagram.com/invites/contact/?i=piedy677etuh&utm_content=66n7bqr
+# 
