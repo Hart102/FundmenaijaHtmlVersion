@@ -45,5 +45,6 @@
 ---#44 https://www.instagram.com/invites/contact/?i=piedy677etuh&utm_content=66n7bqr
 #45 Tesing API for card payment: https://docs.ourpass.co/quick-start-guide/test-cards
 NEW_ISSUES
-#  Read more/Read less button...controls all (SOL: foreach)
-#  Repeatation in About us page
+#46  Read more/Read less button...controls all (SOL: foreach)
+---#47  Repeatation in About us page
+#48  Username of the Fund Raiser is not showing on the payment API
