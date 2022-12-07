@@ -86,11 +86,11 @@
                     </a>
                 </li>
 
-                <!-- <li class="menuHover box-icon">
+                <li class="menuHover box-icon">
                     <a href="../../pages/loans.php" id="Loans" class="nav-link text-left" role="button">
                         <i class="flaticon-bar-chart-1"></i><i class="bx bxs-coin ico"></i> Loans
                     </a>
-                </li> -->
+                </li>
 
                 <!-- <li class="sidebar-header">
                         tools and component

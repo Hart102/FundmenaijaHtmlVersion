@@ -1,6 +1,24 @@
 <?php
     include_once('../config.php');
-    // Fetch content from DB
+    include_once('../inc/conn.php');
+
+    // $issue_id = htmlspecialchars(isset($_GET['issue_id'])); // make req to DB
+
+// Fetch All issues from DB
+    // fetching posts here
+    $query_issues = 'SELECT * FROM `_issues` ORDER BY "post_time" DESC';
+    $return_issues = mysqli_query($conn, $query_issues);
+    $posts = array();
+
+    if(mysqli_num_rows($return_issues) > 0){
+        while($row = mysqli_fetch_assoc($return_issues)){
+            $posts[] = $row;
+        }
+    }else{
+        $posts[] = array("error"=>"NO Issues Found");
+    }
+
+// fetch users image from `customer_details` add it to their DP
 
 ?>
 <!DOCTYPE html>
@@ -94,79 +112,83 @@
                 </div>
             </div>
         </header>
+    </section>
 
 
+    <!-- Section  -->
+    <div class="container py-3 px-lg-5">
+        <!----------- Search bar template  ----------->
+        <nav class='shadow bg-white d-flex justify-content-between align-items-center px-4 py-3' style="margin-top: 5em">
+            <form class='d-flex align-items-center'>
+                <input type="text" class="form-control py-1 px-3" 
+                style="border-top-right-radius: 0px, border-bottom-right-radius: 0px
+                " placeholder='Search'/>
 
-        <!-- Section  -->
-        <div class="container py-3 px-lg-5">
-            <!----------- Search bar template  ----------->
-            <nav class='shadow bg-white d-flex justify-content-between align-items-center px-4 py-3' style="margin-top: 5em">
-                <form class='d-flex align-items-center'>
-                    <input type="text" class="form-control py-1 px-3" 
-                    style="border-top-right-radius: 0px, border-bottom-right-radius: 0px
-                    " placeholder='Search'/>
-
-                    <i class="fa fa-search text-white p-2" 
-                        style="background: #63baba; border-top-right-radius: 5px; border-bottom-right-radius: 5px
-                    "></i>
-                </form> 
-                <b class='light-cyan-color hover'>Sort</b>
-            </nav>
+                <i class="fa fa-search text-white p-2" 
+                    style="background: #63baba; border-top-right-radius: 5px; border-bottom-right-radius: 5px
+                "></i>
+            </form> 
+            <b class='light-cyan-color hover'>Sort</b>
+        </nav>
 
 
-            <!----------- Fundraiser template --------- -->
+        <!----------- Fundraiser template --------- -->
+
+        <?php foreach($posts as $post): ?>
             <section class="Fundraiser p-4 bg-white my-4">
-                <div class='d-flex align-items-center'>
-                    <div class='fundraiser-img'>  
+            <div class='d-flex align-items-center'>
+                <div class='fundraiser-img'>  
 
-                        <picture>
-                            <img src="../asserts/img/myhome.svg" alt="image" 
-                                class="img-fluid mx-lg-0 p-1 border" 
-                            />
-                        </picture>
-                    </div>
+                    <picture>
+                        <img src="../asserts/img/myhome.svg" alt="image" 
+                            class="img-fluid mx-lg-0 p-1 border" 
+                        />
+                    </picture>
+                </div>
 
-                    <div class="col-md-8 mx-lg-4 mt-lg-0 mt-3">
-                        <div class="fundraiser-name col-md-12">
-                            <b class='text-capitalize'>Devine international school</b>
-                            <p class='address text-capitalize'>Address: <span>No 5 Melrose Street</span></p>
-                        </div>
+                <div class="col-md-8 mx-lg-4 mt-lg-0 mt-3">
+                    <div class="fundraiser-name col-md-12">
+                        <b class='text-capitalize'><?php echo $post['user_username']; ?></b>
+                        <p class='address text-capitalize'><?php echo $post['issue_time']; ?></span></p>
                     </div>
                 </div>
+            </div>
+            
+            <section class="mx-lg-4 col-md-9">
+                <!-- A pop Up ### to do -->
+                <button class='py-1 px-5 my-4 hover' style='background: #f3613c;'>
+                    <a href="./pay.php?user_id=<?php echo $post['user_id']; ?>&issue_id=<?php echo $post['id']; ?>" class='nav-link text-white' id="1">Donate Fund</a> 
+                </button>
+                <!-- Fetch Id from DB --->
+
+                <div class="display-6" style="font-weight: 400">
+                    <?php echo substr($post['issue_title'], 0, 100); ?>...
+                </div>
+                <p class='write-up my-4 text-truncate'><?php echo $post['issue_body']; ?></p>
                 
-                <section class="mx-lg-4 col-md-9">
-                    <!-- A pop Up ### to do -->
-                    <button class='py-1 px-5 my-4 hover' style='background: #f3613c;'>
-                        <a href="./pay.php" class='nav-link text-white'>Donate Fund</a>
-                    </button>
+                <p class='hover cursor' onclick="see_details()"><b id="detailsBtn">Read more</b></p>
 
-                    <div class="display-6" style="font-weight: 400">
-                        Raising fund for cctv installation to provide adequate security for our students.
+                <div class="d-lg-flex">
+                    <div class='event-img my-2 hidden' style="transition: 0.5s">
+                        <img src="../user/customer_data/issue_img/<?php echo $post['avatar'];?>" alt="issue_image" class='img-fluid'/>
                     </div>
-                    <p class='write-up my-4 text-truncate'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis nihil error natus, minima suscipit doloribus eum voluptatem. Ipsa facilis reiciendis odio, saepe vero sed fugit, nihil nam odit ea dignissimos commodi animi dolorem dolor illum, amet fugiat sint facere obcaecati praesentium repellat aperiam repudiandae. Necessitatibus nihil odit cupiditate eos iusto aliquam excepturi tempora omnis soluta, ducimus asperiores dolores esse et veritatis? Modi esse fugit odit quasi recusandae velit ipsam voluptas tempore aliquam dignissimos eveniet neque a dolorum possimus necessitatibus nemo vero, eligendi quidem reiciendis! Illum iure ea dolore placeat tempore natus maxime ipsa reprehenderit aperiam. Nesciunt omnis unde similique labore?</p>
-                    
-                    <p class='hover cursor' onclick="see_details()"><b id="detailsBtn">Read more</b></p>
 
-                    <div class="d-lg-flex">
-                        <div class='event-img my-2 hidden' style="transition: 0.5s">
-                            <img src="../asserts/img/222.jpg" alt="image" class='img-fluid'/>
-                        </div>
-
-                        <div class='event-img my-2 mx-lg-2 hidden' style="transition: 0.8s">
-                            <img src="../asserts/img/222.jpg" alt="image" class='img-fluid'/>
-                        </div>
+                    <div class='event-img my-2 mx-lg-2 hidden' style="transition: 0.8s">
+                        <img src="../user/customer_data/issue_img/<?php echo $post['avatar'];?>" alt="image" class='img-fluid'/>
                     </div>
-                </section>
+                </div>
             </section>
-        </div>
+        </section>
+        <?php endforeach; ?>
 
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-        <div id="preloader"></div>
+        <!------------ End Fundraiser temp ----------->
         
-        <script src="../assets/js/main.js"></script>
-        <script src='../authjs/index.js'></script>
-        
-    </section>
+    </div>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center h3"><i class="fa fa-arrow-up-short">^</i></a>
+    <div id="preloader"></div>
+           
+    
     <!---------------------- Footer template ---------------------->
     <footer  style="background: #1e1e26; display: flex; justify-content: center">
         <div class="container p-4 d-lg-flex justify-content-between text-white">
@@ -210,5 +232,8 @@
             </ul>
         </div>
     </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src='../authjs/index.js'></script>
 </body>
 </html>

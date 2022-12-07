@@ -1,11 +1,47 @@
 <?php
     include_once('./config.php');
+    include_once('./inc/conn.php');
+
+
+    // fetching posts here
+    $query_issues = 'SELECT * FROM `_issues` ORDER BY "post_time" DESC';
+    $return_issues = mysqli_query($conn, $query_issues);
+    $posts = array();
+
+    if(mysqli_num_rows($return_issues) > 0){
+        while($row = mysqli_fetch_assoc($return_issues)){
+            $posts[] = $row;
+        }
+    }else{
+        $posts[] = array("error"=>"NO Issues Found");
+    }
+
+#### Fetching single post
+    // $post_id = mysqli_real_escape_string($conn, htmlspecialchars($_GET['post_id']));
+    // if(!$post_id){
+    //     header('location: ./index.php');
+    // }
+    // $_SESSION['post_id'] = $post_id;
+    // $query_post = "SELECT * FROM charlycare_posts WHERE `id`='$post_id' LIMIT 1";
+    // $result = mysqli_query($conn, $query_post);
+    // $blog_posts = array();
+  
+    // if(mysqli_num_rows($result) > 0){
+    //     while($row = mysqli_fetch_assoc($result)){
+    //         $blog_posts[] = $row;
+    //     }
+    // }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.">
+    <meta name="keywords" content="Raise Money,Raise Fund,Help, Fund, Raise">
+    <meta name="author" content="Designed by Cybergate Communication Network">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta
       name="FundMeNaija"
       content="FundMeNaija website"
@@ -15,12 +51,22 @@
     <link href="./assets/img/apple-icon-180x180.png" rel="apple-touch-icon">
 
     <title>FundMeNaija | Home</title>
+
+    <!-- jQuery CDN here && other cdns here-->
+    <script src="./authjs/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
      <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <!-- ads scroll CSS -->
+    <link rel="stylesheet" href="./asserts/css/ads.css" type="text/css">
 
     <!-- Main css -->
     <link href="./asserts/css/styles.css" type="text/css" rel="stylesheet">
@@ -32,7 +78,7 @@
             <!---------------------- Logo ---------------------->
             <a href='./index.php' class="logo-container nav-link d-flex align-items-center">
                 <div class='logo-img'>
-                    <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid">
+                    <img src="./assets/img/Logo3.png" alt="Logo" class="img-fluid">
                 </div>
                 <div class="logo h6 text-white">FUNDMENAIJA</div>
             </a>
@@ -43,7 +89,7 @@
                         <a href='auth/about.php' class='nav-link mx-lg-2 py-2 px-3' id='nav-link'>About</a>
                     </li>
                     <li>
-                        <a href='auth/contact2.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
+                        <a href='auth/contact.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
                     </li>
                     <li>
                         <a href='auth/donate.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
@@ -99,7 +145,7 @@
                 <h1 class='display-3' style="color: #fff; opacity: 1; font-weight: 700"><span style="color: #f3613c">FUND AND </span> GET FUNDED</h1>
                 <p class='text-white'>Fund and raise funds from people globally to support your projects, bills, daily needs and other things from FundMeNaija today</p>
 
-                <button class="btn font-weight-bold text-white my-3 py-3 px-5">Get started</button>
+                <button class="btn font-weight-bold text-white my-3 py-3 px-5" onclick="window.location.href = './user/login.php'">Get started</button>
             </main>
         </div>
     </section>
@@ -119,7 +165,7 @@
         <div class="col-md-6">
           <h1 class="display-4" style="color: #15242b">Raising money have never been easy.</h1>
           <p class='my-lg-5'>We provide you with opportunity to dream and see it come to pass by helping you get the needed funding on any project, plans or other basic needs.</p>
-            <button class="btn font-weight-bold text-white py-3 px-5 mt-lg-0 mt-3">Get started</button>
+            <button class="btn font-weight-bold text-white py-3 px-5 mt-lg-0 mt-3" onclick="window.location.href = './user/login.php'">Get started</button>
         </div>
       </div>
     </section>
@@ -224,19 +270,47 @@
         <div class="d-lg-flex text-center text-white">
           
           <div class="card p-4 my-3 h5">
-            <p>Sign up and verify your account</p>
+            <p onclick="window.location.href = './user/login.php'">Sign up and verify your account</p>
           </div>
 
           <div class="card p-4 mx-lg-4 my-3 h5">
-            <p>Donate</p>
+            <p onclick="window.location.href = './auth/donate.php'">Donate</p>
           </div>
 
           <div class="card p-4 my-3 h5">
-            <p>Volunteer</p>
+            <p onclick="window.location.href = './auth/donate.php'">Volunteer</p>
           </div>
           </div>
        </div>
     </section>
+    <!--------------------- Ads Showing Here ------------------>
+    <section class="services" id="services">
+        <div class="container">
+            <div class="heading animate-top"> <!-- class of white for text-white  -->
+                <h2>Fund Raisers</h2>
+                <p>Donate Fund to your Favourite Raisers</p>
+            </div>
+            <div class="content">
+                <div class="slider owl-carousel">
+                    <?php foreach($posts as $post): ?>
+                    <div class="card" style="min-height: 420px; max-height: 420px; height: 420px;">
+                        <div class="img">
+                            <img src="./user/customer_data/Issue_img/<?php echo $post['avatar']; ?>" alt="issue image">
+                        </div>
+                        <div class="content" style="position: relative;">
+                            <div class="title"><?php echo $post['issue_title']; ?></div>
+                            <p><?php echo substr($post['issue_body'], 0, 100); ?>...</p>
+                            <div class="btn" style="position: absolute; bottom: -50px;">
+                                <a href="./auth/donate.php?issue_id=<?php echo $post['id']; ?>#issue_id=<?php echo $post['id']; ?>" class="btn btn-danger">Donate Fund</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-------------------- STOP Ads Showing Here ---------------->
     
     <!---------------------- Footer template ---------------------->
     <footer  style="background: #1e1e26; display: flex; justify-content: center">
@@ -244,7 +318,7 @@
             <span class='my-5'>
                 <div class="d-flex align-items-center">
                     <div style="width: 70px; height: 50px; position: relative;">
-                        <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
+                        <img src="./assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
                     </div>
                     <div class="logo h6 text-white">FUNDMENAIJA</div>
                 </div>
@@ -282,9 +356,18 @@
         </div>
     </footer>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center h3" title="Back-To-Top"><i class="fa fa-arrow-up-short"></i>^</a>
     <div id="preloader"></div>
 
+    <script>
+        $(".slider").owlCarousel({
+            loop: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true
+        });
+    </script>
+    <script src="./authjs/ads.js"></script>
     <script src='./authjs/index.js'></script>
     <script src="./assets/js/main.js"></script>
     

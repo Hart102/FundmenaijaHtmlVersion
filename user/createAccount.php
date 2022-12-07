@@ -506,8 +506,7 @@ if (isset($_POST['submit'])) {
                         <label for="floatingInputGrid">Enter Password</label>
 
                         <span style="color: red;" id="PasswordError" name="PasswordError"><?php if (isset($_POST['submit'])) {
-                                                                                                echo $PasswordError;
-                                                                                            } ?></span>
+                                                                                                echo $PasswordError;                                                        } ?></span>
                     </div>
                 </div>
             </div>
@@ -537,8 +536,8 @@ if (isset($_POST['submit'])) {
         <div style="text-align:center;margin-top:40px;">
             <span class="step"></span>
             <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
+            <!-- <span class="step"></span>
+            <span class="step"></span> -->
         </div>
     </form>
    <!-- preloader -->

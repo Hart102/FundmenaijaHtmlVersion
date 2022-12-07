@@ -1,5 +1,5 @@
 <?php
-    include_once('./config.php');
+    include_once('../config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,10 +107,6 @@
             <p>Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.
             Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency,
             Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds. Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.
-            Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency,
-            Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.
-            Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency,
-            Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.
             </p>
         </div>
     </section>
