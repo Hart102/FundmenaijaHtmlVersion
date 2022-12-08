@@ -1,5 +1,6 @@
+<?php
 
-<!-- // use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\SMTP;
 // use PHPMailer\PHPMailer\Exception;
 
@@ -66,8 +67,9 @@
 //         $errMsg = "Please Fill in All Fields";
 //         $errMsgClass = "alert-danger";
 //     }
-// } -->
-<!-- 
+// }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -95,31 +97,29 @@
 
     <header>
         <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
-            <!---------------------- Logo ---------------------->
-            <a href='./index.php' class="logo-container nav-link d-flex align-items-center">
-                <div class='logo-img'>
-                    <img src="./assets/img/Logo3.png" alt="Logo" class="img-fluid">
+            <div class="d-flex align-items-center">
+                <div style="width: 60px; height: 60px; position: relative;">
+                    <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
                 </div>
-                <div class="logo h6 text-white">FUNDMENAIJA</div>
-            </a>
-            <!-- ------------- Desktop screen menu  ------------- -->
+                <div class="h4 text-white">Fundmenaija</div>
+            </div>
             <ul class="list-unstyled desktop">
                 <div class="d-flex align-items-center">
                     <li>
-                        <a href='auth/about.php' class='nav-link mx-lg-2 py-2 px-3' id='nav-link'>About</a>
+                        <a href='../auth/about.php' class='nav-link mx-lg-2 py-2 px-3' id='nav-link'>About</a>
                     </li>
                     <li>
-                        <a href='auth/contact.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
+                        <a href='../auth/contact.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
                     </li>
                     <li>
-                        <a href='auth/donate.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
+                        <a href='../auth/donate.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
                     </li>
                     <li>
-                        <a href='user/login.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
+                        <a href='../user/login.php' class="nav-link mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
                     </li>
                     <li>
                         <button>
-                            <a href="user/createAccount.php"
+                            <a href="./user/createAccount.php"
                                 class="nav-link font-weight-bold text-white px-4">Sign up
                             </a>
                         </button>
@@ -127,33 +127,51 @@
                 </div>
             </ul>
 
-            <!-- ------------- Mobile screen menu  ------------- -->
+            <!-- {/************* Mobile screen menu  *************/} -->
             <ul class="mobile">
                 <div class="d-flex font-weight-bold border-top">
                     <li>
-                        <a href='./index.php' class='nav-link my-3 text-white'>Home</a>
+                        <Link href='../auth/about.php'
+                            class='nav-link my-3 text-white'>About
+                        </Link>
                     </li>
                     <li>
-                        <a href='auth/about.php' class='nav-link my-3 text-white'>About</a>
+                        <Link href='../auth/contact.php'
+                            class='nav-link my-3 text-white'>Contact
+                        </Link>
                     </li>
                     <li>
-                        <a href='auth/contact.php' class='nav-link my-3 text-white'>Contact</a>
+                        <Link href='../auth/donate.php'
+                            class='nav-link my-3 text-white'>Donate
+                        </Link>
                     </li>
                     <li>
-                        <a href='auth/donate.php' class='nav-link my-3 text-white'>Donate</a>
+                        <Link href='../user/login.php'
+                            class='nav-link my-3 text-white'>Log in
+                        </Link>
                     </li>
                     <li>
-                        <a href='./user/login.php' class='nav-link my-3 text-white'>Sign in </a>
-                    </li>
-                    <li>
-                        <a href='./user/createAccount.php' class='nav-link my-3 text-white'>Sign up </a>
+                        <Link href='../user/createAccount.php'
+                            class='nav-link my-3 text-white'>Sign up
+                        </Link>
                     </li>
                 </div>
             </ul>
 
-            <!-- ----------------- Hamburger menu ----------------- -->
-            <div class='hambuger' onClick="hamburger()">
-                <i class='menuIcon fa fa-bars text-white fa-2x'></i>
+            <!-- {/**************** Hamburger menu ****************/} -->
+            <div class='hambuger' onclick="() => hamburger()">
+                <!-- { switchMenuIcon !== 'true' 
+                    ? 
+                    <i class={changeLinkColor !== 'true' ? 
+                        'fa fa-bars text-white fa-2x' : 
+                        'fa fa-bars text-dark fa-2x'}>
+                    </i>
+                    :
+                    <i class={changeLinkColor !== 'true' ? 
+                        'fa fa-times text-white fa-2x' : 
+                        'fa fa-times text-dark fa-2x'}>
+                    </i>
+                } -->
             </div>
         </div>
     </header>

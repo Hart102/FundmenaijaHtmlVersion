@@ -25,7 +25,7 @@
     <link href="../asserts/css/contact.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header style="background: white">
         <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
             <!---------------------- Logo ---------------------->
             <a href='../index.php' class="logo-container nav-link d-flex align-items-center">
@@ -85,24 +85,23 @@
 
             <!-- ----------------- Hamburger menu ----------------- -->
             <div class='hambuger' onClick="hamburger()">
-                <i class='menuIcon fa fa-bars text-white fa-2x'></i>
+                <i class='menuIcon fa fa-bars text-dark fa-2x'></i>
             </div>
         </div>
     </header>
 
 
     <div class="container">
-        <div class="wrapper animated bounceInLeft">
+        <div class="wrapper animated bounceInLeft shadow-sm bg-white">
             <div class="company-info">
-                <h3 class="brand"><span>FundMeNaija</span> Contact Form</h3>
                 <ul>
-                    <li><i class="fas fa-address-book my-3"></i>Lagos Nigeria</li>
-                    <li><i class="fas fa-phone my-3"></i> +2347-000-000-000</li>
-                    <li><i class="fas fa-envelope my-3"></i> contact@fundmenaija.com</li>
+                    <li class="my-5 text-dark"><i class="fas fa-address-book mx-3"></i>Lagos Nigeria</li>
+                    <li class="my-5 text-dark"><i class="fas fa-phone mx-3"></i> +2347-000-000-000</li>
+                    <li class="my-5 text-dark"><i class="fas fa-envelope mx-3"></i> contact@fundmenaija.com</li>
                 </ul>
             </div>
             <div class="contact">
-                <h3>Email Us</h3>
+                <!-- <h3>Email Us</h3> -->
                 <div class="alert">Your Message has been sent</div>
                 <form id="contactForm">
                     <p>

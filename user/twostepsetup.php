@@ -67,7 +67,7 @@ if (isset($_SESSION['twostep'])) {
 <body class="bg">
     <div class="container">
         <div class="row text">
-            <div class="col-md-6 offset-md-6" style="background: white; padding: 20px; margin-top: 40px;">
+            <div class="col-md-6 offset-md-6" style="background: red; padding: 20px; margin-top: 40px;">
                 <h1 class="text-center">Two Step Verification</h1>
                 <p style="font-style: italic; color:gray" class="text-center">Download google authenticator in mobile and scan QR code</p>
                 <hr>
@@ -81,10 +81,19 @@ if (isset($_SESSION['twostep'])) {
                             <p class="text-danger"> * <?php echo $_GET['error'] ?></p>
                         <?php } ?>
 
-                        <input type="number" class="form-control mt-2" name="code" placeholder="Enter Code" style="font-size: 16px; width: 300px; border-radius: 40px;text-align: center;display: inline;color: #0275d8;"><br> <br>
+                        <input type="number" 
+                        class="form-control mt-2" 
+                        name="code" placeholder="Enter Code" 
+                        style="font-size: 16px; width: 300px; border-radius: 40px;text-align: center;display: inline;color: #0275d8;"><br> <br>
 
-                        <button type="submit" name="registerVerify" class="btn btn-md btn-primary" style="width: 160px;border-radius: 40px;">Skip</button>
-                        <button type="submit" name="registerSkip" class="btn btn-md btn-info" style="width: 160px;border-radius: 40px;">Verify</button>
+                        <button type="submit" name="registerVerify" 
+                            class="btn btn-md btn-primary" 
+                            style="width: 160px;border-radius: 40px;">Skip
+                        </button>
+                        <button type="submit" name="registerSkip" 
+                            class="btn btn-md btn-info" 
+                            style="width: 160px;border-radius: 40px;">Verify
+                        </button>
 
                     </div>
                     <hr>

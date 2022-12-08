@@ -32,18 +32,12 @@ CREATE TABLE `customer_detail` (
   `Account_No` varchar(12) NOT NULL,
   `C_First_Name` text NOT NULL,
   `C_Last_Name` text NOT NULL,
-  `Gender` text NOT NULL,
-  `C_Father_Name` text NOT NULL,
-  `C_Mother_Name` text NOT NULL,
-  `C_Birth_Date` date NOT NULL,
-  `C_Adhar_No` varchar(12) NOT NULL,
-  `C_Pan_No` varchar(10) NOT NULL,
   `C_Mobile_No` varchar(10) NOT NULL,
   `C_Email` varchar(200) NOT NULL,
   `C_Pincode` varchar(6) NOT NULL,
   `C_Adhar_Doc` varchar(500) NOT NULL,
   `C_Pan_Doc` varchar(500) NOT NULL,
-  `Create_Date` date NOT NULL DEFAULT current_timestamp(),
+  `Create_Date` date NOT NULL DEFAULT CURRENT_DATE(),
   `ProfileColor` varchar(100) NOT NULL,
   `ProfileImage` varchar(400) NOT NULL,
   `Bio` varchar(100) NOT NULL
@@ -53,8 +47,8 @@ CREATE TABLE `customer_detail` (
 -- Dumping data for table `customer_detail`
 --
 
-INSERT INTO `customer_detail` (`C_No`, `Account_No`, `C_First_Name`, `C_Last_Name`, `Gender`, `C_Father_Name`, `C_Mother_Name`, `C_Birth_Date`, `C_Adhar_No`, `C_Pan_No`, `C_Mobile_No`, `C_Email`, `C_Pincode`, `C_Adhar_Doc`, `C_Pan_Doc`, `Create_Date`, `ProfileColor`, `ProfileImage`, `Bio`) VALUES
-(1, '120222215049', 'cybergate', 'abel', 'Not Availabel', 'chinedu', 'charity', '2000-02-17', '12121212121', '', '0703775772', 'abelchinedu2@gmail.com', '', 'customer_data/SSN_doc/1(1)1222022215049.jpg', 'customer_data/Pan_doc/1(1)1222022215049.jpg', '2022-12-02', '#3b25cf', '', '');
+INSERT INTO `customer_detail` (`C_No`, `Account_No`, `C_First_Name`, `C_Last_Name`,`C_Mobile_No`, `C_Email`, `C_Pincode`, `C_Adhar_Doc`, `C_Pan_Doc`, `Create_Date`, `ProfileColor`, `ProfileImage`, `Bio`) VALUES
+(1, '1202222150', 'Cybergate', 'Abel', '0703775772', 'abelchinedu2@gmail.com', '', 'customer_data/SSN_doc/1(1)1222022215049.jpg', 'customer_data/Pan_doc/1(1)1222022215049.jpg', '2022-12-02', '#3b25cf', '', '');
 
 --
 -- Indexes for dumped tables

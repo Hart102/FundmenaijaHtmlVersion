@@ -1,3 +1,6 @@
+<?php
+    include_once('../config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,10 +107,6 @@
             <p>Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.
             Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency,
             Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds. Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.
-            Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency,
-            Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.
-            Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency,
-            Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.
             </p>
         </div>
     </section>
@@ -127,7 +126,7 @@
                     <a href='#' class='nav-link text-white'>
                         <i class='fab fa-facebook fa-1x'></i>
                     </a>
-                    <a href='#' class='nav-link text-white'>
+                    <a href='<?php echo INSTAGRAM; ?>' class='nav-link text-white'>
                         <i class='fab fa-instagram fa-1x mx-4'></i>
                     </a>
                     <a href='#' class='nav-link text-white'>
