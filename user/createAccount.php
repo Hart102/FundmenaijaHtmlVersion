@@ -365,7 +365,7 @@ if (isset($_POST['submit'])) {
     <link  href="../asserts/css/preloader.css" rel="stylesheet">
 </head>
 <body>
-    <form id="regForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data" novalidate>
+    <form class='shadow' id="regForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data" novalidate>
         <h1 class="mb-3">Create Account</h1>
 
         <!-- Tab 1 -->

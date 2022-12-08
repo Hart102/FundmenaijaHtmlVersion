@@ -118,12 +118,12 @@ if (isset($_SESSION['username'])) {
 <body>
     <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div class="container">
-            <div class="card login-card">
+            <div class="card login-card shadow p-0 col-md-9 mx-auto">
                 <div class="row no-gutters">
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <img src="../assets/img/PageImage/loginImage.jpg" alt="login" class="login-card-img">
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <div class="card-body">
                             <div class="brand-wrapper">
                                 <img src="../assets/img/Logo3.png" alt="logo" class="logo">
