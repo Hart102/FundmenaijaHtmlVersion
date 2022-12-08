@@ -68,103 +68,118 @@
             min-width: 100%;
             border-radius: 4px!important;
         }
-        #button:hover{
-            border: 1px solid white!important;
-        }
     </style>
   </head>
   <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-
-        <section class='Donation'>
-            <header class='shadow-sm'>
-                <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
-                            <!--------------------- Logo --------------------->
-                            <a href='../index.php' class="logo-container nav-link d-flex align-items-center">
-                                <div style="width: 70px; height: 50px; position: relative;">
-                                    <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
-                                </div>
-                                <div class="logo h6 text-dark">FUNDMENAIJA</div>
-                            </a>
-                            <!-- -------------- Desktop screen menu  -------------- -->
-                            <ul class="list-unstyled desktop">
-                                <div class="d-flex align-items-center">
-                                    <li>
-                                        <a href='./about.php' class='nav-link text-dark mx-lg-2 py-2 px-3' id='nav-link'>About</a>
-                                    </li>
-                                    <li>
-                                        <a href='./contact.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
-                                    </li>
-                                    <li>
-                                        <a href='./donate.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
-                                    </li>
-                                    <li>
-                                        <a href='../user/login.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
-                                    </li>
-                                    <li>
-                                        <button>
-                                            <a href="../user/createAccount.php"
-                                                class="nav-link font-weight-bold text-white px-4">Sign up
-                                            </a>
-                                        </button>
-                                    </li>
-                                </div>
-                            </ul>
-
-                            <!-- -------------- Mobile screen menu  -------------- -->
-                            <ul class="mobile">
-                                <div class="d-flex font-weight-bold border-top">
-                                    <li>
-                                        <a href='./about.php' class='nav-link my-3 text-white'>About</a>
-                                    </li>
-                                    <li>
-                                        <a href='./contact.php' class='nav-link my-3 text-white'>Contact</a>
-                                    </li>
-                                    <li>
-                                        <a href='./donate.php' class='nav-link my-3 text-white'>Donate</a>
-                                    </li>
-                                    <li>
-                                        <a href='../user/login.php' class='nav-link my-3 text-white'>Sign in </a>
-                                    </li>
-                                    <li>
-                                        <a href='../user/createAccount.php' class='nav-link my-3 text-white'>Sign up </a>
-                                    </li>
-                                </div>
-                            </ul>
-
-                            <!-- ----------------- Hamburger menu ----------------- -->
-                            <div class='hambuger' onClick="hamburger()">
-                                <i class='menuIcon fa fa-bars text-dark fa-2x'></i>
-                            </div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <header class='shadow-sm'>
+        <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
+                    <!--------------------- Logo --------------------->
+                    <a href='../index.php' class="logo-container nav-link d-flex align-items-center">
+                        <div style="width: 70px; height: 50px; position: relative;">
+                            <img src="../assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
                         </div>
-                    </header>
+                        <div class="logo h6 text-dark">FUNDMENAIJA</div>
+                    </a>
+                    <!-- -------------- Desktop screen menu  -------------- -->
+                    <ul class="list-unstyled desktop">
+                        <div class="d-flex align-items-center">
+                            <li>
+                                <a href='./about.php' class='nav-link text-dark mx-lg-2 py-2 px-3' id='nav-link'>About</a>
+                            </li>
+                            <li>
+                                <a href='./contact.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Contact</a>
+                            </li>
+                            <li>
+                                <a href='./donate.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Donate</a>
+                            </li>
+                            <li>
+                                <a href='../user/login.php' class="nav-link text-dark mx-lg-2 py-2 px-3" id='nav-link'>Sign in</a>
+                            </li>
+                            <li>
+                                <button>
+                                    <a href="../user/createAccount.php"
+                                        class="nav-link font-weight-bold text-white px-4">Sign up
+                                    </a>
+                                </button>
+                            </li>
+                        </div>
+                    </ul>
+
+                    <!-- -------------- Mobile screen menu  -------------- -->
+                    <ul class="mobile">
+                        <div class="d-flex font-weight-bold border-top">
+                            <li>
+                                <a href='./about.php' class='nav-link my-3 text-white'>About</a>
+                            </li>
+                            <li>
+                                <a href='./contact.php' class='nav-link my-3 text-white'>Contact</a>
+                            </li>
+                            <li>
+                                <a href='./donate.php' class='nav-link my-3 text-white'>Donate</a>
+                            </li>
+                            <li>
+                                <a href='../user/login.php' class='nav-link my-3 text-white'>Sign in </a>
+                            </li>
+                            <li>
+                                <a href='../user/createAccount.php' class='nav-link my-3 text-white'>Sign up </a>
+                            </li>
+                        </div>
+                    </ul>
+
+                    <!-- ----------------- Hamburger menu ----------------- -->
+                    <div class='hambuger' onClick="hamburger()">
+                        <i class='menuIcon fa fa-bars text-dark fa-2x'></i>
+                    </div>
                 </div>
             </header>
-    <!-- <div style="margin-top: 100px;"></div> -->
-    <div class="row mx-3">
-        <!-- <button id="button" style="padding: 10px 32px;">Proceed with Payment</button> -->
+        </div>
+    </header>
+
+    <div class="row mx-3 my-5">
         <div style="margin: 130px auto 20px" class="col-md-6">
-            <form class="form-group bg-dark p-3 border box-shadow">
-                    <h3>Complete Your Donation</h3>
-                    <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
-                    <label for="u_name" class="form-label">Name</label>
-                    <input type="text" id="u_name" class="form-control" placeholder="Donor's Full Name" title="Enter Your Full Names">
-                    <!-- value="<?php echo isset($_POST['u_name']); ?>" -->
-                    <label for="amount" class="form-label">Amount</label>
-                    <input type="number" id="amount" step="2000" min="2000" min-length="2000" class="form-control" placeholder="Enter Amount" title="NOT LESS THAN 2000">
-                    <br>
-                    <input type="checkbox" name="robot" id="robot"> Not a Robot?
-                    <br>
-                    <br>
-                    <button id="button" type="button" class="btn btn-block btn-warning text-white font-weight-bold" onclick="runIframe()" style="padding: 10px 32px;">Proceed with Payment</button>
+            <form class="form-group px-lg-5 p-3 shadow bg-white">
+                <div class='text-center'>
+                    <b class='text-dark text-uppercase'>Complete Your Donation</b>
+                </div>
+
+                <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+                <label for="u_name" class="form-label">Name</label>
+                <input 
+                    type="text" 
+                    id="u_name" class="form-control py-3" 
+                    placeholder="Donor's Full Name" 
+                    title="Enter Your Full Names"
+                >
+                <!-- value="<?php echo isset($_POST['u_name']); ?>" -->
+                <label for="amount" class="form-label">Amount</label>
+                <input 
+                    type="number" 
+                    id="amount" 
+                    step="2000" 
+                    min="2000" 
+                    min-length="2000" 
+                    class="form-control py-3" 
+                    placeholder="Enter Amount" 
+                    title="NOT LESS THAN 2000"
+                >
+                <br>
+                <span class="d-flex">
+                    <input type="checkbox" name="robot" id="robot">
+                    <label class='text-dark mx-2' for='robot'>Not a Robot?</label>
+                </span>
+                <br>
+                <br>
+                <button id="button" type="button" 
+                    class="btn btn-block text-white" 
+                    onclick="runIframe()" style="padding: 10px 32px;">Proceed with Payment
+                </button>
                     <!-- <input id="button" type="button" class="btn btn-block btn-danger text-white font-weight-bold" onclick="runIframe()" style="padding: 10px 32px;" value="Proceed with Payment"> -->
                 </form>
         </div>
     </div>
-    <!-- <div style="margin-bottom: 100px;"></div> -->
 
     <div id="preloader"></div>
-            
     <!--------------- Footer template --------------->
     <footer  style="background: #1e1e26; display: flex; justify-content: center">
         <div class="container p-4 d-lg-flex justify-content-between text-white">

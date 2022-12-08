@@ -136,7 +136,7 @@
 
         <?php foreach($posts as $post): ?>
             <section class="Fundraiser p-4 bg-white my-4">
-            <div class='d-flex align-items-center'>
+            <div class='d-flex align-items-center mx-lg-4'>
                 <div class='fundraiser-img'>  
 
                     <picture>
@@ -154,7 +154,7 @@
                 </div>
             </div>
             
-            <section class="mx-lg-4 col-md-9">
+            <section class="mx-lg-4">
                 <!-- A pop Up ### to do -->
                 <button class='py-1 px-5 my-4 hover' style='background: #f3613c;'>
                     <a href="./pay.php?user_id=<?php echo $post['user_id']; ?>&issue_id=<?php echo $post['id']; ?>" class='nav-link text-white' id="1">Donate Fund</a> 
@@ -164,9 +164,11 @@
                 <div class="display-6" style="font-weight: 400">
                     <?php echo substr($post['issue_title'], 0, 100); ?>...
                 </div>
-                <p class='write-up my-4 text-truncate'><?php echo $post['issue_body']; ?></p>
-                
-                <p class='hover cursor' onclick="see_details()"><b id="detailsBtn">Read more</b></p>
+
+                <div class='col-md-9'>
+                    <p class='write-up my-4 text-truncate' id='<?php echo $post['id']; ?>'><?php echo $post['issue_body']; ?></p>
+                    <p class='hover cursor' onclick="see_details(<?php echo $post['id']; ?>)"><b class="detailsBtn" id='<?php echo $post['id']; ?>'>Read</b></p>
+                </div>
 
                 <div class="d-lg-flex">
                     <div class='event-img my-2 hidden' style="transition: 0.5s">

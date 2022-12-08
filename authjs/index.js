@@ -2,11 +2,11 @@ const singleElementSelector = element => document.querySelector(element) // Html
 const multiElementSelector = element => document.querySelectorAll(element) // Html multiple element selector
 
 const logo = singleElementSelector('.logo') 
-const writeUp = singleElementSelector('.write-up')  
 const hamburgerMenuIcon = singleElementSelector('.menuIcon')
-const detailsBtn = singleElementSelector('#detailsBtn') 
 
 const links = multiElementSelector('#nav-link') 
+const writeUp = multiElementSelector('.write-up')  
+const detailsBtn = multiElementSelector('.detailsBtn') 
 
 //********** Change Navbar background on scroll **********
 window.addEventListener('scroll', () => {
@@ -75,21 +75,30 @@ hiddenElements.forEach(ele => Observer.observe(ele))
 
 
 
-//*********** Donation Page See details functionality ***********
-let clicked = 'false'
-
-const see_details = () => {
+//*********** Donation Page Read functionality ***********
+let clicked = 'false';
+const see_details = (id) => {
+  
   if (clicked == 'false') {
-    writeUp.setAttribute('class', 'write-up my-4')
-    detailsBtn.innerHTML = 'Read less'
-    clicked = 'true'
+    clicked = 'false'
+    writeUp.forEach(post => {
+      if (post.id == id) {
+        clicked = 'true'
+        post.setAttribute('class', 'write-up my-4')
+      }
+    })
     
   }else{
-    writeUp.setAttribute('class', 'write-up my-4 text-truncate')
-    detailsBtn.innerHTML = 'Read more'
-    clicked = 'false'
+    writeUp.forEach(post => {
+      if (post.id == id) {
+        post.setAttribute('class', 'write-up my-4 text-truncate')
+        clicked = 'false'
+      }
+    })
   }
+  
 }
+
 
 
 

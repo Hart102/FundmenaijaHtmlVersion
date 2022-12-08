@@ -323,15 +323,15 @@
                     <div class="logo h6 text-white">FUNDMENAIJA</div>
                 </div>
                 <div class="d-flex social-icons m-4">
-                    <a href='#' class='nav-link text-white'>
+                    <!-- <a href='#' class='nav-link text-white'>
                         <i class='fab fa-facebook fa-1x'></i>
-                    </a>
+                    </a> -->
                     <a href='<?php echo INSTAGRAM; ?>' class='nav-link text-white'>
-                        <i class='fab fa-instagram fa-1x mx-4'></i>
+                        <i class='fab fa-instagram fa-2x mx-4'></i>
                     </a>
-                    <a href='#' class='nav-link text-white'>
+                    <!-- <a href='#' class='nav-link text-white'>
                         <i class='fab fa-twitter fa-1x'></i>
-                    </a>
+                    </a> -->
                 </div>
             </span>
             <ul class="list-unstyled my-5 mx-lg-0 mx-3">
@@ -356,7 +356,9 @@
         </div>
     </footer>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center h3" title="Back-To-Top"><i class="fa fa-arrow-up-short"></i>^</a>
+    <a href="#" 
+        class="back-to-top nav-link rounded-circle d-flex align-items-center justify-content-center h3" 
+        title="Back-To-Top"><i class="fa fa-angle-up"></i></a>
     <div id="preloader"></div>
 
     <script>

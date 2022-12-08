@@ -365,7 +365,7 @@ if (isset($_POST['submit'])) {
     <link  href="../asserts/css/preloader.css" rel="stylesheet">
 </head>
 <body>
-    <form id="regForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data" novalidate>
+    <form class='shadow' id="regForm" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data" novalidate>
         <h1 class="mb-3">Create Account</h1>
 
         <!-- Tab 1 -->
@@ -401,22 +401,30 @@ if (isset($_POST['submit'])) {
                 <div class="col-md">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input name="MobileNumber" class="form-control" type="tel" id="MobileNo" pattern="[0-9]{11}" placeholder="Mobile Number" onkeypress="return isNumber(event)" title="11 Digit Mobile Number">
+                            <input name="MobileNumber"
+                                class="form-control" type="tel" id="MobileNo" 
+                                pattern="[0-9]{11}" placeholder="Mobile Number" 
+                                onkeypress="return isNumber(event)" 
+                                title="11 Digit Mobile Number"
+                            >
                             <label for="floatingInputGrid">Mobile Number</label>
-                            <span id="MobileNoError" style="color: red;"><?php if (isset($_POST['submit'])) {
-                                                                                echo $Mobile_Number_error;
-                                                                            } ?></span>
+                            <span id="MobileNoError" style="color: red;">
+                                <?php if (isset($_POST['submit'])) {echo $Mobile_Number_error;} ?>
+                            </span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Email Address">
+                            <input type="email" name="email" 
+                                class="form-control" id="email" 
+                                placeholder="Email Address"
+                            >
                             <label for="floatingInputGrid">Email Address</label>
-                            <span id="EmailError" style="color: red;"><?php if (isset($_POST['submit'])) {
-                             echo $Email_error;
-                        } ?></span>
+                            <span id="EmailError" style="color: red;">
+                                <?php if (isset($_POST['submit'])) {echo $Email_error;} ?>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -438,10 +446,14 @@ if (isset($_POST['submit'])) {
                 <div class="col-md">                            
                     <div class="form-group mb-3">
                         <label for="exampleFormControlFile1">Passport Photograph</label>
-                        <input type="file" name="PanCardUp" class="form-control-file" id="PANCardUp" size="30" accept="image/jpg,image/png,image/jpeg,image/gif">
-                        <span id="PanUPError" style="color: red;"><?php if (isset($_POST['submit'])) {
-                            echo $Pan_Up_error;
-                        } ?></span>
+                        <input 
+                            type="file" name="PanCardUp" 
+                            class="form-control-file" id="PANCardUp" 
+                            size="30" accept="image/jpg,image/png,image/jpeg,image/gif"
+                        >
+                        <span id="PanUPError" style="color: red;">
+                            <?php if (isset($_POST['submit'])) {echo $Pan_Up_error;} ?>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -449,10 +461,14 @@ if (isset($_POST['submit'])) {
                 <div class="col-md"> 
                     <div class="form-group mb-3">
                         <label for="exampleFormControlFile1">Upload ID Card</label>
-                        <input type="file" name="AdharCardUp" class="form-control-file" id="AdharCardUp" size="30" accept="image/jpg,image/png,image/jpeg,image/gif">
-                        <span id="AdharUpError" style="color: red;"><?php if (isset($_POST['submit'])) {
-                                echo $Adhar_Up_error;
-                            } ?></span>
+                        <input 
+                            type="file" name="AdharCardUp" 
+                            class="form-control-file" id="AdharCardUp" 
+                            size="30" accept="image/jpg,image/png,image/jpeg,image/gif"
+                        >
+                        <span id="AdharUpError" style="color: red;">
+                            <?php if (isset($_POST['submit'])) {echo $Adhar_Up_error;} ?>
+                        </span>
                     </div>
                 </div>
                 <span id="mailsendError"></span>
@@ -472,7 +488,11 @@ if (isset($_POST['submit'])) {
                             Verification Code Send On Your email, Please check your email
                         </div>
                         <div class="form-floating OtpMobile">
-                            <input type="tel" class="form-control" name="Otp" id="Otp" placeholder="Enter 6 Digit OTP" pattern="[0-9]{6}">
+                            <input 
+                                type="tel" class="form-control" 
+                                name="Otp" id="Otp" placeholder="Enter 6 Digit OTP" 
+                                pattern="[0-9]{6}"
+                            >
                             <label for="floatingInputGrid">Enter 6 Digit OTP</label>
                             <span style="color: red;" id="OtpError"></span>
                         </div>

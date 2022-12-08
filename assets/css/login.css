@@ -1,7 +1,7 @@
 body {
     font-family: "Karla", sans-serif;
     /* background: linear-gradient(to right, #8e2de2, #4a00e0); */
-    background: linear-gradient(45deg, rgba(217, 239, 245, 0.9) 0%, #212529 100%), url("../img/hero-bg.jpg") center center no-repeat;
+    background: linear-gradient(45deg, rgba(244, 246, 247, 0.9) 0%, #fcfdff 100%), url("../img/hero-bg.jpg") center center no-repeat;
     min-height: 100vh;
 }
 
@@ -22,7 +22,7 @@ body {
 .login-card {
     border: 0;
     border-radius: 27.5px;
-    box-shadow: 0 10px 30px 0 rgba(18, 11, 11, 0.7);
+    /* box-shadow: 0 10px 30px 0 rgba(18, 11, 11, 0.7); */
     overflow: hidden;
 }
 
