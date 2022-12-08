@@ -92,6 +92,7 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
     <header>
         <div class="container d-flex justify-content-between align-items-center py-2 px-lg-5">
             <!---------------------- Logo ---------------------->
@@ -197,7 +198,7 @@
                 </form>
             </div>
         </div>
-    </div> -->
+    </div>
 
 
 
@@ -206,3 +207,23 @@
     include_once('../inc/footer.php');
     
 ?>
+
+
+
+<!-- modal({
+    selector: '.dom-node',
+    title: 'Are you sure?',
+    text: 'All your data will be deleted...',
+    buttons: [
+        {
+            title: 'Cancel',
+            type: 'secondary',
+            callback: () => { console.log('hide modal'); }
+        },
+        {
+            title: 'Yes, I\'m sure',
+            type: 'primary',
+            callback: () => { console.log('delete system32'); }
+        }
+    ]
+}) -->
