@@ -1,4 +1,7 @@
 <?php
+    // Headers for the API
+    header("Access-Control-Allow-Origin: *");
+    
     include_once('../config.php');
     include_once('../inc/conn.php');
     $msg = '';
@@ -233,18 +236,18 @@
                     reference: 'OURPASS_ORDER_73aeefff68430210ae3a8e88ccfe2erbf214171',
                     amount: amount.value,
                     qty: 1,
-                    name: 'Cap',
-                    description: 'Great Pass Cap',
+                    name: 'Donation',
+                    description: 'Fundmenaija Pass Donation',
                     src: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
                     url: 'ourpass.co',
                     items: [
                         {
                             itemAmount: amount.value,
-                            itemName: 'Cap',
+                            itemName: 'Donation',
                             itemWeight: 1,
                             itemQuantity: 1,
                             imageUrl: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
-                            itemDescription: 'Cap',
+                            itemDescription: 'Fundmenaija Donation to: '+u_name.value,
                         },
                         // {
                         //     itemAmount: 500,

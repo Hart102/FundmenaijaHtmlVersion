@@ -1,7 +1,87 @@
+<?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/autoload.php';
+
+    $errMsg = '';
+    $errMsgClass = '';
+    $name = $company = $email = $phone = $message = '';
+
+if(isset($_POST['contact'])){
+    // echo "submitted";
+    // return;
+    // Instantiation and passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+
+    $name = htmlspecialchars($_POST['name']);
+    $company = htmlspecialchars($_POST['company']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $message = htmlspecialchars($_POST['message']);
+
+    if(!empty($name) && !empty($company) && !empty($email) && !empty($phone) && !empty($message)){
+        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+            $errMsg = "Please use a vaild email";
+            $errMsgClass = "alert-danger";
+        }else{
+                $toemail = "contact@fundmenaija.com";
+				$title = "FundMeNaija Contact from ".$name;
+				$body = '<html><body>';
+				$body .= '<h2>Message For FundMeNaija</h2>
+					<h4>Name</h4><p>'.$name.'</p>
+					<h4>company</h4><p>'.$company.'</p>
+					<h4>phone</h4><p>'.$phone.'</p>
+					<h4>Email</h4><p>'.$email.'</p>
+					<h4>Message</h4><p>'.$message.'</p>';
+				$body .= '</body></html>';
+            try {
+                //Server settings
+                $mail->SMTPDebug = 0;
+                $mail->isSMTP();                      
+                $mail->Host       = 'ssl://smtp.gmail.com';
+                $mail->SMTPAuth   = true;                  
+                $mail->Username   = 'contact.fundmenaija@gmail.com';
+                $mail->Password   = 'asd123ASD_';          
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                // $mail->Port       = 587;                        
+                $mail->Port       = 465;                           
+            
+                //Recipients
+                $mail->setFrom('contact@fundmenaija.com', 'User Contact');
+                $mail->addAddress('contact.fundmenaija@gmail.com', 'FundMeNaija contact');               
+                $mail->addReplyTo($email, 'Sender');
+            
+                // Content
+                $mail->isHTML(true);        
+                $mail->Subject = $title;
+                $mail->Body = $body;
+                    
+                $mail->send();
+
+                $errMsg = "Thank you ".$name . " for partnering with us."."\r\n"." Your Request is being considered and we will get back to you as soon as possible";
+                $errMsgClass = "alert-success";
+                $name = $company = $email = $phone = $message = '';
+                header('location: ../index.php');
+            } catch (Exception $e) {
+                $errMsg = "Your email was not successful. Try again later";
+                $errMsgClass = "alert-danger";
+                exit();
+            }
+        }
+    }else{
+        $errMsg = "Please Fill in All Fields";
+        $errMsgClass = "alert-danger";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="FundMeNaija"
@@ -95,37 +175,40 @@
         <div class="wrapper animated bounceInLeft shadow-sm bg-white">
             <div class="company-info">
                 <ul>
-                    <li class="my-5 text-dark"><i class="fas fa-address-book mx-3"></i>Lagos Nigeria</li>
-                    <li class="my-5 text-dark"><i class="fas fa-phone mx-3"></i> +2347-000-000-000</li>
+                    <li class="my-5 text-dark"><i class="fas fa-address-book mx-3"></i>Lagos, Nigeria</li>
+                    <li class="my-5 text-dark"><i class="fas fa-phone mx-3"></i> contact.fundmenaija@gmail.com</li>
                     <li class="my-5 text-dark"><i class="fas fa-envelope mx-3"></i> contact@fundmenaija.com</li>
                 </ul>
             </div>
             <div class="contact">
                 <!-- <h3>Email Us</h3> -->
-                <div class="alert">Your Message has been sent</div>
-                <form id="contactForm">
+                <div class="alert alert-danger">Your Message has been sent</div>
+                <form id="contactForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                        <!-- Error Msg -->
+                <div class="alert <?php echo $errMsgClass; ?>"><?php echo $errMsg; ?></div>
+
                     <p>
                         <label>Name</label>
-                        <input type="text" name="name" id="name" placeholder="Enter your full name">
+                        <input type="text" name="name" id="name" placeholder="Enter your full name" value="<?php echo isset($_POST['name']) ? $_POST['name'] : ''; ?>">
                     </p>
                     <p>
                         <label>Company</label>
-                        <input type="text" name="company" id="company" placeholder="Enter your company Name if Any">
+                        <input type="search" name="company" id="company" placeholder="Enter your company Name if Any" value="<?php echo isset($_POST['company']) ? $_POST['company'] : ''; ?>">
                     </p>
                     <p>
                         <label>Email Address</label>
-                        <input type="email" name="email" id="email" placeholder="Enter your Email Address">
+                        <input type="email" name="email" id="email" placeholder="Enter your Email Address" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>">
                     </p>
                     <p>
                         <label>Phone Number</label>
-                        <input type="text" name="name" id="phone" placeholder="Enter your phone number">
+                        <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : ''; ?>">
                     </p>
                     <p class="full">
                         <label>Message</label>
-                        <textarea name="message" rows="5" id="message" placeholder="Add a comment..."></textarea>
+                        <textarea name="message" rows="5" id="message" placeholder="Add a comment..."><?php echo isset($_POST['message']) ? $_POST['message'] : ''; ?></textarea>
                     </p>
                     <p class="full">
-                        <button type="submit">Send Mail</button>
+                        <button type="submit" name="contact">Send Mail</button>
                     </p>
                 </form>
             </div>

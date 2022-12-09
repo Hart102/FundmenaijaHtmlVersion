@@ -48,3 +48,6 @@ NEW_ISSUES
 #46  Read more/Read less button...controls all (SOL: foreach)
 ---#47  Repeatation in About us page
 #48  Username of the Fund Raiser is not showing on the payment API
+#49  Contact form UI-validation using JS
+#50  reCAPTCHA v2 (Verify NOT a Robot)
+#51  payment methods (Onepass && Paystack) #Error:: https://docs.ourpass.co/quick-start-guide/errors

@@ -1,4 +1,7 @@
 <?php
+    // Headers for the API
+    header("Access-Control-Allow-Origin: *");
+    
     include_once('../config.php');
     include_once('../inc/conn.php');
 

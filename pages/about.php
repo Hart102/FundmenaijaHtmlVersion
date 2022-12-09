@@ -1,3 +1,6 @@
+<?php 
+    header('location: ../auth/about.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
