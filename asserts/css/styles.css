@@ -126,11 +126,6 @@ header .mobile, .hambuger {
   opacity: 0.3;
 }
 
-.Banner p{
-  font-size: 2em;
-  font-weight: 100;
-}
-
 
 
 /************* Button component styling *************/
@@ -151,10 +146,11 @@ button:hover{
 /************* Content two component styling  *************/
 /************* Content two component styling  *************/
 .contentTwo{
-  background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80)), 
+  /* background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.80)), 
   url('../img/Donate_img.jpeg') no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
+  /* background: #f1f5f8 !important; */
 }
 
 .layer{

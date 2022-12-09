@@ -105,23 +105,23 @@
                 <div class="alert">Your Message has been sent</div>
                 <form id="contactForm">
                     <p>
-                        <label>Name</label>
+                        <label class='mx-3'>Name</label>
                         <input type="text" name="name" id="name" placeholder="Enter your full name">
                     </p>
                     <p>
-                        <label>Company</label>
+                        <label class='mx-3'>Company</label>
                         <input type="text" name="company" id="company" placeholder="Enter your company Name if Any">
                     </p>
                     <p>
-                        <label>Email Address</label>
+                        <label class='mx-3'>Email Address</label>
                         <input type="email" name="email" id="email" placeholder="Enter your Email Address">
                     </p>
                     <p>
-                        <label>Phone Number</label>
+                        <label class='mx-3'>Phone Number</label>
                         <input type="text" name="name" id="phone" placeholder="Enter your phone number">
                     </p>
                     <p class="full">
-                        <label>Message</label>
+                        <label class='mx-3'>Message</label>
                         <textarea name="message" rows="5" id="message" placeholder="Add a comment..."></textarea>
                     </p>
                     <p class="full">

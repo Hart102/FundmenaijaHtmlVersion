@@ -142,8 +142,8 @@
     <section class='Banner py-5'>
         <div class="container py-5 px-lg-5 my-4 px-3">
             <main class='col-md-12 text-center'>  
-                <h1 class='display-3' style="color: #fff; opacity: 1; font-weight: 700"><span style="color: #f3613c">FUND AND </span> GET FUNDED</h1>
-                <p class='text-white'>Fund and raise funds from people globally to support your projects, bills, daily needs and other things from FundMeNaija today</p>
+                <h1 class='display-5' style="color: #fff; opacity: 1; font-weight: 700"><span style="color: #f3613c">FUND AND </span> GET FUNDED</h1>
+                <p class='text-white' style="font-size: 1.5em">Fund and raise funds from people globally to support your projects, bills, daily needs and other things from FundMeNaija today</p>
 
                 <button class="btn font-weight-bold text-white my-3 py-3 px-5" onclick="window.location.href = './user/login.php'">Get started</button>
             </main>
@@ -170,7 +170,7 @@
       </div>
     </section>
 
-    <!----------------------- Section Two ----------------------->
+    <!----------------------- Section Two #f1f5f8; ----------------------->
     <div class="title text-center mb-lg-5 px-4" >
         <h1 class="mx-3 display-6" >Who is eligible ?</h1>
         <p class='text-center'>Check who is eligible to raise or donate fund.</p>
