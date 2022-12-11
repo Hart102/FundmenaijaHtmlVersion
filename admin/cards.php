@@ -215,7 +215,7 @@ GROUP BY
                     </li> -->
                     <li class="menuHover">
 
-                        <a href="/admin" class="nav-link text-left" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a href="./Dashboard.php" class="nav-link text-left" role="button" aria-haspopup="true" aria-expanded="false">
                             <i class="flaticon-bar-chart-1"></i><i class="bx bxs-dashboard ico"></i> Dashboard
                         </a>
                     </li>
@@ -463,7 +463,7 @@ GROUP BY
                                                             } else {
 
                                                                 ?>
-                                                                <h1 class="light" style="text-align: center;">No Debit Card for Verification</h1>
+                                                                <h1 class="light" style="text-align: center;">No Fund Raiser For Verification</h1>
 
                                                             <?php
                                                             }

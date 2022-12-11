@@ -301,7 +301,7 @@
                             <div class="title"><?php echo $post['issue_title']; ?></div>
                             <p><?php echo substr($post['issue_body'], 0, 100); ?>...</p>
                             <div class="btn" style="position: absolute; bottom: -50px;">
-                                <a href="./auth/donate.php?issue_id=<?php echo $post['id']; ?>#issue_id=<?php echo $post['id']; ?>" class="btn btn-danger">Donate Fund</a>
+                                <a href="./auth/donate.php?issue_id=<?php echo $post['id']; ?>#donation<?php echo $post['id']; ?>" class="btn btn-danger">Donate Fund</a>
                             </div>
                         </div>
                     </div>

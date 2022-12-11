@@ -87,7 +87,7 @@ GROUP BY
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Dashboard</title>
+    <title>FundMeNaija | Dashboard</title>
 
     <!-- Favicons -->
     <link href="../assets/img/favicon-32x32.png" rel="icon">
@@ -152,7 +152,6 @@ GROUP BY
                         Pages
                     </li> -->
                     <li class="">
-
                         <a class="nav-link text-left active" role="button" aria-haspopup="true" aria-expanded="false">
                             <i class="flaticon-bar-chart-1"></i><i class="bx bxs-dashboard ico"></i> Dashboard
                         </a>

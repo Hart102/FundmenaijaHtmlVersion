@@ -7,19 +7,15 @@ include "connection.php";
 include '../mail/mail_config.php';
 // checking Submit button is clicked or not by isset function
 if (isset($_POST['submit'])) {
-    // ----------------------------------------- Basic Detail Section -----------------------------------------
+    // -------------- Basic Detail Section ------------
     $Account_Type = "Savings";
     $Account_Status = "Inactive";
     $Balance = "0.0";
     // Storing Form values in variable
     $First_Name = $_POST['FirstName'];
     $Last_Name = $_POST['LastName'];
-    // $Father_Name = $_POST['FatherName'];
-    // $Mother_Name = $_POST['MotherName'];
-    // $Birth_Date = $_POST['BirthDate'];
     $Mobile_Number = $_POST['MobileNumber'];
-    // $Pan_Number = $_POST['PanNumber'];
-    // $Adhar_Number = $_POST['AdharNumber'];
+    $Id_type = $_POST['id_type'];
     $Account_Number = date('ndyHisL');
 
     if (strlen($Account_Number) > 12) {
@@ -27,10 +23,8 @@ if (isset($_POST['submit'])) {
     }
 
     $Email = $_POST['email'];
-    // $Pincode = $_POST['pincode'];
 
     //  Error Variables
-
     $First_Name_error =  $Last_Name_error = null;
     $Mobile_Number_error = null;
     $Email_error = null;
@@ -50,15 +44,9 @@ if (isset($_POST['submit'])) {
     if (preg_match_all('!\d+!', $Last_Name) == 1) {
         $Last_Name_error = "* Numeric value not allowed in Last Name";
     }
-    // if (preg_match_all('!\d+!', $Father_Name) == 1) {
-    //     $Father_Name_error = "* Numeric value not allowed in Father's Name";
-    // }
-    // if (preg_match_all('!\d+!', $Mother_Name) == 1) {
-    //     $Mother_Name_error = "* Numeric value not allowed in Mother's Name";
-    // }
 
 
-    // ********************************* Phone Number Validation *********************************************
+    // ***************** Phone Number Validation ****************************
 
     // if ($Pan_Number != null) {
     //     // Regular Expression to validate Phone number
@@ -83,7 +71,7 @@ if (isset($_POST['submit'])) {
 
 
 
-    // ********************************** Birth Date Validation *********************************************
+    // ******************** Birth Date Validation *************************
 
     // $today = new DateTime();
     // $diff = $today->diff(new datetime($Birth_Date));
@@ -99,7 +87,7 @@ if (isset($_POST['submit'])) {
     }
 
 
-    // **************************************** SSN Validation *******************************************************
+    // ********************** SSN Validation *****************************
     // if (!is_numeric($Adhar_Number) || is_null($Adhar_Number) || !preg_match('/^[0-9]{11}+$/', $Adhar_Number)) {
     //     $Adhar_Number_error = "Invalid NIN Number";
     // } else {
@@ -137,28 +125,27 @@ if (isset($_POST['submit'])) {
     }
 
 
-    // ************************************************** Picode Validation *********************************************
+    // ************************* Id_type Validation ****************************
 
 
-    // if (!empty($Pincode)) {
-    //     $match = '/^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/';
-    //     if (!preg_match_all($match, $Pincode)) {
-    //         $Pincode_error = "* Invalid Pincode";
-    //     }
-    // } else {
-    //     $Pincode_error = "* Enter Your Area Pincode";
-    // }
+    if (!empty($Id_type)) {
+        $match = '/^[a-zA-Z]$/';
+        if (!preg_match_all($match, $Id_type)) {
+            $Id_type_error = "* Invalid Pincode";
+        }
+    } else {
+        $Id_type_error = "* Select A Valid ID Card";
+    }
 
-    // ++++++++++++++++++++++++++++++++++++++++++++++ Basic Detail Ends Here +++++++++++++++++++++++++++++++++++++++++
+    // ++++++++++++++ Basic Detail Ends Here ++++++++++++++++
 
-    // -------------------------------------------- USERNAME AND PASSWORD VERIFICATION -------------------------------
-
+    // -------- USERNAME AND PASSWORD VERIFICATION -----------
 
     $Username = $_POST['Username'];
     $Password  = $_POST['Password'];
     $ConfirmPass = $_POST['ConfirmPass'];
 
-    $UsernameError =  $PasswordError  = $ConfirmPassError = false;
+    $UsernameError =  $PasswordError  = $ConfirmPassError = $Id_type_error = false;
 
     if (!empty($Username)) {
         if (!preg_match_all('/^[A-Za-z]{1}[A-Za-z0-9]{5,31}$/', $Username)) {
@@ -180,7 +167,7 @@ if (isset($_POST['submit'])) {
         $UsernameError = "* Username Cannot Empty";
     }
 
-    // ----------------------------------------- Password Verification ---------------------------------------------
+    // ------------- Password Verification ---------------
     if (!empty($Password)) {
         if (!preg_match_all('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,16}$/m', $Password)) {
             $PasswordError  = "* Password must contain Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character";
@@ -200,13 +187,14 @@ if (isset($_POST['submit'])) {
             $ConfirmPassError = false;
             // unset($_SESSION['otp']);
             $_SESSION['twostep'] = $Account_Number;
+            // redirect to login instead
             header('Location: ../user/twostepsetup.php');
         }
     } else {
         $ConfirmPassError = "Please Confirm Password";
     }
 
-    // --------------------------------------------------- Random Color Hex Generator for Profile ----------------------- 
+    // ----------- Random Color Hex Generator for Profile ----------------------- 
 
     $hex = '#';
 
@@ -283,7 +271,6 @@ if (isset($_POST['submit'])) {
                 // Pancard Destination Variable
                 $Pan_destinationFile = 'customer_data/Pan_doc/' . $Pan_Unique_Name;
 
-
                 // Adharcard Destination Variable
                 $Adhar_destinationFile = 'customer_data/SSN_doc/' . $Adhar_Unique_Name;
 
@@ -301,25 +288,25 @@ if (isset($_POST['submit'])) {
                         // echo "file Uploaded successfully";
                         try {
                             // mysql query for customer table
-                            $Upload_query = "INSERT INTO customer_detail(Account_No, C_First_Name, C_Last_Name,  C_Mobile_No, C_Email, C_Adhar_Doc, C_Pan_Doc, ProfileColor, ProfileImage, Bio) VALUES('$Account_Number', '$First_Name', '$Last_Name', '$Mobile_Number', '$Email', '$Pincode', '$Adhar_destinationFile', '$Pan_destinationFile', '$hex', 'Not Availabel', '', '')";
-
+                            $Upload_query = "INSERT INTO `customer_detail`(`Account_No`, `C_First_Name`, `C_Last_Name`,  `C_Mobile_No`, `C_Email`, `Id_type`, `C_Adhar_Doc`, `C_Pan_Doc`, `ProfileColor`, `ProfileImage`, `Bio`) VALUES('$Account_Number', '$First_Name', '$Last_Name', '$Mobile_Number', '$Email','$Id_type','$Adhar_destinationFile', '$Pan_destinationFile', '$hex', 'Not Available', 'Biolography')";
+// use $Adhar_destinationFile as $profile Image
 
                             // sql query for login table
-                            $login_query = "INSERT INTO login(AccountNo, Username, Password, Status, State, AuthKey) VALUES('$Account_Number', '$Username', '$hashPass', '$Account_Status', '0', '0')";
+                            $login_query = "INSERT INTO `login`(`AccountNo`, `Username`, `Password`, `Status`, `State`, `AuthKey`) VALUES('$Account_Number', '$Username', '$hashPass', '$Account_Status', '0', '0')";
 
                             // sql query for Accounts table
-                            $account_query = "INSERT INTO accounts(AccountNo, Balance, AccountType, SavingBalance, SavingTarget, State) VALUES('$Account_Number', '$Balance', '$Account_Type', '0.0', '', '0')";
+                            $account_query = "INSERT INTO `accounts`(`AccountNo`, `Balance`, `AccountType`, `SavingBalance`, `SavingTarget`, `State`) VALUES('$Account_Number', '$Balance', '$Account_Type', '0.0', '', '0')";
 
                             // query execution
 
                             mysqli_query($conn, $Upload_query) or die(mysqli_error($conn));
                             mysqli_query($conn, $login_query) or die(mysqli_error($conn));
                             mysqli_query($conn, $account_query) or die(mysqli_error($conn));
-
+// Sending Email
                             require '../mail/congraMail.php';
                             sendMessage($Email, $First_Name);
                         } catch (Exception $e) {
-                            echo "Could NOT Insert Image. Try Again";
+                            echo "Could NOT Process Image. Try Again";
                             // echo 'Message: ' . $e->getMessage();
                         }
                     }else{
@@ -327,9 +314,9 @@ if (isset($_POST['submit'])) {
                     }
                 }
             } else {
-                $Pan_Up_error = 'invalid file extention';
-                $Adhar_Up_error = 'invalid file extention';
-                echo ('invalid file extention');
+                $Pan_Up_error = 'Invalid file extention';
+                $Adhar_Up_error = 'Invalid file extention';
+                echo ('Invalid file extention');
             }
         } else {
             echo "File is too large";
@@ -432,12 +419,12 @@ if (isset($_POST['submit'])) {
         <!-- </div> -->
         <div class="row g-2 mb-3">
             <p class="SubAction">
-                <select name="id" id="id" class="form-control">
+                <select name="id_type" id="id_type" class="form-control" required>
                     <option value="null" selected disable>Select Document To Upload</option>
-                    <option value="nin">NIN Document</option>
-                    <option value="v_card">Voter's Card</option>
+                    <option value="NIN">NIN Document</option>
+                    <option value="voters_card">Voter's Card</option>
                     <option value="Drivers_lincense">Drivers Lincense</option>
-                    <option value="i_passport">International Passport</option>
+                    <option value="international_passport">International Passport</option>
                 </select>
             </p>
         </div>

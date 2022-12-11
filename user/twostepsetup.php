@@ -24,10 +24,8 @@ if (isset($_SESSION['twostep'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Time-Based Authentication like Google Authenticator</title>
@@ -97,7 +95,7 @@ if (isset($_SESSION['twostep'])) {
 
                     </div>
                     <hr>
-                    <p style="font-style: italic;" class="text-center">Power by Google Authenticator </p>
+                    <p style="font-style: italic;" class="text-center">Powered by Google Authenticator </p>
 
                 </form>
             </div>
