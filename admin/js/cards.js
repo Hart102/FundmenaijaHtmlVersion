@@ -11,7 +11,7 @@ $(document).ready(function () {
 
         swal({
             title: "Are you sure?",
-            text: "Once Verified, This Debit Card Should Be Activated ",
+            text: "Once Approved, This User Will Be Able To Raise Funds ",
             icon: "info",
             buttons: true,
             dangerMode: false,
@@ -25,7 +25,7 @@ $(document).ready(function () {
                     success: function (response) {
 
                         if (response == "Success") {
-                            swal("Debit Card Activated Sucessfully!", {
+                            swal("Fund Raising Activated Sucessfully!", {
                                 icon: "success",
                                 buttons: [false]
                             });
@@ -38,8 +38,8 @@ $(document).ready(function () {
                         }
                         else {
                             swal({
-                                title: "Debit Card Not Activated !",
-                                text: "Please Check Connection or after some time!",
+                                title: "Fund Raising Not Activated !",
+                                text: "Please Check Connection or Refresh after some time!",
                                 icon: "error",
                                 buttons: true,
                                 // value:true
@@ -52,7 +52,7 @@ $(document).ready(function () {
                 });
             }
             else {
-                swal("The Debit Card is not Activated !");
+                swal("The Fund Raise is not Activated !");
             }
 
         });
@@ -66,7 +66,7 @@ $(document).ready(function () {
 
         swal({
             title: "Are you sure?",
-            text: "Once Rejected, This Debitcard Should Not Be Recover ",
+            text: "Once Rejected, This User Would have to Request Again ",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -79,7 +79,7 @@ $(document).ready(function () {
                     success: function (response) {
 
                         if (response == "Success") {
-                            swal("Debit Card Request Rejected Sucessfully!", {
+                            swal("Fund Raising Request Rejected!", {
                                 icon: "success",
                                 buttons: [false]
                             });
@@ -101,7 +101,7 @@ $(document).ready(function () {
                         }
                         else {
                             swal({
-                                title: "Debitcard Not Rejected !",
+                                title: "Fund Raising Not Rejected !",
                                 text: "Please Check Connection or after some time!",
                                 icon: "error",
                                 buttons: true,

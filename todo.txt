@@ -56,6 +56,7 @@ NEW_ISSUES
 #54  Donate page cards too big and pagenation is needed
 #55 ALTER TABLE `_issues` CHANGE `issue_time` `issue_time` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT CURRENT_TIMESTAMP;
 #56 Edit Email templete
+#57 Send Email to the 3 parties on payment from paystack
 
 
 

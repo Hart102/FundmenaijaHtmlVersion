@@ -31,42 +31,11 @@
     include_once('../inc/conn.php');
     $msg = '';
     $msgClass = '';
-    // Fetch a single user id and update his DB based on transaction done
-    ###$user_id = htmlspecialchars($_GET['user_id']); // make req to DB
-    ###$issue_id = htmlspecialchars($_GET['issue_id']); // make req to DB
 
-    if(isset($_POST['pay'])){
-        echo "Payment processing...";
-        // return;
-        // $errors = [];
-        // $data = [];
-
-        // if (empty($_POST['name'])) {
-        //     $errors['name'] = 'Name is required.';
-        // }
-
-        // if (empty($_POST['email'])) {
-        //     $errors['email'] = 'Email is required.';
-        // }
-
-        // if (empty($_POST['superheroAlias'])) {
-        //     $errors['superheroAlias'] = 'Superhero alias is required.';
-        // }
-
-        // if (!empty($errors)) {
-        //     $data['success'] = false;
-        //     $data['errors'] = $errors;
-        // } else {
-        //     $data['success'] = true;
-        //     $data['message'] = 'Success!';
-        // }
-
-        // echo json_encode($data);
-    }
-
-    #### Fetching single post
+    #### Fetching single Issue
     $user_id = mysqli_real_escape_string($conn, htmlspecialchars($_GET['user_id']));
     $issue_id = mysqli_real_escape_string($conn, htmlspecialchars($_GET['issue_id']));
+
     if(!$issue_id || !$user_id){
         header('location: ./donate.php');
     }
@@ -81,13 +50,27 @@
             // echo $issue['issue_title'];
             // return;
         }
+    }else{
+        header('location: ./donate.php');
     }
 
+// Fetching Customer Email for payment Reciept
+    $query_customer = "SELECT `C_Email` FROM `customer_detail` WHERE `C_No`='$user_id' LIMIT 1";
+    $email_result = mysqli_query($conn, $query_customer);
+    
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_assoc($email_result)){
+            $customer = $row;
+            // echo $customer['C_Email'];
+            // return;
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="FundMeNaija"
@@ -191,7 +174,7 @@
 
     <div class="row mx-3 my-5">
         <div style="margin: 130px auto 20px" class="col-md-6">
-            <form id="form" action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" class="form-group px-lg-5 p-4 shadow bg-white">
+            <form id="form" class="form-group px-lg-5 p-4 shadow bg-white">
                 <div class='text-center'>
                     <b class='text-dark text-uppercase h4'>Complete Your Donation</b>
                 </div>
@@ -219,15 +202,17 @@
                 <input 
                     type="number" 
                     id="amount" 
-                    step="2000" 
-                    min="2000" 
-                    min-length="2000" 
+                    step="1000" 
+                    min="1000" 
+                    min-length="1000" 
                     class="form-control py-3" 
                     placeholder="Enter Amount" 
-                    title="NOT LESS THAN 2000"
+                    title="NOT LESS THAN 1000"
                     name="amount"
                     required
                 >
+<!-- Fund Raiser's Email -->
+                <input type="hidden" id="email" value="<?php echo $customer['C_Email']; ?>">
                 <br>
                 <select name="p_method" id="p_method" class="form-control" required>
                     <option value="" disabled selected>Select Donations Method</option>
@@ -279,35 +264,40 @@
             </ul>
         </div>
     </footer>
-            
+    </section>
+
+    
     <script src="../authjs/jquery-3.5.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="../assets/js/main.js"></script>
     <script src='../authjs/index.js'></script>
         <!-- Payment Gateway -->
     <script type="text/javascript">
-        let donor = document.querySelector('#u_name');
-        let amount = document.querySelector('#amount');
-        let p_method = document.querySelector('#p_method');
-        let robot = document.querySelector('#robot');
-        let form = document.getElementById("#form");
+        // Validation
+        const donor = document.querySelector('#u_name');
+        const amount = document.querySelector('#amount');
+        const email = document.querySelector('#email');
+        const p_method = document.querySelector('#p_method');
+        const robot = document.querySelector('#robot');
+        const form = document.getElementById("form");
 
-        // form.addEventListener("submit", (e) => {
-        //     e.preventDefault();
-        //     console.log("fomr submitted")
-        // });
-
-        document.forms[0].addEventListener("submit", e => {
+        form.addEventListener("submit", e => {
             e.preventDefault();
-            console.log("Form submited");
-
-            if(p_method.value == 'onepass'){
-
-                runIframe()
-            }else if(p_method.value == 'paystack'){
-                alert("Paystack is NOT Available. Try OnePass");
+            // console.log("Form submited");
+            // ### Validation UI
+            if(donor.value != '' && amount.value != '' && amount.value >= 1000 && p_method.value != '' && email.value != ''){
+                if(p_method.value === 'onepass'){
+                    return runIframe();
+                    // console.log("ONePass: "+p_method.value)
+                }else{
+                    return payWithPaystack();
+                    // console.log("Paystack: "+p_method.value)
+                }
+            }else{
+                console.log("Please Fill out all fields");
             }
         });
+
 
         // $(document).ready(function () {
         //     $("formui").submit(function (e) {
@@ -398,64 +388,60 @@
         //     });
         // });
 
-        // Validation
+        // ONEPASS GATEWAY
         let runIframe = () => {
-            // check values from FORM
-            if(u_name.value != '' || amount.value != '' || amount.value >= 2000 || robot.value != ''){
-                OurpassCheckout.openIframe({
-                    api_key: "<?php echo API_KEY_PRIVATE_KEY_OURPASS; ?>",
-                    subAccountAuthKey: 'auth_live_fgegsdgsdgsdgdsgd',
-                    reference: 'OURPASS_ORDER_73aeefff68430210ae3a8e88ccfe2erbf214171',
-                    amount: amount.value,
-                    qty: 1,
-                    name: 'Donation',
-                    description: 'Fundmenaija Pass Donation',
-                    src: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
-                    url: 'ourpass.co',
-                    items: [
-                        {
-                            itemAmount: amount.value,
-                            itemName: 'Donation',
-                            itemWeight: 1,
-                            itemQuantity: 1,
-                            imageUrl: '',
-                            itemDescription: 'Fundmenaija Donation By: '+u_name.value,
-                        },
-                        // {
-                        //     itemAmount: 500,
-                        //     itemName: 'Free will',
-                        //     itemWeight: 1,
-                        //     itemQuantity: 1,
-                        //     imageUrl: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
-                        //     itemDescription: 'A',
-                        //     itemDescription: 'An ananimous donation to cybergate',
-                        // },
-                    ],
-                    metadata: {
-                        name: 'MARIO GOTZE',
+            OurpassCheckout.openIframe({
+                api_key: "<?php echo API_KEY_PRIVATE_KEY_OURPASS; ?>",
+                subAccountAuthKey: 'auth_live_fgegsdgsdgsdgdsgd',
+                reference: 'OURPASS_ORDER_73aeefff68430210ae3a8e88ccfe2erbf214171',
+                amount: amount.value,
+                qty: 1,
+                name: 'Donation',
+                description: 'Fundmenaija Pass Donation',
+                src: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
+                url: 'ourpass.co',
+                items: [
+                    {
+                        itemAmount: amount.value,
+                        itemName: 'Donation',
+                        itemWeight: 1,
+                        itemQuantity: 1,
+                        imageUrl: 'https://fundmenaija.com/user/customer_data/Issue_img/<?php echo $issue['avatar']; ?>',
+                        itemDescription: 'Fundmenaija Donation By: '+u_name.value,
                     },
-                    onSuccess: (res) => {
-                        alert('Your Donate is Successful');
-                        window.location.href = './donate.php';
-                    },
-                    onClose: () => {
-                        // Handle failed request either for try again with confirm
-                        const answer = confirm('Your Donation Failed. Try Again?');
-                        if(answer){
-                            window.location.href = '#'
-                        }else{
-                            window.location.href = './donate.php'
-                        }
-                    },
-                });
-            }else{
-                console.log(u_name.value, amount.value, robot.value);
-                alert.innerHTML = "Error: Fill All Fields";
-                
-            }
-        }
-        
+                    // {
+                    //     itemAmount: 500,
+                    //     itemName: 'Free will',
+                    //     itemWeight: 1,
+                    //     itemQuantity: 1,
+                    //     imageUrl: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
+                    //     itemDescription: 'A',
+                    //     itemDescription: 'An ananimous donation to cybergate',
+                    // },
+                ],
+                metadata: {
+                    name: 'MARIO GOTZE',
+                },
+                headers: {
+                    'apiKey': '{{<?php echo API_KEY_PRIVATE_KEY_OURPASS; ?>}}'
+                },
+                onSuccess: (res) => {
+                    alert('Your Donate is Successful');
+                    window.location.href = './success.php';
+                },
+                onClose: () => {
+                    // Handle failed request either for try again with confirm
+                    const answer = confirm('Donation Cancelled. Try Again?');
+                    if(answer){
+                        window.location.href = '#'
+                    }else{
+                        window.location.href = './donate.php'
+                    }
+                },
+            });                
+        }     
     </script>
-        </section>
+    <script src="../authjs/pay.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script> 
     </body>
 </html>
