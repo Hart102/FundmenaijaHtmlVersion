@@ -1,6 +1,8 @@
 <?php
 
 include_once "../config.php";
+echo "sending mail...";
+// function sendMessage($customerMail, $name)
 function sendMessage($customerMail, $name)
 {
 
@@ -12,7 +14,6 @@ function sendMessage($customerMail, $name)
     $mail->Port = 587;
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = 'tls';
-
 
     $mail->Username = EMAIL;
     $mail->Password = PASSWORD;
@@ -42,6 +43,16 @@ function sendMessage($customerMail, $name)
 
 
     if (!$mail->send()) {
-        echo "mail not sent";
+        echo "Mail not sent <br>";
+        // echo $mail->ErrorInfo;
+        var_dump($mail);
+    }else{
+        echo "Mail has been sent";
     }
 }
+
+
+$email = "abelchinedu2@gmail.com";
+$username = 'Cybergate';
+
+sendMessage($email, $username);

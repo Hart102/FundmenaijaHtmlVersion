@@ -290,7 +290,7 @@ https://i.ibb.co/VTTM883/image-10.png
 
                               <div class="v-text-align" align="center">
                                 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td class="v-text-align" style="font-family:arial,helvetica,sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://fundmenaija.com/auth/login" style="height:40px; v-text-anchor:middle; width:94px;" arcsize="2.5%" stroke="f" fillcolor="#00d09c"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->
-                                <a href="https://fundmenaija.com/auth/login" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #00d09c; border-radius: 1px; -webkit-border-radius: 1px; -moz-border-radius: 1px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
+                                <a href="https://fundmenaija.com/user/login.php" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #00d09c; border-radius: 1px; -webkit-border-radius: 1px; -moz-border-radius: 1px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
                                   <span style="display:block;padding:12px 30px;line-height:120%;">Login<br /></span>
                                 </a>
                                 <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
@@ -376,7 +376,7 @@ https://i.ibb.co/VTTM883/image-10.png
 
                               <div class="v-text-align" align="center">
                                 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td class="v-text-align" style="font-family:arial,helvetica,sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:38px; v-text-anchor:middle; width:120px;" arcsize="2.5%" stroke="f" fillcolor="#00d09c"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->
-                                <a href="" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #00d09c; border-radius: 1px; -webkit-border-radius: 1px; -moz-border-radius: 1px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
+                                <a href="https://fundmenaija.com/auth/about.php" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #00d09c; border-radius: 1px; -webkit-border-radius: 1px; -moz-border-radius: 1px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
                                   <span style="display:block;padding:11px 25px;line-height:120%;"><span style="font-size: 14px; line-height: 16.8px;">Read More</span></span>
                                 </a>
                                 <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
@@ -496,8 +496,7 @@ https://i.ibb.co/VTTM883/image-10.png
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0px 15px;font-family:arial,helvetica,sans-serif;" align="left">
 
                               <div class="v-text-align" style="color: #000000; line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Cabin, sans-serif; font-size: 20px; line-height: 28px;">Our
-                                    Services</span></p>
+                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Cabin, sans-serif; font-size: 20px; line-height: 28px;">Donations</span></p>
                               </div>
 
                             </td>
@@ -532,7 +531,7 @@ https://i.ibb.co/VTTM883/image-10.png
 
                               <div class="v-text-align" style="color: #596374; line-height: 140%; text-align: left; word-wrap: break-word;">
                                 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 12px; line-height: 16.8px; font-family: arial, helvetica, sans-serif;">&bull;&nbsp;
-                                    Instant Account Opening</span></p>
+                                    Instant Account Signup</span></p>
                               </div>
 
                             </td>
@@ -547,7 +546,7 @@ https://i.ibb.co/VTTM883/image-10.png
 
                               <div class="v-text-align" style="color: #596374; line-height: 140%; text-align: left; word-wrap: break-word;">
                                 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 12px; line-height: 16.8px; font-family: arial, helvetica, sans-serif;">&bull;&nbsp;
-                                    Digitally Money Transaction</span></p>
+                                    Digitally Raise Money</span></p>
                               </div>
 
                             </td>
@@ -577,7 +576,7 @@ https://i.ibb.co/VTTM883/image-10.png
 
                               <div class="v-text-align" style="color: #596374; line-height: 140%; text-align: left; word-wrap: break-word;">
                                 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 12px; line-height: 16.8px; font-family: arial, helvetica, sans-serif;">&bull;&nbsp;
-                                    Easy Loans and Insurance</span></p>
+                                    Raising Money Have Never Been So Easy</span></p>
                               </div>
 
                             </td>
@@ -607,7 +606,7 @@ https://i.ibb.co/VTTM883/image-10.png
 
                               <div class="v-text-align" align="left">
                                 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:arial,helvetica,sans-serif;"><tr><td class="v-text-align" style="font-family:arial,helvetica,sans-serif;" align="left"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:38px; v-text-anchor:middle; width:122px;" arcsize="2.5%" stroke="f" fillcolor="#00d09c"><w:anchorlock/><center style="color:#FFFFFF;font-family:arial,helvetica,sans-serif;"><![endif]-->
-                                <a href="" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #00d09c; border-radius: 1px; -webkit-border-radius: 1px; -moz-border-radius: 1px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
+                                <a href="https://fundmenaija.com/user/createAccount.php" target="_blank" style="box-sizing: border-box;display: inline-block;font-family:arial,helvetica,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #00d09c; border-radius: 1px; -webkit-border-radius: 1px; -moz-border-radius: 1px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
                                   <span style="display:block;padding:11px 25px;line-height:120%;"><span style="font-size: 14px; line-height: 16.8px;">Get Started</span></span>
                                 </a>
                                 <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
@@ -739,8 +738,7 @@ https://i.ibb.co/VTTM883/image-10.png
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0px 15px;font-family:arial,helvetica,sans-serif;" align="left">
 
                               <div class="v-text-align" style="color: #000000; line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Cabin, sans-serif; font-size: 20px; line-height: 28px;">Other
-                                    Features</span></p>
+                                <p style="font-size: 14px; line-height: 140%;"><span style="font-family: Cabin, sans-serif; font-size: 20px; line-height: 28px;">Other Features</span></p>
                               </div>
 
                             </td>

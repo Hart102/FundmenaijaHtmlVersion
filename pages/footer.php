@@ -20,10 +20,10 @@
                         <h4>Useful Links</h4>
                         <ul>
                             <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/about">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Donate</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="terms.php">Terms of service</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="privacypolicy.php">Privacy policy</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="../auth/about">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="../auth/donate.php">Donate</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
                         </ul>
                     </div>
 
@@ -32,7 +32,7 @@
                         <ul>
                             <li><i class="bx bx-chevron-right"></i> <a href="../user/UserData/Transfer.php">Money
                                     Transfer</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="OnlineBanking.php">Online Banking</a>
+                            <li><i class="bx bx-chevron-right"></i> <a href="OnlineBanking.php">Online Fund Raising</a>
                             </li>
                             <li><i class="bx bx-chevron-right"></i> <a href="../user/UserData/Dashboard.php">Check
                                     Balance</a></li>
@@ -70,10 +70,10 @@
                     </div>
                 </div>
                 <div class="social-links text-center text-md-right pt-3 pt-md-0">
-                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
+                    <!-- <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> -->
                     <a href="<?php echo INSTAGRAM; ?>" class="instagram"><i class="bx bxl-instagram"></i></a>
-                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    <!-- <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
                 </div>
             </div>
 

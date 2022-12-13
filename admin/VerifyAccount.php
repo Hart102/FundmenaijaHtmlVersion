@@ -310,7 +310,7 @@ GROUP BY
 
                     <li class="menuHover box-icon">
                         <a class="nav-link text-left" role="button">
-                            <i class="flaticon-bar-chart-1"></i><i class="bx bxs-coin ico"></i> Loan Requests
+                            <i class="flaticon-bar-chart-1"></i><i class="bx bxs-coin ico"></i> Fund Requests
                         </a>
                     </li> -->
                     <li class="menuHover">

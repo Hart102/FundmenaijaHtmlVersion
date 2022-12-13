@@ -49,7 +49,7 @@ $(document).ready(function () {
 
         swal({
             title: "Are you sure?",
-            text: "Once Verified, This Account Should Be Activated ",
+            text: "Once Verified, This Account Will Be Activated ",
             icon: "info",
             buttons: true,
             dangerMode: false,
@@ -102,7 +102,7 @@ $(document).ready(function () {
 
         swal({
             title: "Are you sure?",
-            text: "Once Rejected, This Account Should Not Be Recover ",
+            text: "Once Rejected, This Account will NOT Be Recover ",
             icon: "warning",
             buttons: true,
             dangerMode: true,

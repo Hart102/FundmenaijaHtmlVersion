@@ -7,8 +7,8 @@ include "../config.php";
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title><?php echo $title ?></title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta content="Fundmenaija" name="description">
+    <meta content="Fundmenaija" name="keywords">
 
     <!-- Favicons -->
     <link href="../assets/img/favicon-32x32.png" rel="icon">
@@ -50,11 +50,11 @@ include "../config.php";
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto " href="../#Hero">Home</a></li>
-                    <li><a class="nav-link scrollto " href="../#info">Net Banking</a></li>
-                    <li><a class="nav-link " href="../#services">Services</a></li>
+                    <!-- <li><a class="nav-link scrollto " href="../#info">Net Banking</a></li> -->
+                    <li><a class="nav-link " href="../auth/donate.php">Donate</a></li>
 
                     <li><a class="nav-link scrollto <?php echo $active ?>" href="/about">About</a></li>
-                    <li><a class="nav-link scrollto" href="../#contact">Contact</a></li>
+                    <li><a class="nav-link scrollto" href="../auth/contact.php">Contact</a></li>
                     <li><a class="nav-link scrollto" href="../user/login.php">Login</a></li>
 
                 </ul>

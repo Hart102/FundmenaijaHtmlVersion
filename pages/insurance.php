@@ -24,10 +24,10 @@ include "header.php" ?>
   <section class="inner-page">
     <div class="container">
       <h1>Insurance</h1>
-      <p>Say no to spending hours and days in queue doing<br> the paperwork for your insurance policy. Get your<br>
+      <p>Say no to spending hours and days in queue, doing<br> the paperwork for your Fund Raising and insurance policy. Get your<br>
         insurance issued with <?php echo APP_NAME ?> instantly
       </p>
-      <p>The entire process from selecting best insurance<br> to getting it issue just take 10-15 minutes on<br>
+      <p>The entire process of Raising Fund, from selecting best insurance<br> to getting it, just take 10-15 minutes on<br>
         <?php echo APP_NAME ?>.
       </p>
     </div>

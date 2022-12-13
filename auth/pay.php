@@ -1,47 +1,80 @@
 <?php
     // Headers for the API
     header("Access-Control-Allow-Origin: *");
+
+    // header("Access-Control-Allow-Origin: http://www.fundmenaija.com");
+
+    if (isset($_SERVER['HTTP_ORIGIN'])) {
+        // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
+        // you want to allow, and if so:
+        header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Max-Age: 86400');    // cache for 1 day
+    }
+
+    // Access-Control headers are received during OPTIONS requests
+    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+
+        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+            // may also be using PUT, PATCH, HEAD etc
+            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
+
+        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+            header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+
+        exit(0);
+    }
+
+    // Headers end here
     
     include_once('../config.php');
     include_once('../inc/conn.php');
     $msg = '';
     $msgClass = '';
-    // Fetch a single user id and update his DB based on transaction done
-    ###$user_id = htmlspecialchars($_GET['user_id']); // make req to DB
-    ###$issue_id = htmlspecialchars($_GET['issue_id']); // make req to DB
 
-    if(isset($_POST['pay'])){
-        echo "Payment processing...";
-    }
-
-    #### Fetching single post
+    #### Fetching single Issue
     $user_id = mysqli_real_escape_string($conn, htmlspecialchars($_GET['user_id']));
     $issue_id = mysqli_real_escape_string($conn, htmlspecialchars($_GET['issue_id']));
+
     if(!$issue_id || !$user_id){
         header('location: ./donate.php');
     }
     $_SESSION['user_id'] = $user_id;
     $query_issue = "SELECT * FROM `_issues` WHERE `id`='$issue_id' AND `user_id`='$user_id' LIMIT 1";
     $result = mysqli_query($conn, $query_issue);
-    $issue = array();
   
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_assoc($result)){
-            $issue[] = $row;
+            $issue = $row;
             // var_dump($issue);
+            // echo $issue['issue_title'];
+            // return;
+        }
+    }else{
+        header('location: ./donate.php');
+    }
+
+// Fetching Customer Email for payment Reciept
+    $query_customer = "SELECT `C_Email` FROM `customer_detail` WHERE `C_No`='$user_id' LIMIT 1";
+    $email_result = mysqli_query($conn, $query_customer);
+    
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_assoc($email_result)){
+            $customer = $row;
+            // echo $customer['C_Email'];
             // return;
         }
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="FundMeNaija"
-      content="FundMeNaija website"
+      content="FundMeNaija Web Application"
     />
     <!-- Favicons -->
     <link href="../assets/img/favicon-32x32.png" rel="icon">
@@ -141,41 +174,61 @@
 
     <div class="row mx-3 my-5">
         <div style="margin: 130px auto 20px" class="col-md-6">
-            <form class="form-group px-lg-5 p-3 shadow bg-white">
+            <form id="form" class="form-group px-lg-5 p-4 shadow bg-white">
                 <div class='text-center'>
-                    <b class='text-dark text-uppercase'>Complete Your Donation</b>
+                    <b class='text-dark text-uppercase h4'>Complete Your Donation</b>
                 </div>
 
-                <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+                <div class="alert alert-success text-center h5 mb-0 mt-3">
+                    <?php 
+                        if(isset($issue['issue_title']) && isset($issue['user_username'])){
+                            echo $issue['issue_title'] ." [" .$issue['user_username']. "]";
+                        }else{
+                            echo "Please Select a Fund Raiser...!";
+                        }
+                    ?>
+                </div>
                 <label for="u_name" class="form-label">Name</label>
                 <input 
                     type="text" 
                     id="u_name" class="form-control py-3" 
                     placeholder="Donor's Full Name" 
                     title="Enter Your Full Names"
+                    name="donor"
+                    required
                 >
-                <!-- value="<?php echo isset($_POST['u_name']); ?>" -->
+
                 <label for="amount" class="form-label">Amount</label>
                 <input 
                     type="number" 
                     id="amount" 
-                    step="2000" 
-                    min="2000" 
-                    min-length="2000" 
+                    step="1000" 
+                    min="1000" 
+                    min-length="1000" 
                     class="form-control py-3" 
                     placeholder="Enter Amount" 
-                    title="NOT LESS THAN 2000"
+                    title="NOT LESS THAN 1000"
+                    name="amount"
+                    required
                 >
+<!-- Fund Raiser's Email -->
+                <input type="hidden" id="email" value="<?php echo $customer['C_Email']; ?>">
+                <br>
+                <select name="p_method" id="p_method" class="form-control" required>
+                    <option value="" disabled selected>Select Donations Method</option>
+                    <option value="onepass">OnePass</option>
+                    <option value="paystack">Paystack</option>
+                </select>
                 <br>
                 <span class="d-flex">
-                    <input type="checkbox" name="robot" id="robot">
+                    <input type="checkbox" name="robot" id="robot" required>
                     <label class='text-dark mx-2' for='robot'>Not a Robot?</label>
                 </span>
                 <br>
                 <br>
-                <button id="button" type="button" 
+                <button id="button" type="submit" 
                     class="btn btn-block text-white" 
-                    onclick="runIframe()" style="padding: 10px 32px;">Proceed with Payment
+                    style="padding: 10px 32px;" name="pay">Proceed with Payment
                 </button>
                     <!-- <input id="button" type="button" class="btn btn-block btn-danger text-white font-weight-bold" onclick="runIframe()" style="padding: 10px 32px;" value="Proceed with Payment"> -->
                 </form>
@@ -211,77 +264,184 @@
             </ul>
         </div>
     </footer>
-            
+    </section>
 
+    
+    <script src="../authjs/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="../assets/js/main.js"></script>
     <script src='../authjs/index.js'></script>
         <!-- Payment Gateway -->
     <script type="text/javascript">
-        let u_name = document.querySelector('#u_name');
-        let amount = document.querySelector('#amount');
-        let robot = document.querySelector('#robot');
-        let alert = document.querySelector('.alert-error');
-        // let runIframe = () => {
-        //     console.log("testing function")
-        //     if(u_name.value == '' || amount.value == ''){
-        //         alert.innerHTML = "Error: Fill All Fields";
-        //     }
-        // }
-        let runIframe = () => {
-            // check values from FORM
-            if(u_name.value != '' || amount.value != '' || amount.value >= 2000 || robot.value != ''){
-                OurpassCheckout.openIframe({
-                    api_key: "<?php echo API_KEY_PRIVATE_KEY_OURPASS; ?>",
-                    subAccountAuthKey: 'auth_live_fgegsdgsdgsdgdsgd',
-                    reference: 'OURPASS_ORDER_73aeefff68430210ae3a8e88ccfe2erbf214171',
-                    amount: amount.value,
-                    qty: 1,
-                    name: 'Donation',
-                    description: 'Fundmenaija Pass Donation',
-                    src: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
-                    url: 'ourpass.co',
-                    items: [
-                        {
-                            itemAmount: amount.value,
-                            itemName: 'Donation',
-                            itemWeight: 1,
-                            itemQuantity: 1,
-                            imageUrl: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
-                            itemDescription: 'Fundmenaija Donation to: '+u_name.value,
-                        },
-                        // {
-                        //     itemAmount: 500,
-                        //     itemName: 'Free will',
-                        //     itemWeight: 1,
-                        //     itemQuantity: 1,
-                        //     imageUrl: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
-                        //     itemDescription: 'A',
-                        //     itemDescription: 'An ananimous donation to cybergate',
-                        // },
-                    ],
-                    metadata: {
-                        name: 'MARIO GOTZE',
-                    },
-                    onSuccess: (res) => {
-                        alert('Your Donate is Successful');
-                    },
-                    onClose: () => {
-                        // Handle failed request either for try again with confirm
-                        const answer = confirm('Your Donation Failed. Try Again?');
-                        if(answer){
-                            window.location.href = '#'
-                        }else{
-                            window.location.href = './donate.php'
-                        }
-                    },
-                });
+        // Validation
+        const donor = document.querySelector('#u_name');
+        const amount = document.querySelector('#amount');
+        const email = document.querySelector('#email');
+        const p_method = document.querySelector('#p_method');
+        const robot = document.querySelector('#robot');
+        const form = document.getElementById("form");
+
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            // console.log("Form submited");
+            // ### Validation UI
+            if(donor.value != '' && amount.value != '' && amount.value >= 1000 && p_method.value != '' && email.value != ''){
+                if(p_method.value === 'onepass'){
+                    return runIframe();
+                    // console.log("ONePass: "+p_method.value)
+                }else{
+                    return payWithPaystack();
+                    // console.log("Paystack: "+p_method.value)
+                }
             }else{
-                console.log(u_name.value, amount.value, robot.value);
-                alert.innerHTML = "Error: Fill All Fields";
-                
+                console.log("Please Fill out all fields");
             }
-        }
+        });
+
+
+        // $(document).ready(function () {
+        //     $("formui").submit(function (e) {
+        //         $(".form-group").removeClass("has-error");
+        //         $(".help-block").remove();
+        //         var formData = {
+        //             name: $("#name").val(),
+        //             email: $("#email").val(),
+        //             superheroAlias: $("#superheroAlias").val(),
+        //         };
+
+        //         $.ajax({
+        //         type: "POST",
+        //         url: "process.php",
+        //         data: formData,
+        //         dataType: "json",
+        //         encode: true,
+        //         }).done(function (data) {
+        //             console.log(data);
+        //             if (!data.success) {
+        //                 if (data.errors.name) {
+        //                 $("#name-group").addClass("has-error");
+        //                 $("#name-group").append(
+        //                     '<div class="help-block">' + data.errors.name + "</div>"
+        //                 );
+        //                 }
+
+        //                 if (data.errors.email) {
+        //                 $("#email-group").addClass("has-error");
+        //                 $("#email-group").append(
+        //                     '<div class="help-block">' + data.errors.email + "</div>"
+        //                 );
+        //                 }
+
+        //                 if (data.errors.superheroAlias) {
+        //                 $("#superhero-group").addClass("has-error");
+        //                 $("#superhero-group").append(
+        //                     '<div class="help-block">' + data.errors.superheroAlias + "</div>"
+        //                 );
+        //                 }
+        //             } else {
+        //                 $("form").html(
+        //                 '<div class="alert alert-success">' + data.message + "</div>"
+        //                 );
+        //             }
+        //         })
+        //         .fail(function (data) {
+        //             $("form").html(
+        //             '<div class="alert alert-danger">Could not reach server, please try again later.</div>'
+        //             );
+        //         });
+
+        //         e.preventDefault();
+        //     });
+        // });
+
+        // $("#form").submit(function(e) {
+        //     e.preventDefault(); 
+        //     var form = $(this);
+        //     var actionUrl = form.attr('action');
+        //     $.ajax({
+        //         type: "POST",
+        //         url: actionUrl,
+        //         data: form.serialize(),
+        //         success: function(data)
+        //         {
+        //             alert(data); 
+        //         },
+        //         error: function(error){
+        //             console.log("Error: "error);
+        //         }
+        //     });
+        // });
+
+        // $(function() {
+        //     $('form.my_form').submit(function(event) {
+        //         event.preventDefault(); // Prevent the form from submitting via the browser
+        //         var form = $(this);
+        //         $.ajax({
+        //         type: form.attr('method'),
+        //         url: form.attr('action'),
+        //         data: form.serialize()
+        //         }).done(function(data) {
+        //         // Optionally alert the user of success here...
+        //         }).fail(function(data) {
+        //         // Optionally alert the user of an error here...
+        //         });
+        //     });
+        // });
+
+        // ONEPASS GATEWAY
+        let runIframe = () => {
+            OurpassCheckout.openIframe({
+                api_key: "<?php echo API_KEY_PRIVATE_KEY_OURPASS; ?>",
+                subAccountAuthKey: 'auth_live_fgegsdgsdgsdgdsgd',
+                reference: 'OURPASS_ORDER_73aeefff68430210ae3a8e88ccfe2erbf214171',
+                amount: amount.value,
+                qty: 1,
+                name: 'Donation',
+                description: 'Fundmenaija Pass Donation',
+                src: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
+                url: 'ourpass.co',
+                items: [
+                    {
+                        itemAmount: amount.value,
+                        itemName: 'Donation',
+                        itemWeight: 1,
+                        itemQuantity: 1,
+                        imageUrl: 'https://fundmenaija.com/user/customer_data/Issue_img/<?php echo $issue['avatar']; ?>',
+                        itemDescription: 'Fundmenaija Donation By: '+u_name.value,
+                    },
+                    // {
+                    //     itemAmount: 500,
+                    //     itemName: 'Free will',
+                    //     itemWeight: 1,
+                    //     itemQuantity: 1,
+                    //     imageUrl: 'https://raw.githubusercontent.com/Cheetah-Speed-Technology/website_dstore/master/Cap-front1.png',
+                    //     itemDescription: 'A',
+                    //     itemDescription: 'An ananimous donation to cybergate',
+                    // },
+                ],
+                metadata: {
+                    name: 'MARIO GOTZE',
+                },
+                headers: {
+                    'apiKey': '{{<?php echo API_KEY_PRIVATE_KEY_OURPASS; ?>}}'
+                },
+                onSuccess: (res) => {
+                    alert('Your Donate is Successful');
+                    window.location.href = './success.php';
+                },
+                onClose: () => {
+                    // Handle failed request either for try again with confirm
+                    const answer = confirm('Donation Cancelled. Try Again?');
+                    if(answer){
+                        window.location.href = '#'
+                    }else{
+                        window.location.href = './donate.php'
+                    }
+                },
+            });                
+        }     
     </script>
-        </section>
+    <script src="../authjs/pay.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script> 
     </body>
 </html>
