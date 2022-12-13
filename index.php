@@ -317,36 +317,36 @@
     
     <!---------------------- Footer template ---------------------->
     <footer  style="background: #1e1e26; display: flex; justify-content: center">
-        <div class="container p-4 d-lg-flex justify-content-between text-white">
-            <span class='my-5'>
-                <div class="d-flex align-items-center">
+        <div class="container px-4 d-lg-flex justify-content-between align-items-baseline text-white">
+            <span>
+                <div class="d-flex align-items-center my-lg-0 my-5">
                     <div style="width: 70px; height: 50px; position: relative;">
                         <img src="./assets/img/Logo3.png" alt="Logo" class="img-fluid" style="width: 100%; height: 100%; position: absolute" />
                     </div>
                     <div class="logo h6 text-white">FUNDMENAIJA</div>
                 </div>
-                <div class="d-flex social-icons m-4">
+                <div class="d-flex social-icons my-4">
                     <a href='<?php echo INSTAGRAM; ?>' class='nav-link text-white'>
-                        <i class='fab fa-instagram fa-2x mx-4'></i>
+                        <i class='fab fa-instagram fa-2x'></i>
                     </a>
                 </div>
             </span>
-            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
+            <ul class="list-unstyled my-5 d-lg-flex">
                 <li class='my-2'>
-                    <a href='./index.php' class='nav-link text-white'>Home</a>
+                    <a href='../index.php' class='nav-link text-white'>Home</a>
                 </li>
                 <li class='my-2'>
-                    <a href='auth/about.php' class='nav-link text-white'>About</a>
+                    <a href='./about.php' class='nav-link text-white'>About</a>
                 </li>
                 <li class='my-2'>
-                    <a href='auth/contact.php' class='nav-link text-white'>Contact</a>
+                    <a href='./contact.php' class='nav-link text-white'>Contact</a>
                 </li>
                 <li class='my-2'>
-                    <a href='auth/donate.php' class='nav-link text-white'>Donate</a>
+                    <a href='./donate.php' class='nav-link text-white'>Donate</a>
                 </li>
             </ul>
     
-            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
+            <ul class="list-unstyled my-5">
                 <li><a href='#' class='nav-link text-white'>Privacy policy</a></li>
                 <li><a href='#' class='nav-link text-white'>Help</a></li>
             </ul>

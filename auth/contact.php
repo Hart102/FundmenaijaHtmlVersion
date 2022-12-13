@@ -217,6 +217,7 @@ if(isset($_POST['contact'])){
 
 
     <!---------------------- Footer template ---------------------->
+    
     <footer  style="background: #1e1e26; display: flex; justify-content: center">
         <div class="container p-4 d-lg-flex justify-content-between text-white">
             <span class='my-5'>
@@ -226,19 +227,13 @@ if(isset($_POST['contact'])){
                     </div>
                     <div class="logo h6 text-white">FUNDMENAIJA</div>
                 </div>
-                <div class="d-flex social-icons m-4">
-                    <!-- <a href='#' class='nav-link text-white'>
-                        <i class='fab fa-facebook fa-1x'></i>
-                    </a> -->
+                <div class="d-flex social-icons my-4">
                     <a href='#' class='nav-link text-white'>
-                        <i class='fab fa-instagram fa-2x mx-4'></i>
+                        <i class='fab fa-instagram fa-2x'></i>
                     </a>
-                    <!-- <a href='#' class='nav-link text-white'>
-                        <i class='fab fa-twitter fa-1x'></i>
-                    </a> -->
                 </div>
             </span>
-            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
+            <ul class="list-unstyled my-5 d-lg-flex">
                 <li class='my-2'>
                     <a href='./index.php' class='nav-link text-white'>Home</a>
                 </li>
@@ -253,7 +248,7 @@ if(isset($_POST['contact'])){
                 </li>
             </ul>
     
-            <ul class="list-unstyled my-5 mx-lg-0 mx-3">
+            <ul class="list-unstyled my-5">
                 <li><a href='#' class='nav-link text-white'>Privacy policy</a></li>
                 <li><a href='#' class='nav-link text-white'>Help</a></li>
             </ul>
