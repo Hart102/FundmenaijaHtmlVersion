@@ -141,7 +141,7 @@
     <!-------------------- Banner  f3613c -------------------->
     <section class='Banner py-5'>
         <div class="container py-5 px-lg-5 my-4 px-3">
-            <main class='col-md-12 text-center'>  
+            <main class='col-md-12 text-center py-lg-0 py-4'>  
                 <h1 class='display-5' style="color: #fff; opacity: 1; font-weight: 700"><span style="color: #f3613c">FUND AND </span> GET FUNDED</h1>
                 <p class='text-white' style="font-size: 1.5em">Fund and raise funds from people globally to support your projects, bills, daily needs and other things from FundMeNaija today</p>
 
@@ -177,41 +177,41 @@
     </div>
     <section class="contentTwo d-flex justify-content-center py-4 mt-5">
         <div class="container px-lg-5">
-            <div class="card-container">
-                <span class='hidden shadow-lg my-2' style="transition: 0.3s !important">
-                    <div class="main-card d-lg-flex shadow-sm">
+            <div class="card-container text-center align-items-center">
+                <span class='hidden my-2' style="transition: 0.3s !important">
+                    <div class="main-card d-lg-flex shadow">
                         <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
                             <h4 class='text-uppercase'>Individuals</h4>
                             <p class='text-capitalize'>Individuals who are in need financially or medically</p>
                         </div>
                     </div>
                 </span>
-                <span class='hidden shadow-lg my-2' style="transition: 0.4s !important">
-                    <div class="main-card d-lg-flex shadow-sm">
+                <span class='hidden my-2' style="transition: 0.4s !important">
+                    <div class="main-card d-lg-flex shadow py-lg-2">
                         <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
                             <h4 class='text-uppercase'>Churches</h4>
                             <p class='text-capitalize'>Churches for fund raising and offerings.</p>
                         </div>
                     </div>
                 </span>
-                <span class='hidden shadow-lg my-2' style="transition: 0.5s !important">
-                    <div class="main-card d-lg-flex shadow-sm">
+                <span class='hidden my-2' style="transition: 0.5s !important">
+                    <div class="main-card d-lg-flex shadow py-lg-3">
                         <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
                             <h4 class='text-uppercase'>Schools</h4>
                             <p class='text-capitalize'>Schools for fund raising.</p>
                         </div>
                     </div>
                 </span>
-                <span class='hidden shadow-lg my-2' style="transition: 0.6s !important">
-                    <div class="main-card d-lg-flex shadow-sm">
+                <span class='hidden my-2' style="transition: 0.6s !important">
+                    <div class="main-card d-lg-flex shadow py-lg-2">
                         <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
                             <h4 class='text-uppercase'>Small scale business</h4>
                             <p class='text-capitalize'>For businesses investment.</p>
                         </div>
                     </div>
                 </span>
-                <span class='hidden shadow-lg my-2' style="transition: 0.7s !important">
-                    <div class="main-card d-lg-flex shadow-sm">
+                <span class='hidden my-2' style="transition: 0.7s !important">
+                    <div class="main-card d-lg-flex shadow">
                         <div class="text-container d-flex flex-column justify-content-center py-5 px-5">
                             <h4 class='text-uppercase'>Hospitals</h4>
                             <p class='text-capitalize'>For medical donations like blood, body organ donors and volunteers.</p>
@@ -227,23 +227,23 @@
     <section>
         <div class="container">
             <div class="row align-items-baseline">
-                <section class="col-md-6 align-items-center p-0" style="background: #f3f7f8" >
+                <section class="col-md-6 align-items-center p-0">
                     <div class="px-lg-5 px-4 py-1 mb-1" style="transition: 0.5s">
                         <div class="my-5 hidden" style="transition: 0.3s !important">
                             <div class="d-flex align-items-center">
-                                <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">01</div>
-                                    <h4 class="mx-3">About Fundmenaija</h4>
+                                <div class="d-lg-block d-none" style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">01</div>
+                                    <h4 class="mx-lg-3">About Fundmenaija</h4>
                                 </div>
                                 <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is global community designed to provide solutions on funding for everyone with a genuine need globally.</p>
                         </div>    
                     </div>
                     <div class="px-lg-5 px-4" style="transition: 0.4s">
-                        <div class="mb-5 hidden" style="transition: 0.5s !important">
+                        <div class="mb-lg-5 hidden" style="transition: 0.5s !important">
                             <div class="d-flex align-items-center">
-                                <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">02</div>
-                                    <h4 class="mx-3">Why you should Choose Fundmenaija</h4>
-                                </div>
-                                <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency</p>
+                                <div class="d-lg-block d-none" style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">02</div>
+                                <h4 class="mx-lg-3">Why you should Choose Fundmenaija</h4>
+                            </div>
+                            <p style="color: #777; margin-top: 0.5em; line-height: 30px">Fundmenaija is a unique Crowdfunding market place that stands on efficiency, global best practice and transparency</p>
                         </div>
                     </div>
                 </section>
@@ -252,8 +252,8 @@
                     <div class="px-lg-5 px-1" style="transition: 0.7s">
                         <div class="my-3 hidden" style="transition: 0.7s !important">
                             <div class="d-flex align-items-center">
-                                <div style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">03</div>
-                                <h4 class="mx-3">How Fundmenaija works</h4>
+                                <div class="d-lg-block d-none" style="background: #f3613c; padding: 5px 9px; border-radius: 30px; color: white; font-weight: bold">03</div>
+                                <h4 class="mx-lg-3">How Fundmenaija works</h4>
                             </div>
                             <p style="color: #777; margin-top: 0.5em; line-height: 30px">Everyone is welcomed to Fundmenaija as a fundraiser or a donor, both as individuals and organization, we will server you just by creating a fundraiser wallet and get approved in seconds.</p>
                         </div>
@@ -264,36 +264,39 @@
     </section>
 
     <!--------------------- Section four --------------------->
-    <section class="Content-four">
+    <section class="Content-four shadow-sm">
       <div class="container p-lg-5 p-3">
         <h1 class="display-6 font-weight-bold my-4 text-white">How to get started</h1>
         <div class="d-lg-flex text-center text-white">
           
-          <div class="card p-4 my-3 h5">
+          <div class="card p-4 my-3 h5 shadow">
             <p onclick="window.location.href = './user/login.php'">Sign up and verify your account</p>
+            <i class='fa fa-arrow-right text-white fa-1x'></i>
           </div>
 
-          <div class="card p-4 mx-lg-4 my-3 h5">
+          <div class="card p-4 mx-lg-4 my-3 h5 shadow">
             <p onclick="window.location.href = './auth/donate.php'">Donate</p>
+            <i class='fa fa-arrow-right text-white fa-1x'></i>
           </div>
 
-          <div class="card p-4 my-3 h5">
+          <div class="card p-4 my-3 h5 shadow">
             <p onclick="window.location.href = './auth/donate.php'">Volunteer</p>
+            <i class='fa fa-arrow-right text-white fa-1x'></i>
           </div>
           </div>
        </div>
     </section>
     <!--------------------- Ads Showing Here ------------------>
-    <section class="services" id="services">
+    <section class="content" id="services">
         <div class="container">
-            <div class="heading animate-top"> <!-- class of white for text-white  -->
+            <div class="heading animate-top mx-lg-4"> <!-- class of white for text-white  -->
                 <h2>Fund Raisers</h2>
                 <p>Donate Fund to your Favourite Raisers</p>
             </div>
             <div class="content">
-                <div class="slider owl-carousel">
+                <div class="slider owl-carousel shadow p-lg-4">
                     <?php foreach($posts as $post): ?>
-                    <div class="card" style="min-height: 420px; max-height: 420px; height: 420px;">
+                    <div class="card shadow-sm" style="min-height: 420px; max-height: 420px; height: 420px; border: 0px; border-radius: 10px">
                         <div class="img">
                             <img src="./user/customer_data/Issue_img/<?php echo $post['avatar']; ?>" alt="issue image">
                         </div>
@@ -323,15 +326,9 @@
                     <div class="logo h6 text-white">FUNDMENAIJA</div>
                 </div>
                 <div class="d-flex social-icons m-4">
-                    <!-- <a href='#' class='nav-link text-white'>
-                        <i class='fab fa-facebook fa-1x'></i>
-                    </a> -->
                     <a href='<?php echo INSTAGRAM; ?>' class='nav-link text-white'>
                         <i class='fab fa-instagram fa-2x mx-4'></i>
                     </a>
-                    <!-- <a href='#' class='nav-link text-white'>
-                        <i class='fab fa-twitter fa-1x'></i>
-                    </a> -->
                 </div>
             </span>
             <ul class="list-unstyled my-5 mx-lg-0 mx-3">
@@ -375,3 +372,8 @@
     
   </body>
 </html>
+
+
+<!-- site key: 6Ldm7HcjAAAAAC-k9g6fBmge6H8h8uOSFeEI3POO -->
+
+<!-- secrete key: 6Ldm7HcjAAAAAOpdUyHJjTjol2eN-rod5eoI40ra -->

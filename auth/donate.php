@@ -1,4 +1,7 @@
 <?php
+    // Headers for the API
+    header("Access-Control-Allow-Origin: *");
+    
     include_once('../config.php');
     include_once('../inc/conn.php');
 
@@ -166,8 +169,9 @@
                 </div>
 
                 <div class='col-md-9'>
-                    <p class='write-up my-4 text-truncate' id='<?php echo $post['id']; ?>'><?php echo $post['issue_body']; ?></p>
-                    <p class='hover cursor' onclick="see_details(<?php echo $post['id']; ?>)"><b class="detailsBtn" id='<?php echo $post['id']; ?>'>Read</b></p>
+                    <p class='write-up my-4 text-truncate1' id='<?php echo $post['id']; ?>'><?php echo $post['issue_body']; ?></p>
+                    <p class='hover cursor'><b class="detailsBtn" id='<?php echo $post['id']; ?>'>Read</b></p>
+                    <!-- onclick="see_details(<?php echo $post['id']; ?>)" -->
                 </div>
 
                 <div class="d-lg-flex">
@@ -187,8 +191,10 @@
         
     </div>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center h3"><i class="fa fa-arrow-up-short">^</i></a>
-    <div id="preloader"></div>
+    <a href="#" 
+        class="back-to-top nav-link rounded-circle d-flex align-items-center justify-content-center h3" 
+        title="Back-To-Top"><i class="fa fa-angle-up"></i>
+    </a>
            
     
     <!---------------------- Footer template ---------------------->

@@ -4,6 +4,12 @@ define('DB_host', 'localhost');
 define('DB_username', 'root');
 define('DB_password', '');
 define('DB_name', 'fundmenaija');
+
+
+// define('DB_host', 'localhost');
+// define('DB_username', 'fundmena_root');
+// define('DB_password', 'asd123ASD_');
+// define('DB_name', 'fundmena_fundmenaija');
 $conn = mysqli_connect(DB_host, DB_username, DB_password, DB_name);
 
 
